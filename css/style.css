@@ -1,0 +1,8 @@
+section.allDice {
+  margin: auto;
+  text-align: center;
+  display: grid;
+  grid-template-rows: repeat(3, 10vmin);
+  grid-template-columns: repeat(3, 10vmin);
+  grid-gap: 0vmin;
+}
