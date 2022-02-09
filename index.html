@@ -13,6 +13,20 @@
   <section class="gameInfo">
     <h1>Yahtzee!</h1>
     <h3>Game Message</h3>
+    
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="playerCountSelection" data-bs-toggle="dropdown" aria-expanded="false">
+        Number of Players
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">1</a></li>
+        <li><a class="dropdown-item" href="#">2</a></li>
+        <li><a class="dropdown-item" href="#">3</a></li>
+        <li><a class="dropdown-item" href="#">4</a></li>
+        <li><a class="dropdown-item" href="#">5</a></li>
+        <li><a class="dropdown-item" href="#">6</a></li>
+      </ul>
+    </div>
 
   </section>
   <section class="allDice">
@@ -28,24 +42,22 @@
     <div id="dicelock5" class="dicelock">🔓</div>
   </section>
   <section class="scoreboard">
-    <div id="playerName" class="">Name</div>
-    <div id="ones" class="">Ones</div>
-    <div id="twos" class="">Twos</div>
-    <div id="threes" class="">Threes</div>
-    <div id="fours" class="">Fours</div>
-    <div id="fives" class="">Fives</div>
-    <div id="sixes" class="">Sixes</div>
-    <div id="top-half-bonus" class="">35pt bonus?</div>
-    <div id="top-half-total" class="">Top half score</div>
-    <div id="three-kind" class="">3 of a kind</div>
-    <div id="four-kind" class="">4 of a kind</div>
-    <div id="sm-straight" class="">Small straight</div>
-    <div id="lg-straight" class="">Large Straight</div>
-    <div id="yahtzee" class="">YAHTZEE!</div>
-    <div id="chance" class="">Chance</div>
-    <div id="yahtzee-bonus" class="">Yahtzee bonus</div>
-    <div id="-bottom-half-total" class="">Bottom half score</div>
-    <div id="total-score" class="">Grand Total</div>
+    <div id="playerName" class="category">Name</div>
+    <div id="ones" class="category">Ones</div>
+    <div id="twos" class="category">Twos</div>
+    <div id="threes" class="category">Threes</div>
+    <div id="fours" class="category">Fours</div>
+    <div id="fives" class="category">Fives</div>
+    <div id="sixes" class="category">Sixes</div>
+    <div id="top-half-bonus" class="category">35pt bonus?</div>
+    <div id="three-kind" class="category">3 of a kind</div>
+    <div id="four-kind" class="category">4 of a kind</div>
+    <div id="sm-straight" class="category">Small straight</div>
+    <div id="lg-straight" class="category">Large Straight</div>
+    <div id="yahtzee" class="category">Yahtzee!</div>
+    <div id="chance" class="category">Chance</div>
+    <div id="yahtzee-bonus" class="category">Yahtzee bonus</div>
+    <div id="total-score" class="category">Grand Total</div>
 
     <div id="name1" class="playerOne">Howard</div>
     <div id="ones1" class="playerOne"></div>
@@ -55,7 +67,6 @@
     <div id="fives1" class="playerOne"></div>
     <div id="sixes1" class="playerOne"></div>
     <div id="top-half-bonus1" class="playerOne"></div>
-    <div id="top-half-total1" class="playerOne"></div>
     <div id="three-kind1" class="playerOne"></div>
     <div id="four-kind1" class="playerOne"></div>
     <div id="sm-straight1" class="playerOne"></div>
@@ -63,7 +74,6 @@
     <div id="yahtzee1" class="playerOne"></div>
     <div id="chance1" class="playerOne"></div>
     <div id="yahtzee-bonus1" class="playerOne"></div>
-    <div id="-bottom-half-total1" class=""></div>
     <div id="total-score1" class="playerOne"></div>
 
     <div id="name2" class="playerTwo"></div>
@@ -74,7 +84,6 @@
     <div id="fives2" class="playerTwo"></div>
     <div id="sixes2" class="playerTwo"></div>
     <div id="top-half-bonus2" class="playerTwo"></div>
-    <div id="top-half-total2" class="playerTwo"></div>
     <div id="three-kind2" class="playerTwo"></div>
     <div id="four-kind2" class="playerTwo"></div>
     <div id="sm-straight2" class="playerTwo"></div>
@@ -82,7 +91,6 @@
     <div id="yahtzee2" class="playerTwo"></div>
     <div id="chance2" class="playerTwo"></div>
     <div id="yahtzee-bonus2" class="playerTwo"></div>
-    <div id="-bottom-half-total2" class="playerTwo"></div>
     <div id="total-score2" class="playerTwo"></div>
 
     <div id="name3" class="playerThree"></div>
@@ -93,7 +101,6 @@
     <div id="fives3" class="playerThree"></div>
     <div id="sixes3" class="playerThree"></div>
     <div id="top-half-bonus3" class="playerThree"></div>
-    <div id="top-half-total3" class="playerThree"></div>
     <div id="three-kind3" class="playerThree"></div>
     <div id="four-kind3" class="playerThree"></div>
     <div id="sm-straight3" class="playerThree"></div>
@@ -101,7 +108,6 @@
     <div id="yahtzee3" class="playerThree"></div>
     <div id="chance3" class="playerThree"></div>
     <div id="yahtzee-bonus3" class="playerThree"></div>
-    <div id="-bottom-half-total3" class=""></div>
     <div id="total-score3" class="playerThree"></div>
 
     <div id="name4" class="playerFour"></div>
@@ -112,7 +118,6 @@
     <div id="fives4" class="playerFour"></div>
     <div id="sixes4" class="playerFour"></div>
     <div id="top-half-bonus4" class="playerFour"></div>
-    <div id="top-half-total4" class="playerFour"></div>
     <div id="three-kind4" class="playerFour"></div>
     <div id="four-kind4" class="playerFour"></div>
     <div id="sm-straight4" class="playerFour"></div>
@@ -120,7 +125,6 @@
     <div id="yahtzee4" class="playerFour"></div>
     <div id="chance4" class="playerFour"></div>
     <div id="yahtzee-bonus4" class="playerFour"></div>
-    <div id="-bottom-half-total4" class="playerFour"></div>
     <div id="total-score4" class="playerFour"></div>
 
     <div id="name5" class="playerFive"></div>
@@ -131,7 +135,6 @@
     <div id="fives5" class="playerFive"></div>
     <div id="sixes5" class="playerFive"></div>
     <div id="top-half-bonus5" class="playerFive"></div>
-    <div id="top-half-total5" class="playerFive"></div>
     <div id="three-kind5" class="playerFive"></div>
     <div id="four-kind5" class="playerFive"></div>
     <div id="sm-straight5" class="playerFive"></div>
@@ -139,7 +142,6 @@
     <div id="yahtzee5" class="playerFive"></div>
     <div id="chance5" class="playerFive"></div>
     <div id="yahtzee-bonus5" class="playerFive"></div>
-    <div id="-bottom-half-total5" class="playerFive"></div>
     <div id="total-score5" class="playerFive"></div>
 
     <div id="name6" class="playerSix"></div>
@@ -150,7 +152,6 @@
     <div id="fives6" class="playerSix"></div>
     <div id="sixes6" class="playerSix"></div>
     <div id="top-half-bonus6" class="playerSix"></div>
-    <div id="top-half-total6" class="playerSix"></div>
     <div id="three-kind6" class="playerSix"></div>
     <div id="four-kind6" class="playerSix"></div>
     <div id="sm-straight6" class="playerSix"></div>
@@ -158,7 +159,6 @@
     <div id="yahtzee6" class="playerSix"></div>
     <div id="chance6" class="playerSix"></div>
     <div id="yahtzee-bonus6" class="playerSix"></div>
-    <div id="-bottom-half-total6" class=""></div>
     <div id="total-score6" class="playerSix"></div>
   </section>
 </body>

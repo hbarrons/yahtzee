@@ -74,7 +74,7 @@ section.scoreboard {
   color: whitesmoke;
   margin: 0;
   grid-template-rows: repeat(7, 50px);
-  grid-template-columns: repeat(18,52px);
+  grid-template-columns: repeat(16,55px);
 }
 
 div {
@@ -102,5 +102,13 @@ div.dice {
 div.dicelock {
   border: none;
   font-size: 30px;
+}
 
+.category {
+  background-color: rgb(228, 228, 167);
+  color: black;
+  font-weight: bold;
+  border: 1px solid black;
+  font-size: 12px;
+  align-items: center;
 }
