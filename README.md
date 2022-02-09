@@ -9,22 +9,22 @@ Psuedocode
 
 -Allow player to select between 1-6 players
 
-- create dice rolling function to randomly roll up to 5 dice and pair with button (and potential CSS animation) 
+-Create dice rolling function to randomly roll up to 5 dice and pair with button (and potential CSS animation) 
   
-- Build functions to sum the dice when necessary and assign total to correct field on the score board - or assign the correct score when not based on dice
+-Build functions to sum the dice when necessary and assign total to correct field on the score board - or assign the correct score when not based on dice
 
-- After dice are rolled allow player to select dice they do not want to be rolled again
+-After dice are rolled allow player to select dice they do not want to be rolled again
 
-- Allow player to lock in dice and reroll for 3 turns 
+-Allow player to lock in dice and reroll for 3 turns 
 
 -Allow player to click on category they would like to assign the points to, include message prompt
 
--fun animation or confetti for a yahtzee
+-Fun animation or confetti for a yahtzee
 
--build in point bonus when top half of scoreboard point total is met
+-Build in point bonus when top half of scoreboard point total is met
 
--once all scoreboard categories have a score assigned to them, sum and show final score
+-Once all scoreboard categories have a score assigned to them, sum and show final score
 
-- final scoreboard / celebration screen for winner
+-Final scoreboard / celebration screen for winner
 
-- Replay button that resets board to goes to home screen
+-Replay button that resets board to goes to home screen
