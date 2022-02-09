@@ -60,3 +60,7 @@ let rollCount
 
 
 /*-------------------------------- Functions --------------------------------*/
+
+
+//function to write the scoreboard HTML depending on playerCount
+
