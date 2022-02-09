@@ -41,6 +41,7 @@ console.log('5', diceRollFive())
 /*-------------------------------- Constants --------------------------------*/
 let allDice
 let playerTurn
+let playerCount
 let scoreboard
 let rollCount
 
