@@ -1,9 +1,21 @@
+body {
+  display: grid;
+  grid-template-rows: 50vh 50vh;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-areas:
+    "gameInfo"
+    "dice"
+    "scoreboard";
+}
+
+
+
 section.allDice {
   margin: auto;
   text-align: center;
   display: grid;
-  grid-template-rows: repeat(2, 10vmin);
-  grid-template-columns: repeat(3, 10vmin);
+  grid-template-rows: ;
+  grid-template-columns: ;
   grid-gap: 0vmin;
 }
 
