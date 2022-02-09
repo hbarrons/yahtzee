@@ -8,7 +8,7 @@
 let allDice
 let playerTurn
 let scoreboard
-
+let rollCount
 
 
 

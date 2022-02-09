@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Yahtzee!</title>
+  <link rel="shortcut icon" href="img/dice-picture.png">
   <script defer src="js/app.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <h1>Yahtzee</h1>
   <h3>Game Message</h3>
-  <h4>How many players?</h4><button class="player-count"></button>
+  <h4>How many players (1-6)?</h4><button class="player-count"></button>
   <input type="player-count">
   <section class="allDice">
     <div id="dice1" class="dice">Dice 1</div>
@@ -20,24 +21,43 @@
     <div id="dice4" class="dice">Dice 4</div>
     <div id="dice5" class="dice">Dice 5</div>
   </section>
-  <section class="scoreboard"></section>
-    <div id="ones" class="">Ones (sum of all 1's)</div>
-    <div id="twos" class="">Twos (sum of all 2's)</div>
-    <div id="threes" class="">Threes (sum of all 3's)</div>
-    <div id="fours" class="">Fours (sum of all 4's)</div>
-    <div id="fives" class="">Fives (sum of all 5's)</div>
-    <div id="sixes" class="">Sixes (sum of all 6's)</div>
-    <div id="top-half-bonus" class="">Top half over 63 points? 35pt bonus.</div>
+  <section class="scoreboard">
+    <div id="playerName" class="">Name</div>
+    <div id="ones" class="">Ones</div>
+    <div id="twos" class="">Twos</div>
+    <div id="threes" class="">Threes</div>
+    <div id="fours" class="">Fours</div>
+    <div id="fives" class="">Fives</div>
+    <div id="sixes" class="">Sixes</div>
+    <div id="top-half-bonus" class="">35pt bonus?</div>
     <div id="top-half-total" class="">Top half score</div>
-    <div id="three-kind" class="">3 of a kind (sum all dice)</div>
-    <div id="four-kind" class="">4 of a kind (sum all dice)</div>
-    <div id="sm-straight" class="">Small straight (sequence of 4)</div>
-    <div id="lg-straight" class="">Large Straight (sequence of 5)</div>
-    <div id="yahtzee" class="">YAHTZEE! 50pt</div>
-    <div id="chance" class="">Chance (sum of all dice)</div>
-    <div id="yahtzee-bonus" class="">Yahtzee bonus (100pt each)</div>
+    <div id="three-kind" class="">3 of a kind</div>
+    <div id="four-kind" class="">4 of a kind</div>
+    <div id="sm-straight" class="">Small straight</div>
+    <div id="lg-straight" class="">Large Straight</div>
+    <div id="yahtzee" class="">YAHTZEE!</div>
+    <div id="chance" class=""></div>
+    <div id="yahtzee-bonus" class="">Yahtzee bonus</div>
     <div id="-bottom-half-total" class="">Bottom half score</div>
     <div id="total-score" class="">Grand Total</div>
+
+    <div id="ones1" class=""></div>
+    <div id="twos1" class=""></div>
+    <div id="threes1" class=""></div>
+    <div id="fours1" class=""></div>
+    <div id="fives1" class=""></div>
+    <div id="sixes1" class=""></div>
+    <div id="top-half-bonus1" class=""></div>
+    <div id="top-half-total1" class=""></div>
+    <div id="three-kind1" class=""></div>
+    <div id="four-kind1" class=""></div>
+    <div id="sm-straight1" class=""></div>
+    <div id="lg-straight1" class=""></div>
+    <div id="yahtzee1" class=""></div>
+    <div id="chance1" class=""></div>
+    <div id="yahtzee-bonus1" class=""></div>
+    <div id="-bottom-half-total1" class=""></div>
+    <div id="total-score1" class=""></div>
   </section>
 </body>
 </html>
