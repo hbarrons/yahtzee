@@ -56,10 +56,11 @@ section.allDice {
   display: grid;
   box-sizing: border-box;
   grid-column: 2 / 5;
-  grid-template-rows: 95% 10%;
+  grid-template-rows: 80% 20%;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-gap: 10px;
   color: whitesmoke;
+  min-height: ;
 }
 
 section.scoreboard {
@@ -71,7 +72,7 @@ section.scoreboard {
   text-align: center;
   padding-top: 30px;
   color: whitesmoke;
-  margin: auto;
+  margin: 0;
   grid-template-rows: repeat(7, 50px);
   grid-template-columns: repeat(18,52px);
 }
@@ -100,4 +101,6 @@ div.dice {
 
 div.dicelock {
   border: none;
+  font-size: 30px;
+
 }
