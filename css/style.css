@@ -13,35 +13,53 @@
   font-size: 62.5%
 }
 
+html {
+  box-sizing: border-box
+}
+
 body {
   display: grid;
   grid-template-rows: 30vh 80vh;
-  grid-template-columns: 33% 33% 33%;
-  /* grid-template-areas:
-    "gameInfo dice dice"
-    "scoreboard"
-    "scoreboard"; */
-    background-color: rgb(178, 157, 206);
-  /* Use a system font, if none are available use an available sans-sarif font */
+  grid-template-columns: 25% 25% 25% 25%;
+  background-color: rgb(165, 77, 77);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
 }
 
+h1{
+  font-size: 42px;
+  align-items: start;
+  font-style: italic;
+  text-align: center;
+  margin: auto;
+  padding: 10px 10px 10px 10px;
+}
 
+h3{
+  font-size: 20px;
+  align-items: start;
+  text-align: center;
+  margin: auto;
+  padding: 10px 10px 10px 10px;
+}
+
+section.gameInfo {
+  color: whitesmoke;
+}
 
 section.allDice {
   margin: auto;
   text-align: center;
+  font-size: 40px;
+  justify-content: space-around;
   display: grid;
   box-sizing: border-box;
-  grid-column: 2 / 4
-  grid-template-columns: 5;
-  grid-gap: 0vmin;
-}
-
-html {
-  box-sizing: border-box
+  grid-column: 2 / 5;
+  grid-template-rows: 95% 10%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-gap: 10px;
+  color: whitesmoke;
 }
 
 section.scoreboard {
@@ -49,11 +67,37 @@ section.scoreboard {
   align-items: start;
   justify-content: center;
   vertical-align: top;
-  /* grid-area: scoreboard; */
-  grid-column: 1 / 4;
+  grid-column: 1 / 5;
   text-align: center;
-  margin: auto 0;
+  padding-top: 30px;
+  color: whitesmoke;
+  margin: auto;
   grid-template-rows: repeat(7, 50px);
-  grid-template-columns: repeat(18, 40px);
-  box-sizing: border-box;
+  grid-template-columns: repeat(18,52px);
+}
+
+div {
+  border: 1px solid whitesmoke;
+  text-align: center;
+  color: whitesmoke;
+  vertical-align: middle;
+  height: 50px;
+  align-items: center;
+}
+
+div.scoreboard {
+  height: 50px;
+  border: 2px solid whitesmoke;
+  text-align: center;
+  color: whitesmoke;
+  vertical-align: middle;
+}
+
+div.dice {
+  height: 100px;
+  margin: auto;
+}
+
+div.dicelock {
+  border: none;
 }
