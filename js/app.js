@@ -25,9 +25,13 @@ const diceRollFive = function () {
   return (Math.floor(Math.random() * 6 + 1))
 }
 
-const diceRollSix = function () {
-  return (Math.floor(Math.random() * 6 + 1))
-}
+console.log('1', diceRollOne())
+console.log('2',diceRollTwo())
+console.log('3', diceRollThree())
+console.log('4', diceRollFour())
+console.log('5', diceRollFive())
+
+
 
 
 
