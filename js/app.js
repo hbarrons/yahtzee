@@ -68,10 +68,13 @@ init()
 
 function init () {
   allPlayers = []
+  gameMsg.innerHTML = "Enter the name of each player one by one!"
+  render()
 }
 
 function getPlayer(){
   playerName = playerInput.value;
+  playerInput.value = ""
   if (allPlayers.length === 6) {
     gameMsg.textContent = "Sorry, only 6 players!"
   } else {
@@ -82,62 +85,32 @@ function getPlayer(){
 }
 
 
+function render() {
+  allPlayers.forEach((name, idx) => {
+    console.log(name, idx)
+    appendScoreboard(name, idx)
+  })
+}
 
-
-/*-------------------------------- Questions --------------------------------*/
-
-//Number player bootstrap dropdown not working?
-
-
-
-//write game message instructions to enter name 1 by 1
-
-
-// Bootstrap lesson code
-    // using this as an example to write to CSS based on allPlayers array
-
-// function createScoreboard(evt) {
-//   // isTaylor will be either true or false
-//   const playerCount = evt.target.id === "swift-button"
-//   const newPlayer = {
-//     artist: isTaylor ? "T-Swift" : "Yeezy",
-//     text: isTaylor ? getRandomTaylorQuote() : getRandomKanyeQuote()
-//   }
-//   quotes.push(newPlayer)
-//   render()
-// }
-
-// function render() {
-//   playerScoreboard.innerHTML = ""
-//   // quotes is an array of quote objects
-//   quotes.forEach((playerName, idx) => {
-//     // quote is an object with the shape of:
-//     // { artist: "artist name", text: "quote" }
-//     appendScoreboard(playerName, idx)
-//   })
-// }
-
-// function appendScoreboard(playerName, idx) {
-//   // quote is an object with the shape of:
-//   // { artist: "artist name", text: playerName }
-//   let players = document.createElement("div")
-//   players.classList.add("card", `${playerName.artist.toLowerCase()}`)
-//   players.innerHTML =
-//   `<div id="name1" class="player player1">Howard</div>
-//   <div id="ones1" class="player player${idx}"></div>
-//   <div id="twos1" class="player player${idx}"></div>
-//   <div id="threes1" class="player player${idx}"></div>
-//   <div id="fours1" class="player player${idx}"></div>
-//   <div id="fives1" class="player player${idx}"></div>
-//   <div id="sixes1" class="player player${idx}"></div>
-//   <div id="top-half-bonus1" class="player player${idx}"></div>
-//   <div id="three-kind1" class="player player${idx}"></div>
-//   <div id="four-kind1" class="player player${idx}"></div>
-//   <div id="sm-straight1" class="player player${idx}"></div>
-//   <div id="lg-straight1" class="player player${idx}"></div>
-//   <div id="yahtzee1" class="player player${idx}"></div>
-//   <div id="chance1" class="player player${idx}"></div>
-//   <div id="yahtzee-bonus1" class="player player${idx}"></div>
-//   <div id="total-score1" class="player player${idx}"></div>`
-//   playerScoreboard.appendChild(players)
-// }
+function appendScoreboard(playerName, idx) {
+  let players = document.createElement("div")
+  players.classList.add("card", `${playerName.artist.toLowerCase()}`)
+  players.innerHTML =
+  `<div id="name1" class="player player1">${playerName}</div>
+  <div id="ones1" class="player player${idx}"></div>
+  <div id="twos1" class="player player${idx}"></div>
+  <div id="threes1" class="player player${idx}"></div>
+  <div id="fours1" class="player player${idx}"></div>
+  <div id="fives1" class="player player${idx}"></div>
+  <div id="sixes1" class="player player${idx}"></div>
+  <div id="top-half-bonus1" class="player player${idx}"></div>
+  <div id="three-kind1" class="player player${idx}"></div>
+  <div id="four-kind1" class="player player${idx}"></div>
+  <div id="sm-straight1" class="player player${idx}"></div>
+  <div id="lg-straight1" class="player player${idx}"></div>
+  <div id="yahtzee1" class="player player${idx}"></div>
+  <div id="chance1" class="player player${idx}"></div>
+  <div id="yahtzee-bonus1" class="player player${idx}"></div>
+  <div id="total-score1" class="player player${idx}"></div>`
+  playerScoreboard.appendChild(players)
+}
