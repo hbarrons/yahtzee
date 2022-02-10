@@ -55,6 +55,7 @@ const form = document.querySelector('form')
 const gameMsg = document.getElementById('game-message')
 const startGameBtn = document.querySelector('.startgame')
 const listNames = document.getElementById('listofplayers')
+const playerList = document.querySelector('playerlist')
 
 
 
@@ -105,6 +106,11 @@ function startGame () {
   allPlayers.forEach((str, idx) => {
     appendScoreboard(str, idx)
   })
+  form.innerHTML = "<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)"
+  listNames.innerHTML = ""
+  playerList.innerHTML = ""
+  gameMsg.innerHTML = ""
+  startGameBtn.setAttribute = hidden
 }
 
 function render() {
