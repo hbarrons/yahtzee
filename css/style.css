@@ -44,8 +44,23 @@ h3{
   padding: 10px 10px 10px 10px;
 }
 
+.numberOfPlayers {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 section.gameInfo {
   color: whitesmoke;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerForm {
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 section.allDice {
@@ -116,6 +131,7 @@ div.dropdown {
   font-size: 12px;
   text-align: center;
   justify-content: center;
+  display: flex;
 }
 
 .player {
@@ -124,4 +140,10 @@ div.dropdown {
   font-size: 12px;
   text-align: center;
   justify-content: center;
+  display: flex;
+  margin: auto;
+}
+
+.playerscoreboard {
+  display: none;
 }
