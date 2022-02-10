@@ -70,16 +70,15 @@ img {
 }
 
 section.allDice {
-  margin: auto;
+  margin: 0;
   text-align: center;
   font-size: 40px;
   justify-content: space-around;
   display: grid;
   box-sizing: border-box;
   grid-column: 2 / 5;
-  grid-template-rows: 80% 20%;
+  grid-template-rows: 60% 40%;
   grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-gap: 10px;
 }
 
 section.scoreboard{
@@ -132,7 +131,8 @@ div {
 div.dice {
   border: none;
   height: 100px;
-  margin: auto;
+  margin: 0;
+  padding-top: 50px;
 }
 
 div.dicelock {

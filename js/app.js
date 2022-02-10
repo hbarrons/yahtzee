@@ -5,32 +5,6 @@
 
 
 /*-------------------------------- Constants --------------------------------*/
-const diceRollOne = function () {
-  return (Math.floor(Math.random() * 6 + 1))
-}
-
-// const diceRollTwo = function () {
-//   return (Math.floor(Math.random() * 6 + 1))
-// }
-
-// const diceRollThree = function () {
-//   return (Math.floor(Math.random() * 6 + 1))
-// }
-
-// const diceRollFour = function () {
-//   return (Math.floor(Math.random() * 6 + 1))
-// }
-
-// const diceRollFive = function () {
-//   return (Math.floor(Math.random() * 6 + 1))
-// }
-
-console.log(diceRollOne())
-// console.log(diceRollTwo())
-// console.log(diceRollThree())
-// console.log(diceRollFive())
-// console.log(diceRollFour())
-
 
 
 
@@ -56,6 +30,11 @@ const gameMsg = document.getElementById('game-message')
 const startGameBtn = document.querySelector('.startgame')
 const listNames = document.getElementById('listofplayers')
 const playerList = document.querySelector('playerlist')
+const diceOne = document.getElementById('dice1')
+const diceTwo = document.getElementById('dice2')
+const diceThree = document.getElementById('dice3')
+const diceFour = document.getElementById('dice4')
+const diceFive = document.getElementById('dice5')
 
 
 
@@ -140,3 +119,103 @@ function appendScoreboard(str, idx) {
   <div id="total-score1" class="player player${idx + 1}"></div>`
   playerScoreboard.appendChild(playerBoard)
 }
+
+
+// function rollDice (rollOutcome) {
+  
+// }
+
+const diceRollOne = function () {
+  let rollOutcome = (Math.floor(Math.random() * 6 + 1))
+  if (rollOutcome === 1) {
+    diceOne.innerHTML = `<img src="img/dice1.png" alt="">`
+  } else if (rollOutcome === 2) {
+    diceOne.innerHTML = '<img src="img/dice2.png" alt="">'
+  } else if (rollOutcome === 3) {
+    diceOne.innerHTML = '<img src="img/dice3.png" alt="">'
+  } else if (rollOutcome === 4) {
+    diceOne.innerHTML = '<img src="img/dice4.png" alt="">'
+  } else if (rollOutcome === 5) {
+    diceOne.innerHTML = '<img src="img/dice5.png" alt="">'
+  } else if (rollOutcome === 6) {
+    diceOne.innerHTML = '<img src="img/dice6.png" alt="">'
+  } 
+}
+
+const diceRollTwo = function () {
+  let rollOutcome = (Math.floor(Math.random() * 6 + 1))
+  if (rollOutcome === 1) {
+    diceTwo.innerHTML = `<img src="img/dice1.png" alt="">`
+  } else if (rollOutcome === 2) {
+    diceTwo.innerHTML = '<img src="img/dice2.png" alt="">'
+  } else if (rollOutcome === 3) {
+    diceTwo.innerHTML = '<img src="img/dice3.png" alt="">'
+  } else if (rollOutcome === 4) {
+    diceTwo.innerHTML = '<img src="img/dice4.png" alt="">'
+  } else if (rollOutcome === 5) {
+    diceTwo.innerHTML = '<img src="img/dice5.png" alt="">'
+  } else if (rollOutcome === 6) {
+    diceTwo.innerHTML = '<img src="img/dice6.png" alt="">'
+  } 
+}
+
+const diceRollThree = function () {
+  let rollOutcome = (Math.floor(Math.random() * 6 + 1))
+  if (rollOutcome === 1) {
+    diceThree.innerHTML = `<img src="img/dice1.png" alt="">`
+  } else if (rollOutcome === 2) {
+    diceThree.innerHTML = '<img src="img/dice2.png" alt="">'
+  } else if (rollOutcome === 3) {
+    diceThree.innerHTML = '<img src="img/dice3.png" alt="">'
+  } else if (rollOutcome === 4) {
+    diceThree.innerHTML = '<img src="img/dice4.png" alt="">'
+  } else if (rollOutcome === 5) {
+    diceThree.innerHTML = '<img src="img/dice5.png" alt="">'
+  } else if (rollOutcome === 6) {
+    diceThree.innerHTML = '<img src="img/dice6.png" alt="">'
+  } 
+}
+
+const diceRollFour = function () {
+  let rollOutcome = (Math.floor(Math.random() * 6 + 1))
+  if (rollOutcome === 1) {
+    diceFour.innerHTML = `<img src="img/dice1.png" alt="">`
+  } else if (rollOutcome === 2) {
+    diceFour.innerHTML = '<img src="img/dice2.png" alt="">'
+  } else if (rollOutcome === 3) {
+    diceFour.innerHTML = '<img src="img/dice3.png" alt="">'
+  } else if (rollOutcome === 4) {
+    diceFour.innerHTML = '<img src="img/dice4.png" alt="">'
+  } else if (rollOutcome === 5) {
+    diceFour.innerHTML = '<img src="img/dice5.png" alt="">'
+  } else if (rollOutcome === 6) {
+    diceFour.innerHTML = '<img src="img/dice6.png" alt="">'
+  } 
+}
+
+const diceRollFive = function () {
+  let rollOutcome = (Math.floor(Math.random() * 6 + 1))
+  if (rollOutcome === 1) {
+    diceFive.innerHTML = `<img src="img/dice1.png" alt="">`
+  } else if (rollOutcome === 2) {
+    diceFive.innerHTML = '<img src="img/dice2.png" alt="">'
+  } else if (rollOutcome === 3) {
+    diceFive.innerHTML = '<img src="img/dice3.png" alt="">'
+  } else if (rollOutcome === 4) {
+    diceFive.innerHTML = '<img src="img/dice4.png" alt="">'
+  } else if (rollOutcome === 5) {
+    diceFive.innerHTML = '<img src="img/dice5.png" alt="">'
+  } else if (rollOutcome === 6) {
+    diceFive.innerHTML = '<img src="img/dice6.png" alt="">'
+  } 
+}
+
+function rollDice () {
+  diceRollOne()
+  diceRollTwo()
+  diceRollThree()
+  diceRollFour()
+  diceRollFive()
+}
+
+rollDice()
