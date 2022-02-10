@@ -65,6 +65,10 @@ section.gameInfo {
   text-align: left;
 }
 
+img {
+  max-height: 115px;
+}
+
 section.allDice {
   margin: auto;
   text-align: center;
@@ -76,7 +80,6 @@ section.allDice {
   grid-template-rows: 80% 20%;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-gap: 10px;
-  color: whitesmoke;
 }
 
 section.scoreboard{
@@ -127,6 +130,7 @@ div {
 }
 
 div.dice {
+  border: none;
   height: 100px;
   margin: auto;
 }

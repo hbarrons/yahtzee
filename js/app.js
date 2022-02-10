@@ -77,6 +77,7 @@ function init () {
   allPlayers = []
   gameMsg.innerHTML = "Enter the name of each player one by one! Start game when ready!"
   render()
+  // startGameBtn.setAttribute("hidden", false)
 }
 
 function getPlayer(){
@@ -110,7 +111,7 @@ function startGame () {
   listNames.innerHTML = ""
   playerList.innerHTML = ""
   gameMsg.innerHTML = ""
-  startGameBtn.setAttribute = hidden
+  // startGameBtn.setAttribute("hidden", true)
 }
 
 function render() {
