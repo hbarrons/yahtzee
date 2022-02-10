@@ -43,6 +43,8 @@ let playerTurn
 let allPlayers
 let scoreboard
 let rollCount
+let playerName
+
 
 
 
@@ -51,11 +53,15 @@ const playerScoreboard = document.getElementById("playerscoreboard")
 const playerInput = document.querySelector("#playerInput")
 const form = document.querySelector('form')
 const gameMsg = document.getElementById('game-message')
+const startGameBtn = document.querySelector('.startgame')
+const listNames = document.getElementById('listofplayers')
 
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 // form.addEventListener("submit", getPlayer)
+startGameBtn.addEventListener('click', startGame)
+
 
 
 
@@ -68,30 +74,41 @@ init()
 
 function init () {
   allPlayers = []
-  gameMsg.innerHTML = "Enter the name of each player one by one!"
+  gameMsg.innerHTML = "Enter the name of each player one by one! Start game when ready!"
   render()
 }
 
 function getPlayer(){
   playerName = playerInput.value;
-  playerInput.value = ""
+  // playerInput.value = ""
   if (allPlayers.length === 6) {
-    gameMsg.textContent = "Sorry, only 6 players!"
+    form.textContent = "Sorry, only 6 players! Start game to play!"
     } else {
     gameMsg.textContent = "Enter the name of each player one by one!"
-    allPlayers.push(playerName) 
+    allPlayers.push(playerName)
     console.log(allPlayers)
-    render()
+    listPlayers() 
   }
   return false
 }
 
+function listPlayers (arr) {
+  const newLi = document.createElement("li")
+  newLi.textContent = playerInput.value
+  console.log(playerInput.value)
+  console.log(newLi)
+  listNames.appendChild(newLi)
+  playerInput.value = ""
+}
 
-function render() {
+function startGame () {
   allPlayers.forEach((str, idx) => {
     appendScoreboard(str, idx)
-    console.log(str, idx)
   })
+}
+
+function render() {
+  
 }
 
 function appendScoreboard(str, idx) {
@@ -114,5 +131,5 @@ function appendScoreboard(str, idx) {
   <div id="chance1" class="player player${idx + 1}"></div>
   <div id="yahtzee-bonus1" class="player player${idx + 1}"></div>
   <div id="total-score1" class="player player${idx + 1}"></div>`
-  playerScoreboard .appendChild(playerBoard)
+  playerScoreboard.appendChild(playerBoard)
 }

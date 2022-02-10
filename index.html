@@ -15,9 +15,12 @@
     <h3 id="game-message"></h3>
     <form class="playerForm" onsubmit="return getPlayer()">
       <input class="numberOfPlayers" type="text" id="playerInput">
-      <br> 
-      <button type="submit" class="btn btn-dark">Enter Name</button>
-    </form>
+      <br>
+      <button type="submit" class="entername">Enter Name</button>
+    </form><br>
+    <div class="playerlist">Players:
+    <ol id="listofplayers"></ol></div>
+    <button type="button" class="startgame">Start Game</button>
 
   </section>
   <section class="allDice">
@@ -49,7 +52,7 @@
     <div id="chance" class="category">Chance</div>
     <div id="yahtzee-bonus" class="category">Yahtzee bonus</div>
     <div id="total-score" class="category">Grand Total</div>
-    <div id="playerscoreboard"></div>
+    <section id="playerscoreboard"></section>
 <!-- 
     <div id="name1" class="player player1">Howard</div>
     <div id="ones1" class="player player1"></div>
