@@ -47,7 +47,7 @@ let rollCount
 
 
 /*------------------------ Cached Element References ------------------------*/
-const playerScoreboard = document.querySelector("#playerscoreboard")
+const playerScoreboard = document.getElementById("playerscoreboard")
 const playerInput = document.querySelector("#playerInput")
 const form = document.querySelector('form')
 const gameMsg = document.getElementById('game-message')
@@ -77,40 +77,42 @@ function getPlayer(){
   playerInput.value = ""
   if (allPlayers.length === 6) {
     gameMsg.textContent = "Sorry, only 6 players!"
-  } else {
+    } else {
+    gameMsg.textContent = "Enter the name of each player one by one!"
     allPlayers.push(playerName) 
     console.log(allPlayers)
+    render()
   }
   return false
 }
 
 
 function render() {
-  allPlayers.forEach((name, idx) => {
-    console.log(name, idx)
-    appendScoreboard(name, idx)
+  allPlayers.forEach((str, idx) => {
+    appendScoreboard(str, idx)
+    console.log(str, idx)
   })
 }
 
-function appendScoreboard(playerName, idx) {
-  let players = document.createElement("div")
-  players.classList.add("card", `${playerName.artist.toLowerCase()}`)
-  players.innerHTML =
-  `<div id="name1" class="player player1">${playerName}</div>
-  <div id="ones1" class="player player${idx}"></div>
-  <div id="twos1" class="player player${idx}"></div>
-  <div id="threes1" class="player player${idx}"></div>
-  <div id="fours1" class="player player${idx}"></div>
-  <div id="fives1" class="player player${idx}"></div>
-  <div id="sixes1" class="player player${idx}"></div>
-  <div id="top-half-bonus1" class="player player${idx}"></div>
-  <div id="three-kind1" class="player player${idx}"></div>
-  <div id="four-kind1" class="player player${idx}"></div>
-  <div id="sm-straight1" class="player player${idx}"></div>
-  <div id="lg-straight1" class="player player${idx}"></div>
-  <div id="yahtzee1" class="player player${idx}"></div>
-  <div id="chance1" class="player player${idx}"></div>
-  <div id="yahtzee-bonus1" class="player player${idx}"></div>
-  <div id="total-score1" class="player player${idx}"></div>`
-  playerScoreboard.appendChild(players)
+function appendScoreboard(str, idx) {
+  let playerBoard = document.createElement("div")
+  playerBoard.classList.add("playerscore")
+  playerBoard.innerHTML =
+  `<div id="name" class="player player1">${str}</div>
+  <div id="ones" class="player player${idx + 1}"></div>
+  <div id="twos" class="player player${idx + 1}"></div>
+  <div id="threes" class="player player${idx + 1}"></div>
+  <div id="fours" class="player player${idx + 1}"></div>
+  <div id="fives" class="player player${idx + 1}"></div>
+  <div id="sixes" class="player player${idx + 1}"></div>
+  <div id="top-half-bonus1" class="player player${idx + 1}"></div>
+  <div id="three-kind1" class="player player${idx + 1}"></div>
+  <div id="four-kind1" class="player player${idx + 1}"></div>
+  <div id="sm-straight1" class="player player${idx + 1}"></div>
+  <div id="lg-straight1" class="player player${idx + 1}"></div>
+  <div id="yahtzee1" class="player player${idx + 1}"></div>
+  <div id="chance1" class="player player${idx + 1}"></div>
+  <div id="yahtzee-bonus1" class="player player${idx + 1}"></div>
+  <div id="total-score1" class="player player${idx + 1}"></div>`
+  playerScoreboard .appendChild(playerBoard)
 }

@@ -55,6 +55,7 @@ section.gameInfo {
   margin: auto;
   justify-content: center;
   align-items: center;
+  min-height: 200px;
 }
 
 .playerForm {
@@ -142,8 +143,13 @@ div.dropdown {
   justify-content: center;
   display: flex;
   margin: auto;
+  grid-column: 1 / 17;
+}
 }
 
 .playerscoreboard {
-  display: none;
+  display: flex;
+  margin: auto;
+  grid-column: 1 / 17;
 }
+
