@@ -98,6 +98,7 @@ const diceRollAudio = new Audio ('../audio/dice.wav')
 
 
 
+
 /*-------------------------------- Constants --------------------------------*/
 let allDice
 let playerTurn
@@ -115,6 +116,7 @@ const scoreboardCategories = document.querySelector('.category')
 const playerInput = document.querySelector("#playerInput")
 const form = document.querySelector('form')
 const gameMsg = document.getElementById('game-message')
+const nextUpMsg = document.querySelector('.playerUp')
 const startGameBtn = document.querySelector('.startgame')
 const listNames = document.getElementById('listofplayers')
 const playerList = document.querySelector('playerlist')
@@ -129,8 +131,8 @@ const diceLock3 = document.getElementById('dicelock3')
 const diceLock4 = document.getElementById('dicelock4')
 const diceLock5 = document.getElementById('dicelock5')
 const lockDiceIcon = document.querySelectorAll(".dicelockicon")
+const scoreCategory = document.querySelectorAll(".player") 
 const rollDiceBtn = document.getElementById('roll-button')
-
 const ones = document.getElementById('ones')
 const twos = document.getElementById('twos')
 const threes = document.getElementById('threes')
@@ -153,7 +155,11 @@ startGameBtn.addEventListener('click', startGame)
 rollDiceBtn.addEventListener('click', rollDice)
 
 lockDiceIcon.forEach((evt, idx) => {
-  addEventListener('click',handleLockClick)
+  addEventListener('click', handleLockClick)
+  })
+
+scoreCategory.forEach((evt, idx) => {
+  addEventListener('click', assignScore)
   })
 
 
@@ -170,7 +176,9 @@ init()
 function init () {
   allPlayers = []
   gameMsg.innerHTML = "Enter the name of each player one by one! Start game when ready!"
+  nextUpMsg.innerHTML = ''
   rollCount = 0
+  playerTurn = 0
   isUnlocked1 = true
   isUnlocked2 = true
   isUnlocked3 = true
@@ -190,7 +198,6 @@ function getPlayer(){
     } else {
     gameMsg.innerHTML = "Anyone else?<br>Press 'Start Game' when ready!"
     allPlayers.push(playerName)
-    console.log(allPlayers)
     listPlayers() 
   }
   return false
@@ -204,17 +211,20 @@ function listPlayers (arr) {
 }
 
 function startGame () {
+  startGameBtn.setAttribute("hidden", true)
   allPlayers.forEach((str, idx) => {
     appendScoreboard(str, idx)
   })
-  gameMsg.innerHTML = "<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)" ;
+  gameMsg.innerHTML = "Rules: "
   listNames.textContent = "";
   gameMsg.textContent = "";
-  startGameBtn.setAttribute("hidden", true)
+  render()
 }
 
+// "<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)" 
+
 function render() {
-  
+  nextPlayerMessage()
 }
 
 function appendScoreboard(str, idx) {
@@ -228,15 +238,15 @@ function appendScoreboard(str, idx) {
   <div id="fours" class="player player${idx + 1}"></div>
   <div id="fives" class="player player${idx + 1}"></div>
   <div id="sixes" class="player player${idx + 1}"></div>
-  <div id="top-half-bonus1" class="player player${idx + 1}"></div>
-  <div id="three-kind1" class="player player${idx + 1}"></div>
-  <div id="four-kind1" class="player player${idx + 1}"></div>
-  <div id="sm-straight1" class="player player${idx + 1}"></div>
-  <div id="lg-straight1" class="player player${idx + 1}"></div>
-  <div id="yahtzee1" class="player player${idx + 1}"></div>
-  <div id="chance1" class="player player${idx + 1}"></div>
-  <div id="yahtzee-bonus1" class="player player${idx + 1}"></div>
-  <div id="total-score1" class="player player${idx + 1}"></div>`
+  <div id="top-half-bonus" class="player player${idx + 1}"></div>
+  <div id="three-kind" class="player player${idx + 1}"></div>
+  <div id="four-kind" class="player player${idx + 1}"></div>
+  <div id="sm-straight" class="player player${idx + 1}"></div>
+  <div id="lg-straight" class="player player${idx + 1}"></div>
+  <div id="yahtzee" class="player player${idx + 1}"></div>
+  <div id="chance" class="player player${idx + 1}"></div>
+  <div id="yahtzee-bonus" class="player player${idx + 1}"></div>
+  <div id="total-score" class="player player${idx + 1}"></div>`
   playerScoreboard.appendChild(playerBoard)
 }
 
@@ -248,14 +258,19 @@ function rollDice () {
   diceRollThree()
   diceRollFour()
   diceRollFive()
+  render()
   diceRollAudio.valume = .05
   diceRollAudio.play()
   console.log(rollCount)
+  if (rollCount === 3) {
+    rollDiceBtn.setAttribute('hidden', true)
+  }
   }
 }
 
 function handleLockClick (event){
   let lockClick = parseInt(event.target.id.split('').pop())
+  // console.log(event.target.id)
   if (lockClick === 1) {
     if (isUnlocked1 === true) {
       isUnlocked1 = false
@@ -296,9 +311,31 @@ function handleLockClick (event){
       isUnlocked5 = true
       diceLock5.innerHTML = ' 🔓 '
     }
+  } else if (isUnlocked1, isUnlocked2, isUnlocked3, isUnlocked4, isUnlocked5 === false) {
+    rollDiceBtn.setAttribute('hidden', true)
   }
 }
 
-function nextPlayer (){
-  
+// function assignScore (evt){
+//   console.log(evt.target.id)
+// }
+
+
+
+function nextPlayerMessage (){
+  if (playerTurn === 0 && allPlayers !== null){
+    nextUpMsg.innerHTML = `${allPlayers[0]} is up!`
+  } else if (playerTurn === 1){
+    nextUpMsg.innerHTML = `${allPlayers[1]} is up!`
+  } else if (playerTurn === 2){
+    nextUpMsg.innerHTML = `${allPlayers[2]} is up!`
+  } else if (playerTurn === 3){
+    nextUpMsg.innerHTML = `${allPlayers[3]} is up!`
+  } else if (playerTurn === 4){
+    nextUpMsg.innerHTML = `${allPlayers[4]} is up!`
+  } else if (playerTurn === 5){
+    nextUpMsg.innerHTML = `${allPlayers[5]} is up!`
+  } else {
+    
+  }
 }
