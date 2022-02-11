@@ -129,15 +129,16 @@ const diceLock3 = document.getElementById('dicelock3')
 const diceLock4 = document.getElementById('dicelock4')
 const diceLock5 = document.getElementById('dicelock5')
 const lockDiceIcon = document.querySelectorAll(".dicelockicon")
+const rollDiceBtn = document.getElementById('roll-button')
 
 
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 startGameBtn.addEventListener('click', startGame)
-// addEventListener('click', rollDice)
+rollDiceBtn.addEventListener('click', rollDice)
 
-lockDiceIcon.forEach((padlock, idx) => {
+lockDiceIcon.forEach((evt, idx) => {
   addEventListener('click',handleLockClick)
   })
 
