@@ -8,23 +8,24 @@
   <link rel="shortcut icon" href="img/dice-picture.png">
   <script defer src="js/app.js"></script>
   <link rel="stylesheet" href="css/style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
   <section class="gameInfo">
     <h1>Yahtzee!</h1>
-    <h3 id="game-message"></h3>
+    
     <form class="playerForm" onsubmit="return getPlayer()">
       <input class="numberOfPlayers" type="text" id="playerInput">
-      <br>
       <button type="submit" class="entername">Enter Name</button>
-    </form><br>
-    <div class="playerlist">
+    </form><h3 id="game-message"></h3>
     <ol id="listofplayers"></ol></div>
-    <button type="button" class="startgame">Start Game</button>
-    <br><button type='button' id='roll-button'>Roll Dice!</button>
+    <form class="startgame"><button type="button" class="startgamebtn">Start Game</button></form>
+    <br>
 
   </section>
-  <section class="allDice">
+  <section class="allDice animate__flip">
     <div id="dice1" class="dice"><img src="img/dice1.png" alt=""></div>
     <div id="dice2" class="dice"><img src="img/dice2.png" alt=""></div>
     <div id="dice3" class="dice"><img src="img/dice3.png" alt=""></div>
@@ -36,7 +37,9 @@
     <div id="dicelock4" class="dicelockicon">🔓</div>
     <div id="dicelock5" class="dicelockicon">🔓</div>
   </section>
-  <section class="scoreboard">
+ <div class="playerUp">Howard's turn!</div><section class="rollbutton"><button type='button' id='roll-button'>Roll Dice!</button></section>
+ <section class="container">
+ <section class="scoreboard">
     <div id="playerName" class="category">Player Name</div>
     <div id="ones" class="category">1's</div>
     <div id="twos" class="category">2's</div>
@@ -53,7 +56,8 @@
     <div id="chance" class="category">Chance</div>
     <div id="yahtzee-bonus" class="category">Yahtzee bonus</div>
     <div id="total-score" class="category">Grand Total</div>
-    <div id="playerscoreboard"></div>
   </section>
+  <div id="playerscoreboard"></div>
+</section> 
 </body>
 </html>

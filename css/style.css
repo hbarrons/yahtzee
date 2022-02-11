@@ -18,13 +18,24 @@ html {
 }
 
 body {
-  display: grid;
-  grid-template-rows: 300px 100vh;
-  grid-template-columns: 25% 25% 25% 25%;
+  /* display: grid; */
+  /* grid-template-rows: 200px 180px 40px auto; */
+  /* grid-template-columns: 25% 25% 25% 25%; */
   background-color: rgb(165, 77, 77);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
+}
+
+.gameInfo {
+  color: whitesmoke;
+  margin: auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-rows: 60px 60px;
+  grid-template-columns: 80vh 40vh;
+  grid-column: 1 / 5;
 }
 
 h1{
@@ -34,6 +45,7 @@ h1{
   text-align: center;
   margin: auto;
   padding: 10px 10px 10px 10px;
+  grid-column: 1 / 2;
 }
 
 h3{
@@ -42,28 +54,29 @@ h3{
   text-align: center;
   margin: auto;
   padding: 10px 10px 10px 10px;
+  grid-column: 1 / 2;
 }
 
-.numberOfPlayers {
+
+
+.startgame {
   align-items: center;
   display: flex;
-  justify-content: space-between;
-}
-
-section.gameInfo {
-  color: whitesmoke;
-  margin: auto;
+  text-align: center;
   justify-content: center;
-  align-items: center;
 }
 
-form {
-  margin: 0;
+.playerform {
+  margin: auto;
   justify-content: center;
   align-items: center;
   font-size: 15px;
   text-align: center;
+  grid-column: 2 / 3;
+  border: none;
 }
+
+
 
 img {
   max-height: 115px;
@@ -76,23 +89,65 @@ section.allDice {
   justify-content: space-around;
   display: grid;
   box-sizing: border-box;
-  grid-column: 2 / 5;
-  grid-template-rows: 60% 40%;
+  grid-column: 1 / 5;
+  grid-template-rows: 120px 20%;
   grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+div.dice {
+  border: none;
+  height: 100px;
+  margin: 0;
+
+}
+
+.dicelockicon {
+  border: none;
+  margin: auto;
+  display: flex;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+.rollbutton {
+  display: flex;
+  justify-content: center;
+  grid-column: 1/5 ;
+  border: none;
+}
+
+.playerUp {
+  border: none;
+  font-size: 30px;
+  justify-content: center;
+  text-align: center;
+  grid-column: 1 / 5;
 }
 
 section.scoreboard{
   display: grid;
   align-items: start;
   justify-content: center;
-  vertical-align: top;
   grid-column: 1 / 5;
   text-align: center;
-  padding-top: 30px;
   color: gray;
   margin: 0;
-  grid-template-rows: repeat(1, 49px);
+  padding-top: 20px;
+  height: 56px;
+  grid-template-rows: auto;
   grid-template-columns: repeat(16,55.2px);
+}
+
+
+.category {
+  background-color: rgb(228, 228, 167);
+  color: rgb(165, 77, 77);
+  font-weight: bold;
+  border: 1px solid whitesmoke;
+  font-size: 12px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
 }
 
 .player {
@@ -101,22 +156,36 @@ section.scoreboard{
   font-size: 12px;
 }
 
-#playerscoreboard {
+.container {
+  width: 100%;
+  border: red 1px solid;
+  /* grid-column: 1 / 7; */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  /* height: 500px; */
+}
+#playerscoreboard {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   text-align: center;
-  margin: 0;
-  grid-column: 1 / 17;
+  padding-top: 15px;
+  height: 100%;
+  /* margin-bottom: 0 auto; */
+  /* margin-top: auto; */
 }
 
+/* this class is being added with js */
 .playerscore {
   text-align: center;
   justify-content: center;
   flex-direction: column;
   display: grid;
-  grid-template-rows: auto;
+  /* grid-template-rows: auto; */
   grid-template-columns: repeat(16, 55px);
+  /* margin-top: auto; */
 }
 
 div {
@@ -129,28 +198,6 @@ div {
   justify-content: center;
 }
 
-div.dice {
-  border: none;
-  height: 100px;
-  margin: 0;
-  padding-top: 50px;
-}
-
-div.dicelockicon {
-  border: none;
-  font-size: 30px;
-}
-
-.category {
-  background-color: rgb(228, 228, 167);
-  color: rgb(165, 77, 77);
-  font-weight: bold;
-  border: 1px solid whitesmoke;
-  font-size: 12px;
-  text-align: center;
-  justify-content: center;
-  display: flex;
-}
 
 #listofplayers {
   border: none;

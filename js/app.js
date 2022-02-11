@@ -1,5 +1,5 @@
 /*-------------------------------- Notes --------------------------------*/
-//Add dropdown from bootstrap for player selection
+
 
 //Add modal from bootsrap to confirm player category selection
 
@@ -102,7 +102,6 @@ const diceRollAudio = new Audio ('../audio/dice.wav')
 let allDice
 let playerTurn
 let allPlayers
-let scoreboard
 let rollCount
 let playerName
 let isUnlocked1, isUnlocked2, isUnlocked3, isUnlocked4, isUnlocked5
@@ -112,6 +111,7 @@ let isUnlocked1, isUnlocked2, isUnlocked3, isUnlocked4, isUnlocked5
 
 /*------------------------ Cached Element References ------------------------*/
 const playerScoreboard = document.getElementById("playerscoreboard")
+const scoreboard = document.querySelector('.scoreboard')
 const playerInput = document.querySelector("#playerInput")
 const form = document.querySelector('form')
 const gameMsg = document.getElementById('game-message')
@@ -161,6 +161,7 @@ function init () {
   isUnlocked3 = true
   isUnlocked4 = true
   isUnlocked5 = true
+  scoreboard.setAttribute("hidden", false)
   render()
   
   // startGameBtn.setAttribute("hidden", false)
@@ -172,7 +173,7 @@ function getPlayer(){
   if (allPlayers.length === 6) {
     form.textContent = "Sorry, only 6 players! Start game to play!"
     } else {
-    gameMsg.textContent = "Enter the name of each player one by one!"
+    gameMsg.innerHTML = "Anyone else?<br>Press 'Start Game' when ready!"
     allPlayers.push(playerName)
     console.log(allPlayers)
     listPlayers() 
@@ -182,16 +183,17 @@ function getPlayer(){
 
 function listPlayers (arr) {
   const newLi = document.createElement("li")
-  newLi.textContent = playerInput.value
+  newLi.innerHTML = `${playerInput.value} <br>`
   listNames.appendChild(newLi)
   playerInput.value = ""
+  console.log(allPlayers)
 }
 
 function startGame () {
   allPlayers.forEach((str, idx) => {
     appendScoreboard(str, idx)
   })
-  form.innerHTML = "<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)"
+  gameMsg.innerHTML = "<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)" ;
   listNames.textContent = "";
   gameMsg.textContent = "";
   startGameBtn.setAttribute("hidden", true)
@@ -279,4 +281,7 @@ function handleLockClick (event){
   }
 }
 
+function resetLocks(){
+
+}
 
