@@ -57,12 +57,12 @@ section.gameInfo {
   align-items: center;
 }
 
-.playerForm {
+form {
   margin: 0;
   justify-content: center;
   align-items: center;
   font-size: 15px;
-  text-align: left;
+  text-align: center;
 }
 
 img {
@@ -104,7 +104,7 @@ section.scoreboard{
 #playerscoreboard {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   text-align: center;
   margin: 0;
   grid-column: 1 / 17;
@@ -126,6 +126,7 @@ div {
   vertical-align: middle;
   height: 50px;
   align-items: center;
+  justify-content: center;
 }
 
 div.dice {
@@ -135,7 +136,7 @@ div.dice {
   padding-top: 50px;
 }
 
-div.dicelock {
+div.dicelockicon {
   border: none;
   font-size: 30px;
 }
