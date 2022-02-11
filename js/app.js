@@ -8,85 +8,85 @@
 
 const diceRollOne = function () {
   let rollOutcome = (Math.floor(Math.random() * 6 + 1))
-  if (rollOutcome === 1) {
+  if (rollOutcome === 1 && isUnlocked1 === true) {
     diceOne.innerHTML = `<img src="img/dice1.png" alt="">`
-  } else if (rollOutcome === 2) {
+  } else if (rollOutcome === 2 && isUnlocked1 === true) {
     diceOne.innerHTML = '<img src="img/dice2.png" alt="">'
-  } else if (rollOutcome === 3) {
+  } else if (rollOutcome === 3 && isUnlocked1 === true) {
     diceOne.innerHTML = '<img src="img/dice3.png" alt="">'
-  } else if (rollOutcome === 4) {
+  } else if (rollOutcome === 4 && isUnlocked1 === true) {
     diceOne.innerHTML = '<img src="img/dice4.png" alt="">'
-  } else if (rollOutcome === 5) {
+  } else if (rollOutcome === 5 && isUnlocked1 === true) {
     diceOne.innerHTML = '<img src="img/dice5.png" alt="">'
-  } else if (rollOutcome === 6) {
+  } else if (rollOutcome === 6 && isUnlocked1 === true) {
     diceOne.innerHTML = '<img src="img/dice6.png" alt="">'
   } 
 }
 
 const diceRollTwo = function () {
   let rollOutcome = (Math.floor(Math.random() * 6 + 1))
-  if (rollOutcome === 1) {
+  if (rollOutcome === 1 && isUnlocked2 === true) {
     diceTwo.innerHTML = `<img src="img/dice1.png" alt="">`
-  } else if (rollOutcome === 2) {
+  } else if (rollOutcome === 2 && isUnlocked2 === true) {
     diceTwo.innerHTML = '<img src="img/dice2.png" alt="">'
-  } else if (rollOutcome === 3) {
+  } else if (rollOutcome === 3 && isUnlocked2 === true) {
     diceTwo.innerHTML = '<img src="img/dice3.png" alt="">'
-  } else if (rollOutcome === 4) {
+  } else if (rollOutcome === 4 && isUnlocked2 === true) {
     diceTwo.innerHTML = '<img src="img/dice4.png" alt="">'
-  } else if (rollOutcome === 5) {
+  } else if (rollOutcome === 5 && isUnlocked2 === true) {
     diceTwo.innerHTML = '<img src="img/dice5.png" alt="">'
-  } else if (rollOutcome === 6) {
+  } else if (rollOutcome === 6 && isUnlocked2 === true) {
     diceTwo.innerHTML = '<img src="img/dice6.png" alt="">'
   } 
 }
 
 const diceRollThree = function () {
   let rollOutcome = (Math.floor(Math.random() * 6 + 1))
-  if (rollOutcome === 1) {
+  if (rollOutcome === 1 && isUnlocked3 === true) {
     diceThree.innerHTML = `<img src="img/dice1.png" alt="">`
-  } else if (rollOutcome === 2) {
+  } else if (rollOutcome === 2 && isUnlocked3 === true) {
     diceThree.innerHTML = '<img src="img/dice2.png" alt="">'
-  } else if (rollOutcome === 3) {
+  } else if (rollOutcome === 3 && isUnlocked3 === true) {
     diceThree.innerHTML = '<img src="img/dice3.png" alt="">'
-  } else if (rollOutcome === 4) {
+  } else if (rollOutcome === 4 && isUnlocked3 === true) {
     diceThree.innerHTML = '<img src="img/dice4.png" alt="">'
-  } else if (rollOutcome === 5) {
+  } else if (rollOutcome === 5 && isUnlocked3 === true) {
     diceThree.innerHTML = '<img src="img/dice5.png" alt="">'
-  } else if (rollOutcome === 6) {
+  } else if (rollOutcome === 6 && isUnlocked3 === true) {
     diceThree.innerHTML = '<img src="img/dice6.png" alt="">'
   } 
 }
 
 const diceRollFour = function () {
   let rollOutcome = (Math.floor(Math.random() * 6 + 1))
-  if (rollOutcome === 1) {
+  if (rollOutcome === 1 && isUnlocked4 === true) {
     diceFour.innerHTML = `<img src="img/dice1.png" alt="">`
-  } else if (rollOutcome === 2) {
+  } else if (rollOutcome === 2 && isUnlocked4 === true) {
     diceFour.innerHTML = '<img src="img/dice2.png" alt="">'
-  } else if (rollOutcome === 3) {
+  } else if (rollOutcome === 3 && isUnlocked4 === true) {
     diceFour.innerHTML = '<img src="img/dice3.png" alt="">'
-  } else if (rollOutcome === 4) {
+  } else if (rollOutcome === 4 && isUnlocked4 === true) {
     diceFour.innerHTML = '<img src="img/dice4.png" alt="">'
-  } else if (rollOutcome === 5) {
+  } else if (rollOutcome === 5 && isUnlocked4 === true) {
     diceFour.innerHTML = '<img src="img/dice5.png" alt="">'
-  } else if (rollOutcome === 6) {
+  } else if (rollOutcome === 6 && isUnlocked4 === true) {
     diceFour.innerHTML = '<img src="img/dice6.png" alt="">'
   } 
 }
 
 const diceRollFive = function () {
   let rollOutcome = (Math.floor(Math.random() * 6 + 1))
-  if (rollOutcome === 1) {
+  if (rollOutcome === 1 && isUnlocked5 === true) {
     diceFive.innerHTML = `<img src="img/dice1.png" alt="">`
-  } else if (rollOutcome === 2) {
+  } else if (rollOutcome === 2 && isUnlocked5 === true) {
     diceFive.innerHTML = '<img src="img/dice2.png" alt="">'
-  } else if (rollOutcome === 3) {
+  } else if (rollOutcome === 3 && isUnlocked5 === true) {
     diceFive.innerHTML = '<img src="img/dice3.png" alt="">'
-  } else if (rollOutcome === 4) {
+  } else if (rollOutcome === 4 && isUnlocked5 === true) {
     diceFive.innerHTML = '<img src="img/dice4.png" alt="">'
-  } else if (rollOutcome === 5) {
+  } else if (rollOutcome === 5 && isUnlocked5 === true) {
     diceFive.innerHTML = '<img src="img/dice5.png" alt="">'
-  } else if (rollOutcome === 6) {
+  } else if (rollOutcome === 6 && isUnlocked5 === true) {
     diceFive.innerHTML = '<img src="img/dice6.png" alt="">'
   } 
 }
@@ -105,6 +105,7 @@ let allPlayers
 let scoreboard
 let rollCount
 let playerName
+let isUnlocked1, isUnlocked2, isUnlocked3, isUnlocked4, isUnlocked5
 
 
 
@@ -154,6 +155,11 @@ init()
 function init () {
   allPlayers = []
   gameMsg.innerHTML = "Enter the name of each player one by one! Start game when ready!"
+  isUnlocked1 = true
+  isUnlocked2 = true
+  isUnlocked3 = true
+  isUnlocked4 = true
+  isUnlocked5 = true
   render()
   
   // startGameBtn.setAttribute("hidden", false)
@@ -230,16 +236,46 @@ function rollDice () {
 function handleLockClick (event){
   let lockClick = parseInt(event.target.id.split('').pop())
   if (lockClick === 1) {
-    diceLock1.innerHTML = ' 🔐 '
+    if (isUnlocked1 === true) {
+      isUnlocked1 = false
+      diceLock1.innerHTML = ' 🔐 '
+    } else {
+      isUnlocked1 = true
+      diceLock1.innerHTML = ' 🔓 '
+    }
   } else if (lockClick === 2) {
-    diceLock2.innerHTML = ' 🔐 '
+    if (isUnlocked2 === true) {
+      isUnlocked2 = false
+      diceLock2.innerHTML = ' 🔐 '
+    } else {
+      isUnlocked2 = true
+      diceLock2.innerHTML = ' 🔓 '
+    }
   } else if (lockClick === 3) {
-    diceLock3.innerHTML = ' 🔐 '
+    if (isUnlocked3 === true) {
+      isUnlocked3 = false
+      diceLock3.innerHTML = ' 🔐 '
+    } else {
+      isUnlocked3 = true
+      diceLock3.innerHTML = ' 🔓 '
+    }
   } else if (lockClick === 4) {
-    diceLock4.innerHTML = ' 🔐 '
+    if (isUnlocked4 === true) {
+      isUnlocked4 = false
+      diceLock4.innerHTML = ' 🔐 '
+    } else {
+      isUnlocked4 = true
+      diceLock4.innerHTML = ' 🔓 '
+    }
   } else if (lockClick === 5) {
-    diceLock5.innerHTML = ' 🔐 '
+    if (isUnlocked5 === true) {
+      isUnlocked5 = false
+      diceLock5.innerHTML = ' 🔐 '
+    } else {
+      isUnlocked5 = true
+      diceLock5.innerHTML = ' 🔓 '
+    }
   }
-
 }
+
 
