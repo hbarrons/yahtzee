@@ -18,9 +18,6 @@ html {
 }
 
 body {
-  /* display: grid; */
-  /* grid-template-rows: 200px 180px 40px auto; */
-  /* grid-template-columns: 25% 25% 25% 25%; */
   background-color: rgb(165, 77, 77);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -86,6 +83,7 @@ section.allDice {
   margin: 0;
   text-align: center;
   font-size: 40px;
+  padding-top: 20px;
   justify-content: space-around;
   display: grid;
   box-sizing: border-box;
@@ -158,12 +156,10 @@ section.scoreboard{
 
 .container {
   width: 100%;
-  border: red 1px solid;
-  /* grid-column: 1 / 7; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* height: 500px; */
+  padding-bottom: 30px;
 }
 #playerscoreboard {
   border: none;
@@ -171,10 +167,8 @@ section.scoreboard{
   flex-direction: column;
   align-items: start;
   text-align: center;
-  padding-top: 15px;
+  padding-top: 14px;
   height: 100%;
-  /* margin-bottom: 0 auto; */
-  /* margin-top: auto; */
 }
 
 /* this class is being added with js */
@@ -183,9 +177,7 @@ section.scoreboard{
   justify-content: center;
   flex-direction: column;
   display: grid;
-  /* grid-template-rows: auto; */
   grid-template-columns: repeat(16, 55px);
-  /* margin-top: auto; */
 }
 
 div {

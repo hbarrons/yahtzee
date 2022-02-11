@@ -111,7 +111,7 @@ let isUnlocked1, isUnlocked2, isUnlocked3, isUnlocked4, isUnlocked5
 
 /*------------------------ Cached Element References ------------------------*/
 const playerScoreboard = document.getElementById("playerscoreboard")
-const scoreboard = document.querySelector('.scoreboard')
+const scoreboardCategories = document.querySelector('.category')
 const playerInput = document.querySelector("#playerInput")
 const form = document.querySelector('form')
 const gameMsg = document.getElementById('game-message')
@@ -130,6 +130,20 @@ const diceLock4 = document.getElementById('dicelock4')
 const diceLock5 = document.getElementById('dicelock5')
 const lockDiceIcon = document.querySelectorAll(".dicelockicon")
 const rollDiceBtn = document.getElementById('roll-button')
+
+const ones = document.getElementById('ones')
+const twos = document.getElementById('twos')
+const threes = document.getElementById('threes')
+const fours = document.getElementById('fours')
+const fives = document.getElementById('fives')
+const sixes = document.getElementById('sixes')
+const threeOfAKind = document.getElementById('three-kind')
+const fourOfAKind = document.getElementById('four-kind')
+const smStraight = document.getElementById('sm-straigh')
+const lgStraight = document.getElementById('lg-straight')
+const yahtzee = document.getElementById('yahtzee')
+const chance = document.getElementById('chance')
+const yahtzBonus = document.getElementById('yahtzee-bonus')
 
 
 
@@ -156,12 +170,13 @@ init()
 function init () {
   allPlayers = []
   gameMsg.innerHTML = "Enter the name of each player one by one! Start game when ready!"
+  rollCount = 0
   isUnlocked1 = true
   isUnlocked2 = true
   isUnlocked3 = true
   isUnlocked4 = true
   isUnlocked5 = true
-  scoreboard.setAttribute("hidden", false)
+  scoreboardCategories.setAttribute("hidden", false)
   render()
   
   // startGameBtn.setAttribute("hidden", false)
@@ -186,7 +201,6 @@ function listPlayers (arr) {
   newLi.innerHTML = `${playerInput.value} <br>`
   listNames.appendChild(newLi)
   playerInput.value = ""
-  console.log(allPlayers)
 }
 
 function startGame () {
@@ -227,6 +241,8 @@ function appendScoreboard(str, idx) {
 }
 
 function rollDice () {
+  if (rollCount < 3) {
+  rollCount = rollCount + 1
   diceRollOne()
   diceRollTwo()
   diceRollThree()
@@ -234,6 +250,8 @@ function rollDice () {
   diceRollFive()
   diceRollAudio.valume = .05
   diceRollAudio.play()
+  console.log(rollCount)
+  }
 }
 
 function handleLockClick (event){
@@ -281,7 +299,6 @@ function handleLockClick (event){
   }
 }
 
-function resetLocks(){
-
+function nextPlayer (){
+  
 }
-

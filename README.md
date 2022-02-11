@@ -26,8 +26,4 @@ Psuedocode
 
 -Final scoreboard / celebration screen for winner
 
-<<<<<<< HEAD
 -Replay button that resets board to goes to home screen`
-=======
--Replay button that resets board to goes to home screen
->>>>>>> refs/remotes/origin/main
