@@ -5,9 +5,6 @@
 
 
 /*-------------------------------- Constants --------------------------------*/
-// const rollAllDice = {
-
-  
   function diceRollOne () {
     rollOutcome1 = (Math.floor(Math.random() * 6 + 1))
     if (rollOutcome1 === 1 && isUnlocked1 === true) {
@@ -75,7 +72,6 @@
     } else if (rollOutcome4 === 6 && isUnlocked4 === true) {
       diceFour.innerHTML = '<img src="img/dice6.png" alt="">'
     } 
-    // dice4 = rollOutcome4
   }
 
   const diceRollFive = function () {
@@ -93,11 +89,8 @@
     } else if (rollOutcome5 === 6 && isUnlocked5 === true) {
       diceFive.innerHTML = '<img src="img/dice6.png" alt="">'
     } 
-    // dice5 = rollOutcome5
-    // console.log(dice5)
   }
 
-// }
 
 const diceRollAudio = new Audio ('../audio/dice.wav')
 
@@ -163,14 +156,12 @@ const yahtzBonus = document.getElementById('yahtzee-bonus')
 /*----------------------------- Event Listeners -----------------------------*/
 startGameBtn.addEventListener('click', startGame)
 rollDiceBtn.addEventListener('click', rollDice)
-
 lockDiceIcon.forEach((evt, idx) => {
   addEventListener('click', handleLockClick)
   })
 
-// scoreCategory.forEach((evt, idx) => {
-//   addEventListener('click', assignScore)
-//   })
+  
+
 
 
 
@@ -182,14 +173,6 @@ lockDiceIcon.forEach((evt, idx) => {
 
 /*-------------------------------- Functions --------------------------------*/
 init()
-
-console.log(roll1)
-
-console.log(rollOutcome1)
-console.log(rollOutcome2)
-console.log(rollOutcome3)
-console.log(rollOutcome4)
-console.log(rollOutcome5)
 
 function init () {
   allPlayers = []
@@ -204,13 +187,11 @@ function init () {
   isUnlocked5 = true
   scoreboardCategories.setAttribute("hidden", false)
   render()
-  
   // startGameBtn.setAttribute("hidden", false)
 }
 
 function getPlayer(){
   playerName = playerInput.value;
-  // playerInput.value = ""
   if (allPlayers.length === 6) {
     form.textContent = "Sorry, only 6 players! Start game to play!"
     } else {
@@ -235,15 +216,17 @@ function startGame () {
   })
   gameMsg.innerHTML = "Rules: "
   listNames.textContent = "";
-  gameMsg.textContent = "";
+  gameMsg.textContent = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)`;
   scoreCategory = document.querySelectorAll(".player")
   scoreCategory.forEach((evt, idx) => {
     addEventListener('click', assignScore)
     })
+  playerTurn = document.querySelectorAll(".player")
+  playerTurn.forEach((evt, idx) => {
+    addEventListener('click', assignScore)
+    })
   render()
 }
-
-// "<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)" 
 
 function render() {
   nextPlayerMessage()
@@ -253,29 +236,24 @@ function appendScoreboard(str, idx) {
   let playerBoard = document.createElement("div")
   playerBoard.classList.add("playerscore")
   playerBoard.innerHTML =
-  `<div id="name" class="player player${idx}">${str}</div>
-  <div id="ones" class="player player${idx}"></div>
-  <div id="twos" class="player player${idx}"></div>
-  <div id="threes" class="player player${idx}"></div>
-  <div id="fours" class="player player${idx}"></div>
-  <div id="fives" class="player player${idx}"></div>
-  <div id="sixes" class="player player${idx}"></div>
-  <div id="top-half-bonus" class="player player${idx}"></div>
-  <div id="three-kind" class="player player${idx}"></div>
-  <div id="four-kind" class="player player${idx}"></div>
-  <div id="sm-straight" class="player player${idx}"></div>
-  <div id="lg-straight" class="player player${idx}"></div>
-  <div id="yahtzee" class="player player${idx}"></div>
-  <div id="chance" class="player player${idx}"></div>
-  <div id="yahtzee-bonus" class="player player${idx}"></div>
-  <div id="total-score" class="player player${idx}"></div>`
+  `<div id="name" class="player player${idx + 1}">${str}</div>
+  <div id="ones" class="player player${idx + 1}"></div>
+  <div id="twos" class="player player${idx + 1}"></div>
+  <div id="threes" class="player player${idx + 1}"></div>
+  <div id="fours" class="player player${idx + 1}"></div>
+  <div id="fives" class="player player${idx + 1}"></div>
+  <div id="sixes" class="player player${idx + 1}"></div>
+  <div id="top-half-bonus" class="player player${idx + 1}"></div>
+  <div id="three-kind" class="player player${idx + 1}"></div>
+  <div id="four-kind" class="player player${idx + 1}"></div>
+  <div id="sm-straight" class="player player${idx + 1}"></div>
+  <div id="lg-straight" class="player player${idx + 1}"></div>
+  <div id="yahtzee" class="player player${idx + 1}"></div>
+  <div id="chance" class="player player${idx + 1}"></div>
+  <div id="yahtzee-bonus" class="player player${idx + 1}"></div>
+  <div id="total-score" class="player player${idx + 1}"></div>`
   playerScoreboard.appendChild(playerBoard)
 }
-console.log(rollOutcome1)
-console.log(rollOutcome2)
-console.log(rollOutcome3)
-console.log(rollOutcome4)
-console.log(rollOutcome5)
 
 function rollDice () {
   if (rollCount < 3) {
@@ -291,19 +269,8 @@ function rollDice () {
     if (rollCount === 3) {
       rollDiceBtn.setAttribute('hidden', true)
     } 
-    console.log(rollOutcome1)
-    console.log(rollOutcome2)
-    console.log(rollOutcome3)
-    console.log(rollOutcome4)
-    console.log(rollOutcome5)
   }
 }
-
-console.log(rollOutcome1)
-console.log(rollOutcome2)
-console.log(rollOutcome3)
-console.log(rollOutcome4)
-console.log(rollOutcome5)
 
 function handleLockClick (event){
   let lockClick = parseInt(event.target.id.split('').pop())
@@ -353,8 +320,7 @@ function handleLockClick (event){
 }
 
 function assignScore (evt){
-  playerTurn = parseInt(evt.target.id.split('').pop())
-  console.log(playerTurn)
+  playerTurn = parseInt(evt.target.className.split('').pop())
   if (evt.target.id === 'ones') {
     console.log(evt.target.id)
   
@@ -385,8 +351,6 @@ function assignScore (evt){
   }
 }
 
-
-
 function nextPlayerMessage (){
   if (playerTurn === 0 && allPlayers !== null){
     nextUpMsg.innerHTML = `${allPlayers[0]} is up!`
@@ -404,6 +368,3 @@ function nextPlayerMessage (){
     
   }
 }
-
-
-//
