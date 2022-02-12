@@ -6,7 +6,8 @@
 
 /*-------------------------------- Constants --------------------------------*/
   function diceRollOne () {
-    rollOutcome1 = (Math.floor(Math.random() * 6 + 1))
+    if(isUnlocked1 === true) {
+      rollOutcome1 = (Math.floor(Math.random() * 6 + 1))}
     if (rollOutcome1 === 1 && isUnlocked1 === true) {
       diceOne.innerHTML = `<img src="img/dice1.png" alt="">`
     } else if (rollOutcome1 === 2 && isUnlocked1 === true) {
@@ -24,7 +25,8 @@
 
 
   const diceRollTwo = function () {
-    rollOutcome2 = (Math.floor(Math.random() * 6 + 1))
+    if (isUnlocked2 === true) {
+      rollOutcome2 = (Math.floor(Math.random() * 6 + 1))}
     if (rollOutcome2 === 1 && isUnlocked2 === true) {
       diceTwo.innerHTML = `<img src="img/dice1.png" alt="">`
     } else if (rollOutcome2 === 2 && isUnlocked2 === true) {
@@ -41,7 +43,8 @@
   }
 
   const diceRollThree = function () {
-    rollOutcome3 = (Math.floor(Math.random() * 6 + 1))
+    if (isUnlocked3 === true) {
+      rollOutcome3 = (Math.floor(Math.random() * 6 + 1))}
     if (rollOutcome3 === 1 && isUnlocked3 === true) {
       diceThree.innerHTML = `<img src="img/dice1.png" alt="">`
     } else if (rollOutcome3 === 2 && isUnlocked3 === true) {
@@ -58,7 +61,8 @@
   }
 
   const diceRollFour = function () {
-    rollOutcome4 = (Math.floor(Math.random() * 6 + 1))
+    if (isUnlocked4 === true){
+    rollOutcome4 = (Math.floor(Math.random() * 6 + 1))}
     if (rollOutcome4 === 1 && isUnlocked4 === true) {
       diceFour.innerHTML = `<img src="img/dice1.png" alt="">`
     } else if (rollOutcome4 === 2 && isUnlocked4 === true) {
@@ -75,7 +79,8 @@
   }
 
   const diceRollFive = function () {
-    rollOutcome5 = (Math.floor(Math.random() * 6 + 1))
+    if (isUnlocked5 === true) {
+    rollOutcome5 = (Math.floor(Math.random() * 6 + 1))}
     if (rollOutcome5 === 1 && isUnlocked5 === true) {
       diceFive.innerHTML = `<img src="img/dice1.png" alt="">`
     } else if (rollOutcome5 === 2 && isUnlocked5 === true) {
@@ -110,6 +115,7 @@ let playerName
 let isUnlocked1, isUnlocked2, isUnlocked3, isUnlocked4, isUnlocked5
 let scoreCategory
 let roll1
+let diceArray
 
 
 
@@ -176,6 +182,7 @@ init()
 
 function init () {
   allPlayers = []
+  diceArray = []
   gameMsg.innerHTML = "Enter the name of each player one by one! Start game when ready!"
   nextUpMsg.innerHTML = ''
   rollCount = 0
@@ -320,9 +327,20 @@ function handleLockClick (event){
 }
 
 function assignScore (evt){
+  diceArray = []
+
+
   playerTurn = parseInt(evt.target.className.split('').pop())
+  diceArray = [rollOutcome1, rollOutcome2, rollOutcome3, rollOutcome4, rollOutcome5]
+  console.log(diceArray)
   if (evt.target.id === 'ones') {
-    console.log(evt.target.id)
+    for (let i=0; i < diceArray.length; i++){
+      let total = 0
+      if (i === 1){
+        i = total + i
+      }
+      console.log(total)
+    }
   
   } else if (evt.target.id === 'twos') {
     console.log(evt.target.id)
