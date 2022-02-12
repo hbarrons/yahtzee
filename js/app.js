@@ -316,9 +316,9 @@ function handleLockClick (event){
   }
 }
 
-// function assignScore (evt){
-//   console.log(evt.target.id)
-// }
+function assignScore (evt){
+  console.log(evt.target.id)
+}
 
 
 
