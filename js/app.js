@@ -617,8 +617,10 @@ function nextPlayerUp (){
     nextUpMsg.innerHTML = ""
   } else if (playerTurn === 1){
     nextUpMsg.innerHTML = `${allPlayers[0]} is up!`
+    resetDice()
   } else if (playerTurn === 2){
     nextUpMsg.innerHTML = `${allPlayers[1]} is up!`
+    resetDice()
   } else if (playerTurn === 3){
     nextUpMsg.innerHTML = `${allPlayers[2]} is up!`
   } else if (playerTurn === 4){
@@ -649,5 +651,15 @@ function resetDice (){
     diceLock3.style.display = 'none'
     diceLock4.style.display = 'none'
     diceLock5.style.display = 'none'
+    diceLock1.innerHTML = ' 🔓 '
+    diceLock2.innerHTML = ' 🔓 '
+    diceLock3.innerHTML = ' 🔓 '
+    diceLock4.innerHTML = ' 🔓 '
+    diceLock5.innerHTML = ' 🔓 '
+    diceOne.innerHTML = ''
+    diceTwo.innerHTML = ''
+    diceThree.innerHTML = ''
+    diceFour.innerHTML = ''
+    diceFive.innerHTML = ''
   }
 }
