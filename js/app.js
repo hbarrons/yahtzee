@@ -165,7 +165,7 @@ const yahtzBonus = document.getElementById('yahtzee-bonus')
 startGameBtn.addEventListener('click', startGame)
 rollDiceBtn.addEventListener('click', rollDice)
 lockDiceIcon.forEach((evt, idx) => {
-  addEventListener('click', handleLockClick, resetDice)
+  addEventListener('click', handleLockClick)
   })
 
   
@@ -296,11 +296,15 @@ function rollDice () {
     diceRollThree()
     diceRollFour()
     diceRollFive()
+    if (rollCount !==3) {
+    diceLock1.style.display = 'block'
+    diceLock2.style.display = 'block'
+    diceLock3.style.display = 'block'
+    diceLock4.style.display = 'block'
+    diceLock5.style.display = 'block'
+    }
     diceRollAudio.valume = .05
     diceRollAudio.play()
-    if (rollCount === 3) {
-      rollDiceBtn.style.display = 'none'
-    } 
   }
 }
 
@@ -364,7 +368,6 @@ function assignScore (evt){
     if (playerTurn === 1) {
       playerOneScore.push(score)
       playerOneBonus.push(score)
-      nextPlayerUp()
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
@@ -380,7 +383,8 @@ function assignScore (evt){
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
-    } 
+    }
+    nextPlayerUp()
   } else if (evt.target.id === 'twos') {
     let score = 0
     for (let i=0; i < diceArray.length; i++){
@@ -552,7 +556,7 @@ function assignScore (evt){
     } else if (playerTurn === 6){
       playerSixScore.push(score)
     } 
-    nextPlayerUp()
+    nextPlayerUp() 
     console.log(score)
   } else if (evt.target.id === 'four-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
@@ -581,11 +585,6 @@ function assignScore (evt){
     score = 25
     nextPlayerUp()
     console.log(score)
-
-
-
-
-
   } else if (evt.target.id === 'sm-straight') {
     score = 30
     nextPlayerUp()
@@ -616,7 +615,7 @@ function nextPlayerUp (){
   playerTurn = playerTurn + 1
   if (playerTurn === 0 || playerTurn === NaN) {
     nextUpMsg.innerHTML = ""
-  } else if (playerTurn === 1 && allPlayers !== null){
+  } else if (playerTurn === 1){
     nextUpMsg.innerHTML = `${allPlayers[0]} is up!`
   } else if (playerTurn === 2){
     nextUpMsg.innerHTML = `${allPlayers[1]} is up!`
@@ -633,22 +632,22 @@ function nextPlayerUp (){
     playerTurn = 1
   }
   rollDiceBtn.style.display = 'block'
-  rollCount = 0
   resetDice()
+  rollCount = 0
   console.log(playerTurn)
 }
 
 function resetDice (){
-  if (rollCount === 0) {
+  if (rollCount === 3) {
     isUnlocked1 = true
     isUnlocked2 = true
     isUnlocked3 = true
     isUnlocked4 = true
     isUnlocked5 = true
-    diceLock1.innerHTML = ' 🔓 '
-    diceLock2.innerHTML = ' 🔓 '
-    diceLock3.innerHTML = ' 🔓 '
-    diceLock4.innerHTML = ' 🔓 '
-    diceLock5.innerHTML = ' 🔓 '
+    diceLock1.style.display = 'none'
+    diceLock2.style.display = 'none'
+    diceLock3.style.display = 'none'
+    diceLock4.style.display = 'none'
+    diceLock5.style.display = 'none'
   }
 }
