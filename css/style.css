@@ -133,7 +133,7 @@ section.scoreboard{
   padding-top: 20px;
   height: 56px;
   grid-template-rows: auto;
-  grid-template-columns: repeat(16,55.2px);
+  grid-template-columns: repeat(17,55.2px);
 }
 
 
@@ -177,7 +177,7 @@ section.scoreboard{
   justify-content: center;
   flex-direction: column;
   display: grid;
-  grid-template-columns: repeat(16, 55px);
+  grid-template-columns: repeat(17, 55px);
 }
 
 div {

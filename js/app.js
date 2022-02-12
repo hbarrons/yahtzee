@@ -123,7 +123,7 @@ let playerOneBonus, playerTwoBonus, playerThreeBonus, playerFourBonus, playerFiv
 
 /*------------------------ Cached Element References ------------------------*/
 const playerScoreboard = document.getElementById("playerscoreboard")
-const scoreboardCategories = document.querySelector('.category')
+const scoreboardCategories = document.querySelectorAll('.category')
 const playerInput = document.querySelector("#playerInput")
 const form = document.querySelector('form')
 const gameMsg = document.getElementById('game-message')
@@ -206,10 +206,11 @@ function init () {
   playerFiveBonus = []
   playerSixScore = []
   playerSixBonus = []
-  rollDiceBtn.setAttribute("hidden", true)
-  scoreboardCategories.setAttribute("hidden", false)
+  rollDiceBtn.style.display = 'none'
+  console.log(scoreboardCategories)
+  // scoreboardCategories.style.display = 'none'
   render()
-  // startGameBtn.setAttribute("hidden", false)
+  startGameBtn.style.display = 'none'
 }
 
 function getPlayer(){
@@ -221,6 +222,7 @@ function getPlayer(){
     allPlayers.push(playerName)
     listPlayers() 
   }
+  startGameBtn.style.display = 'block'
   return false
 }
 
@@ -275,6 +277,7 @@ function appendScoreboard(str, idx) {
   <div id="bonus" class="player player${idx + 1}"></div>
   <div id="three-kind" class="player player${idx + 1}"></div>
   <div id="four-kind" class="player player${idx + 1}"></div>
+  <div id="full-house" class="player player${idx + 1}"></div>
   <div id="sm-straight" class="player player${idx + 1}"></div>
   <div id="lg-straight" class="player player${idx + 1}"></div>
   <div id="yahtzee" class="player player${idx + 1}"></div>
@@ -575,6 +578,15 @@ function assignScore (evt){
     } 
     nextPlayerUp()
     console.log(score)
+  } else if (evt.target.id === 'full-house') {
+    score = 25
+    nextPlayerUp()
+    console.log(score)
+
+
+
+
+
   } else if (evt.target.id === 'sm-straight') {
     score = 30
     nextPlayerUp()
