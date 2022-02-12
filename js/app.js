@@ -634,11 +634,21 @@ function nextPlayerUp (){
   }
   rollDiceBtn.style.display = 'block'
   rollCount = 0
+  resetDice()
   console.log(playerTurn)
 }
 
 function resetDice (){
   if (rollCount === 0) {
-    lockDiceIcon
+    isUnlocked1 = true
+    isUnlocked2 = true
+    isUnlocked3 = true
+    isUnlocked4 = true
+    isUnlocked5 = true
+    diceLock1.innerHTML = ' 🔓 '
+    diceLock2.innerHTML = ' 🔓 '
+    diceLock3.innerHTML = ' 🔓 '
+    diceLock4.innerHTML = ' 🔓 '
+    diceLock5.innerHTML = ' 🔓 '
   }
 }
