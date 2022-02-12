@@ -188,7 +188,7 @@ function init () {
   gameMsg.innerHTML = "Enter the name of each player one by one! Start game when ready!"
   nextUpMsg.innerHTML = ''
   rollCount = 0
-  playerTurn = 0
+  playerTurn = 1
   isUnlocked1 = true
   isUnlocked2 = true
   isUnlocked3 = true
@@ -237,7 +237,7 @@ function startGame () {
   })
   gameMsg.innerHTML = "Rules: "
   listNames.textContent = "";
-  gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)`;
+  // gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)`;
   scoreCategory = document.querySelectorAll(".player")
   scoreCategory.forEach((evt, idx) => {
     addEventListener('click', assignScore)
@@ -264,7 +264,7 @@ function appendScoreboard(str, idx) {
   <div id="fours" class="player player${idx + 1}"></div>
   <div id="fives" class="player player${idx + 1}"></div>
   <div id="sixes" class="player player${idx + 1}"></div>
-  <div id="top-half-bonus" class="player player${idx + 1}"></div>
+  <div id="bonus" class="player player${idx + 1}"></div>
   <div id="three-kind" class="player player${idx + 1}"></div>
   <div id="four-kind" class="player player${idx + 1}"></div>
   <div id="sm-straight" class="player player${idx + 1}"></div>
@@ -353,7 +353,7 @@ function assignScore (evt){
     if (playerTurn === 1) {
       playerOneScore.push(score)
       playerOneBonus.push(score)
-      playerTurn + 1
+      nextPlayerUp()
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
@@ -508,22 +508,21 @@ function assignScore (evt){
       playerSixBonus.push(score)
     } 
     console.log(score)
-  } else if (evt.target.id === 'bonus') {
-    score = diceArray.reduce((prev, amt) => prev + amt)
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-    } else if (playerTurn === 2){
-      playerTwoScore.push(score)
-    } else if (playerTurn === 3){
-      playerThreeScore.push(score)
-    } else if (playerTurn === 4){
-      playerFourScore.push(score)
-    } else if (playerTurn === 5){
-      playerFiveScore.push(score)
-    } else if (playerTurn === 6){
-      playerSixScore.push(score)
+  } else if (evt.target.id === 'bonus') {  
+    if (playerTurn === 1 && playerOneBonus.length === 5 && (playerOneBonus.reduce((prev, amt) => prev + amt)) >= 63) {
+      playerOneScore.push(35)
+    } else if (playerTurn === 2 && playerTwoBonus.length === 5 && (playerTwoBonus.reduce((prev, amt) => prev + amt)) >= 63) {
+      playerOneScore.push(35)
+    } else if (playerTurn === 3 && playerThreeBonus.length === 5 && (playerThreeBonus.reduce((prev, amt) => prev + amt)) >= 63) {
+      playerOneScore.push(35)
+    } else if (playerTurn === 4 && playerFourBonus.length === 5 && (playerFourBonus.reduce((prev, amt) => prev + amt)) >= 63) {
+      playerOneScore.push(35)
+    } else if (playerTurn === 5 && playerFiveBonus.length === 5 && (playerFiveBonus.reduce((prev, amt) => prev + amt)) >= 63) {
+      playerOneScore.push(35)
+    } else if (playerTurn === 6 && playerSixBonus.length === 5 && (playerSixBonus.reduce((prev, amt) => prev + amt)) >= 63) {
+      playerOneScore.push(35)
     } 
-    console.log(score)
+    console.log(playerOneScore)
   } else if (evt.target.id === 'three-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
     if (playerTurn === 1) {
@@ -581,6 +580,7 @@ function assignScore (evt){
 }
 
 function nextPlayerUp (evt){
+  playerTurn + 1
   if (playerTurn === 1 && allPlayers !== null){
     nextUpMsg.innerHTML = `${allPlayers[0]} is up!`
   } else if (playerTurn === 2){
@@ -596,4 +596,8 @@ function nextPlayerUp (evt){
   } else {
     
   }
+  if (playerTurn === allPlayers.length) {
+    playerTurn = 1
+  }
+  console.log(playerTurn)
 }
