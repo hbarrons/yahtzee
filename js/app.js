@@ -116,6 +116,8 @@ let isUnlocked1, isUnlocked2, isUnlocked3, isUnlocked4, isUnlocked5
 let scoreCategory
 let roll1
 let diceArray
+let playerOneScore, playerTwoScore, playerThreeScore, playerFourScore, playerFiveScore, playerSixScore
+let playerOneBonus, playerTwoBonus, playerThreeBonus, playerFourBonus, playerFiveBonus, playerSixBonus
 
 
 
@@ -192,6 +194,18 @@ function init () {
   isUnlocked3 = true
   isUnlocked4 = true
   isUnlocked5 = true
+  playerOneScore = []
+  playerOneBonus = []
+  playerTwoScore = []
+  playerTwoBonus = []
+  playerThreeScore = []
+  playerThreeBonus = []
+  playerFourScore = []
+  playerFourBonus = []
+  playerFiveScore = []
+  playerFiveBonus = []
+  playerSixScore = []
+  playerSixBonus = []
   scoreboardCategories.setAttribute("hidden", false)
   render()
   // startGameBtn.setAttribute("hidden", false)
@@ -223,20 +237,20 @@ function startGame () {
   })
   gameMsg.innerHTML = "Rules: "
   listNames.textContent = "";
-  gameMsg.textContent = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)`;
+  gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)`;
   scoreCategory = document.querySelectorAll(".player")
   scoreCategory.forEach((evt, idx) => {
     addEventListener('click', assignScore)
     })
   playerTurn = document.querySelectorAll(".player")
   playerTurn.forEach((evt, idx) => {
-    addEventListener('click', assignScore)
+    addEventListener('click', assignScore, nextPlayerUp)
     })
   render()
 }
 
 function render() {
-  nextPlayerMessage()
+  nextPlayerUp()
 }
 
 function appendScoreboard(str, idx) {
@@ -330,59 +344,224 @@ function assignScore (evt){
   playerTurn = parseInt(evt.target.className.split('').pop())
   diceArray = [rollOutcome1, rollOutcome2, rollOutcome3, rollOutcome4, rollOutcome5]
   if (evt.target.id === 'ones') {
-    let total = 0
+    let score = 0
     for (let i=0; i < diceArray.length; i++){
       if (diceArray[i] === 1){
-        total = total + 1
+        score = score + 1
       }
     }
-    console.log(total)
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      playerOneBonus.push(score)
+      playerTurn + 1
+    } else if (playerTurn === 2){
+      playerTwoScore.push(score)
+      playerTwoBonus.push(score)
+    } else if (playerTurn === 3){
+      playerThreeScore.push(score)
+      playerThreeBonus.push(score)
+    } else if (playerTurn === 4){
+      playerFourScore.push(score)
+      playerFourBonus.push(score)
+    } else if (playerTurn === 5){
+      playerFiveScore.push(score)
+      playerFiveBonus.push(score)
+    } else if (playerTurn === 6){
+      playerSixScore.push(score)
+      playerSixBonus.push(score)
+    } 
+    playerTurn
+    console.log(playerOneScore)
+    console.log(playerOneBonus)
   } else if (evt.target.id === 'twos') {
-    let total = 0
+    let score = 0
     for (let i=0; i < diceArray.length; i++){
       if (diceArray[i] === 2){
-        total = total + 2
+        score = score + 2
       }
     }
-    console.log(total)
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      playerOneBonus.push(score)
+    } else if (playerTurn === 2){
+      playerTwoScore.push(score)
+      playerTwoBonus.push(score)
+    } else if (playerTurn === 3){
+      playerThreeScore.push(score)
+      playerThreeBonus.push(score)
+    } else if (playerTurn === 4){
+      playerFourScore.push(score)
+      playerFourBonus.push(score)
+    } else if (playerTurn === 5){
+      playerFiveScore.push(score)
+      playerFiveBonus.push(score)
+    } else if (playerTurn === 6){
+      playerSixScore.push(score)
+      playerSixBonus.push(score)
+    } 
+    console.log(score)
   } else if (evt.target.id === 'threes') {
-    let total = 0
+    let score = 0
     for (let i=0; i < diceArray.length; i++){
       if (diceArray[i] === 3){
-        total = total + 3
+        score = score + 3
       }
     }
-    console.log(total)
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      playerOneBonus.push(score)
+    } else if (playerTurn === 2){
+      playerTwoScore.push(score)
+      playerTwoBonus.push(score)
+    } else if (playerTurn === 3){
+      playerThreeScore.push(score)
+      playerThreeBonus.push(score)
+    } else if (playerTurn === 4){
+      playerFourScore.push(score)
+      playerFourBonus.push(score)
+    } else if (playerTurn === 5){
+      playerFiveScore.push(score)
+      playerFiveBonus.push(score)
+    } else if (playerTurn === 6){
+      playerSixScore.push(score)
+      playerSixBonus.push(score)
+    } 
+    console.log(score)
   } else if (evt.target.id === 'fours') {
-    let total = 0
+    let score = 0
     for (let i=0; i < diceArray.length; i++){
       if (diceArray[i] === 4){
-        total = total + 4
+        score = score + 4
       }
     }
-    console.log(total)
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      playerOneBonus.push(score)
+    } else if (playerTurn === 2){
+      playerTwoScore.push(score)
+      playerTwoBonus.push(score)
+    } else if (playerTurn === 3){
+      playerThreeScore.push(score)
+      playerThreeBonus.push(score)
+    } else if (playerTurn === 4){
+      playerFourScore.push(score)
+      playerFourBonus.push(score)
+    } else if (playerTurn === 5){
+      playerFiveScore.push(score)
+      playerFiveBonus.push(score)
+    } else if (playerTurn === 6){
+      playerSixScore.push(score)
+      playerSixBonus.push(score)
+    } 
+    console.log(score)
   } else if (evt.target.id === 'fives') {
-    let total = 0
+    let score = 0
     for (let i=0; i < diceArray.length; i++){
       if (diceArray[i] === 5){
-        total = total + 5
+        score = score + 5
       }
     }
-    console.log(total)
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      playerOneBonus.push(score)
+    } else if (playerTurn === 2){
+      playerTwoScore.push(score)
+      playerTwoBonus.push(score)
+    } else if (playerTurn === 3){
+      playerThreeScore.push(score)
+      playerThreeBonus.push(score)
+    } else if (playerTurn === 4){
+      playerFourScore.push(score)
+      playerFourBonus.push(score)
+    } else if (playerTurn === 5){
+      playerFiveScore.push(score)
+      playerFiveBonus.push(score)
+    } else if (playerTurn === 6){
+      playerSixScore.push(score)
+      playerSixBonus.push(score)
+    } 
+    console.log(score)
   } else if (evt.target.id === 'sixes') {
-    let total = 0
+    let score = 0
     for (let i=0; i < diceArray.length; i++){
       if (diceArray[i] === 6){
-        total = total + 6
+        score = score + 6
       }
     }
-    console.log(total)
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      playerOneBonus.push(score)
+    } else if (playerTurn === 2){
+      playerTwoScore.push(score)
+      playerTwoBonus.push(score)
+    } else if (playerTurn === 3){
+      playerThreeScore.push(score)
+      playerThreeBonus.push(score)
+    } else if (playerTurn === 4){
+      playerFourScore.push(score)
+      playerFourBonus.push(score)
+    } else if (playerTurn === 5){
+      playerFiveScore.push(score)
+      playerFiveBonus.push(score)
+    } else if (playerTurn === 6){
+      playerSixScore.push(score)
+      playerSixBonus.push(score)
+    } 
+    console.log(score)
+  } else if (evt.target.id === 'bonus') {
+    score = diceArray.reduce((prev, amt) => prev + amt)
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+    } else if (playerTurn === 2){
+      playerTwoScore.push(score)
+    } else if (playerTurn === 3){
+      playerThreeScore.push(score)
+    } else if (playerTurn === 4){
+      playerFourScore.push(score)
+    } else if (playerTurn === 5){
+      playerFiveScore.push(score)
+    } else if (playerTurn === 6){
+      playerSixScore.push(score)
+    } 
+    console.log(score)
   } else if (evt.target.id === 'three-kind') {
-    total = diceArray.reduce((prev, amt) => prev + amt)
-    console.log(total)
+    score = diceArray.reduce((prev, amt) => prev + amt)
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+    } else if (playerTurn === 2){
+      playerTwoScore.push(score)
+    } else if (playerTurn === 3){
+      playerThreeScore.push(score)
+    } else if (playerTurn === 4){
+      playerFourScore.push(score)
+    } else if (playerTurn === 5){
+      playerFiveScore.push(score)
+    } else if (playerTurn === 6){
+      playerSixScore.push(score)
+    } 
+    console.log(score)
   } else if (evt.target.id === 'four-kind') {
-    total = diceArray.reduce((prev, amt) => prev + amt)
-    console.log(total)
+    score = diceArray.reduce((prev, amt) => prev + amt)
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      playerOneBonus.push(score)
+    } else if (playerTurn === 2){
+      playerTwoScore.push(score)
+      playerTwoBonus.push(score)
+    } else if (playerTurn === 3){
+      playerThreeScore.push(score)
+      playerThreeBonus.push(score)
+    } else if (playerTurn === 4){
+      playerFourScore.push(score)
+      playerFourBonus.push(score)
+    } else if (playerTurn === 5){
+      playerFiveScore.push(score)
+      playerFiveBonus.push(score)
+    } else if (playerTurn === 6){
+      playerSixScore.push(score)
+      playerSixBonus.push(score)
+    } 
+    console.log(score)
   } else if (evt.target.id === 'sm-straight') {
     score = 30
     console.log(score)
@@ -393,26 +572,26 @@ function assignScore (evt){
     score = 50
     console.log(score)
   } else if (evt.target.id === 'chance') {
-    total = diceArray.reduce((prev, amt) => prev + amt)
-    console.log(total)
+    score = diceArray.reduce((prev, amt) => prev + amt)
+    console.log(score)
   } else if (evt.target.id === 'yahtzee-bonus') {
     score = 50
     console.log(score)
   }
 }
 
-function nextPlayerMessage (){
-  if (playerTurn === 0 && allPlayers !== null){
+function nextPlayerUp (evt){
+  if (playerTurn === 1 && allPlayers !== null){
     nextUpMsg.innerHTML = `${allPlayers[0]} is up!`
-  } else if (playerTurn === 1){
-    nextUpMsg.innerHTML = `${allPlayers[1]} is up!`
   } else if (playerTurn === 2){
-    nextUpMsg.innerHTML = `${allPlayers[2]} is up!`
+    nextUpMsg.innerHTML = `${allPlayers[1]} is up!`
   } else if (playerTurn === 3){
-    nextUpMsg.innerHTML = `${allPlayers[3]} is up!`
+    nextUpMsg.innerHTML = `${allPlayers[2]} is up!`
   } else if (playerTurn === 4){
-    nextUpMsg.innerHTML = `${allPlayers[4]} is up!`
+    nextUpMsg.innerHTML = `${allPlayers[3]} is up!`
   } else if (playerTurn === 5){
+    nextUpMsg.innerHTML = `${allPlayers[4]} is up!`
+  } else if (playerTurn === 6){
     nextUpMsg.innerHTML = `${allPlayers[5]} is up!`
   } else {
     
