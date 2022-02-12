@@ -165,7 +165,7 @@ const yahtzBonus = document.getElementById('yahtzee-bonus')
 startGameBtn.addEventListener('click', startGame)
 rollDiceBtn.addEventListener('click', rollDice)
 lockDiceIcon.forEach((evt, idx) => {
-  addEventListener('click', handleLockClick)
+  addEventListener('click', handleLockClick, resetDice)
   })
 
   
@@ -381,7 +381,6 @@ function assignScore (evt){
       playerSixScore.push(score)
       playerSixBonus.push(score)
     } 
-    nextPlayerUp()
   } else if (evt.target.id === 'twos') {
     let score = 0
     for (let i=0; i < diceArray.length; i++){
@@ -636,4 +635,10 @@ function nextPlayerUp (){
   rollDiceBtn.style.display = 'block'
   rollCount = 0
   console.log(playerTurn)
+}
+
+function resetDice (){
+  if (rollCount === 0) {
+    lockDiceIcon
+  }
 }
