@@ -131,7 +131,7 @@ const diceLock3 = document.getElementById('dicelock3')
 const diceLock4 = document.getElementById('dicelock4')
 const diceLock5 = document.getElementById('dicelock5')
 const lockDiceIcon = document.querySelectorAll(".dicelockicon")
-const scoreCategory = document.querySelectorAll(".player") 
+let scoreCategory
 const rollDiceBtn = document.getElementById('roll-button')
 const ones = document.getElementById('ones')
 const twos = document.getElementById('twos')
@@ -150,6 +150,7 @@ const yahtzBonus = document.getElementById('yahtzee-bonus')
 
 
 
+
 /*----------------------------- Event Listeners -----------------------------*/
 startGameBtn.addEventListener('click', startGame)
 rollDiceBtn.addEventListener('click', rollDice)
@@ -158,9 +159,9 @@ lockDiceIcon.forEach((evt, idx) => {
   addEventListener('click', handleLockClick)
   })
 
-scoreCategory.forEach((evt, idx) => {
-  addEventListener('click', assignScore)
-  })
+// scoreCategory.forEach((evt, idx) => {
+//   addEventListener('click', assignScore)
+//   })
 
 
 
@@ -218,6 +219,10 @@ function startGame () {
   gameMsg.innerHTML = "Rules: "
   listNames.textContent = "";
   gameMsg.textContent = "";
+  scoreCategory = document.querySelectorAll(".player")
+  scoreCategory.forEach((evt, idx) => {
+    addEventListener('click', assignScore)
+    })
   render()
 }
 
