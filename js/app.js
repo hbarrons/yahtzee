@@ -327,45 +327,77 @@ function handleLockClick (event){
 }
 
 function assignScore (evt){
-  diceArray = []
-
-
   playerTurn = parseInt(evt.target.className.split('').pop())
   diceArray = [rollOutcome1, rollOutcome2, rollOutcome3, rollOutcome4, rollOutcome5]
-  console.log(diceArray)
   if (evt.target.id === 'ones') {
+    let total = 0
     for (let i=0; i < diceArray.length; i++){
-      let total = 0
-      if (i === 1){
-        i = total + i
+      if (diceArray[i] === 1){
+        total = total + 1
       }
-      console.log(total)
     }
-  
+    console.log(total)
   } else if (evt.target.id === 'twos') {
-    console.log(evt.target.id)
+    let total = 0
+    for (let i=0; i < diceArray.length; i++){
+      if (diceArray[i] === 2){
+        total = total + 2
+      }
+    }
+    console.log(total)
   } else if (evt.target.id === 'threes') {
-    console.log(evt.target.id)
+    let total = 0
+    for (let i=0; i < diceArray.length; i++){
+      if (diceArray[i] === 3){
+        total = total + 3
+      }
+    }
+    console.log(total)
   } else if (evt.target.id === 'fours') {
-    console.log(evt.target.id)
+    let total = 0
+    for (let i=0; i < diceArray.length; i++){
+      if (diceArray[i] === 4){
+        total = total + 4
+      }
+    }
+    console.log(total)
   } else if (evt.target.id === 'fives') {
-    console.log(evt.target.id)
+    let total = 0
+    for (let i=0; i < diceArray.length; i++){
+      if (diceArray[i] === 5){
+        total = total + 5
+      }
+    }
+    console.log(total)
   } else if (evt.target.id === 'sixes') {
-    console.log(evt.target.id)
+    let total = 0
+    for (let i=0; i < diceArray.length; i++){
+      if (diceArray[i] === 6){
+        total = total + 6
+      }
+    }
+    console.log(total)
   } else if (evt.target.id === 'three-kind') {
-    console.log(evt.target.id)
+    total = diceArray.reduce((prev, amt) => prev + amt)
+    console.log(total)
   } else if (evt.target.id === 'four-kind') {
-    console.log(evt.target.id)
+    total = diceArray.reduce((prev, amt) => prev + amt)
+    console.log(total)
   } else if (evt.target.id === 'sm-straight') {
-    console.log(evt.target.id)
+    score = 30
+    console.log(score)
   } else if (evt.target.id === 'lg-straight') {
-    console.log(evt.target.id)
+    score = 40
+    console.log(score)
   } else if (evt.target.id === 'yahtzee') {
-    console.log(evt.target.id)
+    score = 50
+    console.log(score)
   } else if (evt.target.id === 'chance') {
-    console.log(evt.target.id)
+    total = diceArray.reduce((prev, amt) => prev + amt)
+    console.log(total)
   } else if (evt.target.id === 'yahtzee-bonus') {
-    console.log(evt.target.id)
+    score = 50
+    console.log(score)
   }
 }
 
