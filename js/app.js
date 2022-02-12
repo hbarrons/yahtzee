@@ -206,6 +206,7 @@ function init () {
   playerFiveBonus = []
   playerSixScore = []
   playerSixBonus = []
+  rollDiceBtn.setAttribute("hidden", true)
   scoreboardCategories.setAttribute("hidden", false)
   render()
   // startGameBtn.setAttribute("hidden", false)
@@ -231,13 +232,17 @@ function listPlayers (arr) {
 }
 
 function startGame () {
-  startGameBtn.setAttribute("hidden", true)
+  startGameBtn.style.display = 'none'
   allPlayers.forEach((str, idx) => {
     appendScoreboard(str, idx)
   })
+  rollDiceBtn.style.display = 'block'
   gameMsg.innerHTML = "Rules: "
   listNames.textContent = "";
   // gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)`;
+  
+  //because these elements aren't being added until startGame, they need to be defined here
+  //cached elements
   scoreCategory = document.querySelectorAll(".player")
   scoreCategory.forEach((evt, idx) => {
     addEventListener('click', assignScore)
@@ -246,11 +251,14 @@ function startGame () {
   playerTurn.forEach((evt, idx) => {
     addEventListener('click', assignScore, nextPlayerUp)
     })
-  render()
+
+  playerTurn = 0
+
+  nextPlayerUp()
 }
 
 function render() {
-  nextPlayerUp()
+
 }
 
 function appendScoreboard(str, idx) {
@@ -288,7 +296,7 @@ function rollDice () {
     diceRollAudio.valume = .05
     diceRollAudio.play()
     if (rollCount === 3) {
-      rollDiceBtn.setAttribute('hidden', true)
+      rollDiceBtn.style.display = 'none'
     } 
   }
 }
@@ -370,9 +378,7 @@ function assignScore (evt){
       playerSixScore.push(score)
       playerSixBonus.push(score)
     } 
-    playerTurn
-    console.log(playerOneScore)
-    console.log(playerOneBonus)
+    nextPlayerUp()
   } else if (evt.target.id === 'twos') {
     let score = 0
     for (let i=0; i < diceArray.length; i++){
@@ -398,7 +404,8 @@ function assignScore (evt){
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
-    } 
+    }
+    nextPlayerUp() 
     console.log(score)
   } else if (evt.target.id === 'threes') {
     let score = 0
@@ -426,6 +433,7 @@ function assignScore (evt){
       playerSixScore.push(score)
       playerSixBonus.push(score)
     } 
+    nextPlayerUp()
     console.log(score)
   } else if (evt.target.id === 'fours') {
     let score = 0
@@ -453,6 +461,7 @@ function assignScore (evt){
       playerSixScore.push(score)
       playerSixBonus.push(score)
     } 
+    nextPlayerUp()
     console.log(score)
   } else if (evt.target.id === 'fives') {
     let score = 0
@@ -480,6 +489,7 @@ function assignScore (evt){
       playerSixScore.push(score)
       playerSixBonus.push(score)
     } 
+    nextPlayerUp()
     console.log(score)
   } else if (evt.target.id === 'sixes') {
     let score = 0
@@ -507,6 +517,7 @@ function assignScore (evt){
       playerSixScore.push(score)
       playerSixBonus.push(score)
     } 
+    nextPlayerUp()
     console.log(score)
   } else if (evt.target.id === 'bonus') {  
     if (playerTurn === 1 && playerOneBonus.length === 5 && (playerOneBonus.reduce((prev, amt) => prev + amt)) >= 63) {
@@ -522,6 +533,7 @@ function assignScore (evt){
     } else if (playerTurn === 6 && playerSixBonus.length === 5 && (playerSixBonus.reduce((prev, amt) => prev + amt)) >= 63) {
       playerOneScore.push(35)
     } 
+    nextPlayerUp()
     console.log(playerOneScore)
   } else if (evt.target.id === 'three-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
@@ -538,6 +550,7 @@ function assignScore (evt){
     } else if (playerTurn === 6){
       playerSixScore.push(score)
     } 
+    nextPlayerUp()
     console.log(score)
   } else if (evt.target.id === 'four-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
@@ -560,28 +573,39 @@ function assignScore (evt){
       playerSixScore.push(score)
       playerSixBonus.push(score)
     } 
+    nextPlayerUp()
     console.log(score)
   } else if (evt.target.id === 'sm-straight') {
     score = 30
+    nextPlayerUp()
     console.log(score)
   } else if (evt.target.id === 'lg-straight') {
     score = 40
+    nextPlayerUp()
     console.log(score)
   } else if (evt.target.id === 'yahtzee') {
     score = 50
+    nextPlayerUp()
     console.log(score)
   } else if (evt.target.id === 'chance') {
     score = diceArray.reduce((prev, amt) => prev + amt)
     console.log(score)
+    nextPlayerUp()
   } else if (evt.target.id === 'yahtzee-bonus') {
     score = 50
     console.log(score)
+    nextPlayerUp()
   }
 }
 
-function nextPlayerUp (evt){
-  playerTurn + 1
-  if (playerTurn === 1 && allPlayers !== null){
+function nextPlayerUp (){
+  if (playerTurn === allPlayers.length) {
+    playerTurn = 0
+  }
+  playerTurn = playerTurn + 1
+  if (playerTurn === 0 || playerTurn === NaN) {
+    nextUpMsg.innerHTML = ""
+  } else if (playerTurn === 1 && allPlayers !== null){
     nextUpMsg.innerHTML = `${allPlayers[0]} is up!`
   } else if (playerTurn === 2){
     nextUpMsg.innerHTML = `${allPlayers[1]} is up!`
@@ -593,11 +617,11 @@ function nextPlayerUp (evt){
     nextUpMsg.innerHTML = `${allPlayers[4]} is up!`
   } else if (playerTurn === 6){
     nextUpMsg.innerHTML = `${allPlayers[5]} is up!`
-  } else {
-    
-  }
+  } 
   if (playerTurn === allPlayers.length) {
     playerTurn = 1
   }
+  rollDiceBtn.style.display = 'block'
+  rollCount = 0
   console.log(playerTurn)
 }
