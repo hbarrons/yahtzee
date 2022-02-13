@@ -194,6 +194,16 @@ function init () {
   isUnlocked3 = true
   isUnlocked4 = true
   isUnlocked5 = true
+  diceLock1.style.display = 'none'
+  diceLock2.style.display = 'none'
+  diceLock3.style.display = 'none'
+  diceLock4.style.display = 'none'
+  diceLock5.style.display = 'none'
+  diceOne.innerHTML = ''
+  diceTwo.innerHTML = ''
+  diceThree.innerHTML = ''
+  diceFour.innerHTML = ''
+  diceFive.innerHTML = ''
   playerOneScore = []
   playerOneBonus = []
   playerTwoScore = []
@@ -241,10 +251,11 @@ function startGame () {
   rollDiceBtn.style.display = 'block'
   gameMsg.innerHTML = "Rules: "
   listNames.textContent = "";
-  // gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the locks to lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to (hover over category to see scoring rules)`;
+  form.style.display = 'none'
+  gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the lock emoji lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to.<br>Good luck, have fun!`;
   
-  //because these elements aren't being added until startGame, they need to be defined here
-  //cached elements
+  // because these elements aren't being added until startGame, they need to be defined here
+  // cached elements
   scoreCategory = document.querySelectorAll(".player")
   scoreCategory.forEach((evt, idx) => {
     addEventListener('click', assignScore)
@@ -296,12 +307,14 @@ function rollDice () {
     diceRollThree()
     diceRollFour()
     diceRollFive()
-    if (rollCount !==3) {
     diceLock1.style.display = 'block'
     diceLock2.style.display = 'block'
     diceLock3.style.display = 'block'
     diceLock4.style.display = 'block'
     diceLock5.style.display = 'block'
+    gameMsg.innerHTML = ""
+    if (rollCount ===3) {
+      nextUpMsg.innerHTML = `Which category would you like to score?`
     }
     diceRollAudio.valume = .05
     diceRollAudio.play()
@@ -651,11 +664,6 @@ function resetDice (){
     diceLock3.style.display = 'none'
     diceLock4.style.display = 'none'
     diceLock5.style.display = 'none'
-    diceLock1.innerHTML = ' 🔓 '
-    diceLock2.innerHTML = ' 🔓 '
-    diceLock3.innerHTML = ' 🔓 '
-    diceLock4.innerHTML = ' 🔓 '
-    diceLock5.innerHTML = ' 🔓 '
     diceOne.innerHTML = ''
     diceTwo.innerHTML = ''
     diceThree.innerHTML = ''
