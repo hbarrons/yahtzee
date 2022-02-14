@@ -375,7 +375,7 @@ function assignScore (evt){
   console.log(playerTurn)
   recordScoreOnes = document.querySelector(`.ones${playerTurn}`)
   recordScoreTwos = document.querySelector(`.twos${playerTurn}`)
-  recordScoreThrees = document.querySelector(`.threes${idx + 1}`)
+  recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
   recordScoreFours = document.querySelector(`.fours${playerTurn}`)
   recordScoreFives = document.querySelector(`.fives${playerTurn}`)
   recordScoreSixes = document.querySelector(`.sixes${playerTurn}`)
