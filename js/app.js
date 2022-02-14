@@ -269,10 +269,6 @@ function startGame () {
   nextPlayerUp()
 }
 
-function render() {
-
-}
-
 function appendScoreboard(str, idx) {
   let playerBoard = document.createElement("div")
   playerBoard.classList.add("playerscore")
@@ -303,12 +299,16 @@ function appendScoreboard(str, idx) {
 function rollDice () {
   if (rollCount < 3) {
     rollCount = rollCount + 1
-    render()
     diceRollOne()
     diceRollTwo()
     diceRollThree()
     diceRollFour()
     diceRollFive()
+    diceOne.style.display = 'block'
+    diceTwo.style.display = 'block'
+    diceThree.style.display = 'block'
+    diceFour.style.display = 'block'
+    diceFive.style.display = 'block'
     diceLock1.style.display = 'block'
     diceLock2.style.display = 'block'
     diceLock3.style.display = 'block'
@@ -375,7 +375,7 @@ function assignScore (evt){
   console.log(playerTurn)
   recordScoreOnes = document.querySelector(`.ones${playerTurn}`)
   recordScoreTwos = document.querySelector(`.twos${playerTurn}`)
-  recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
+  recordScoreThrees = document.querySelector(`.threes${idx + 1}`)
   recordScoreFours = document.querySelector(`.fours${playerTurn}`)
   recordScoreFives = document.querySelector(`.fives${playerTurn}`)
   recordScoreSixes = document.querySelector(`.sixes${playerTurn}`)
@@ -535,6 +535,7 @@ function assignScore (evt){
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
+      recordScoreFives.innerHTML = score
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
@@ -705,10 +706,8 @@ function nextPlayerUp (){
     playerTurn = 1
   }
   rollDiceBtn.style.display = 'block'
-  resetDice()
   rollCount = 0
   resetDice()
-
 }
 
 function resetDice (){
@@ -717,16 +716,16 @@ function resetDice (){
   isUnlocked3 = true
   isUnlocked4 = true
   isUnlocked5 = true
-  diceLock1.style.display = 'none'
-  diceLock2.style.display = 'none'
-  diceLock3.style.display = 'none'
-  diceLock4.style.display = 'none'
-  diceLock5.style.display = 'none'
-  diceOne.innerHTML = ''
-  diceTwo.innerHTML = ''
-  diceThree.innerHTML = ''
-  diceFour.innerHTML = ''
-  diceFive.innerHTML = ''
+  diceLock1.innerHTML = ' 🔓 '
+  diceLock2.innerHTML = ' 🔓 '
+  diceLock3.innerHTML = ' 🔓 '
+  diceLock4.innerHTML = ' 🔓 '
+  diceLock5.innerHTML = ' 🔓 '
+  diceOne.style.display = 'none'
+  diceTwo.style.display = 'none'
+  diceThree.style.display = 'none'
+  diceFour.style.display = 'none'
+  diceFive.style.display = 'none'
 }
 
 
