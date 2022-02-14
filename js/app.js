@@ -754,7 +754,6 @@ function checkForBonus () {
     player1bonus = playerOneBonus.reduce((x,y) => {
       return x + y
     })
-    console.log(player1bonus)
   if (playerOneBonus.length === 6 && player1bonus >= 63)
     recordScoreBonus.innerHTML = '35'
   } else if (playerOneBonus.length === 6 && player1bonus < 63) {
@@ -762,7 +761,7 @@ function checkForBonus () {
   }
   if (playerTwoBonus.length === 6 && player2bonus >= 63) {
     player2bonus = playerTwoBonus.reduce((x,y) => {
-      x + y
+      return x + y
     })
     recordScoreBonus.innerHTML = '35'
   } else if (playerTwoBonus.length === 6 && player2bonus < 63) {
@@ -770,7 +769,7 @@ function checkForBonus () {
   }
   if (playerThreeBonus.length === 6 && player4bonus >= 63) {
     player3bonus = playerThreeBonus.reduce((x,y) => {
-      x + y
+      return x + y
     })
     recordScoreBonus.innerHTML = '35'
   } else if (playerThreeBonus.length === 6 && player4bonus < 63) {
@@ -778,7 +777,7 @@ function checkForBonus () {
   }
   if (playerFourBonus.length === 6 && player4bonus >= 63) {
     player4bonus = playerFourBonus.reduce((x,y) => {
-      x + y
+      return x + y
     })
     recordScoreBonus.innerHTML = '35'
   } else if (playerFourBonus.length === 6 && player4bonus < 63) {
@@ -786,7 +785,7 @@ function checkForBonus () {
   }
   if (playerFiveBonus.length === 6 && player5bonus >= 63) {
     player5bonus = playerFiveBonus.reduce((x,y) => {
-      x + y
+      return x + y
     })
     recordScoreBonus.innerHTML = '35'
   } else if (playerFiveBonus.length === 6 && player5bonus < 63) {
@@ -794,7 +793,7 @@ function checkForBonus () {
   }
   if (playerSixBonus.length === 6 && player6bonus >= 63) {
     player6bonus = playerSixBonus.reduce((x,y) => {
-      x + y
+      return x + y
     })
     recordScoreBonus.innerHTML = '35'
   } else if (playerSixBonus.length === 6 && player6bonus < 63) {
