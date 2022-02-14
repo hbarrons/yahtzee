@@ -118,6 +118,7 @@ let roll1
 let diceArray
 let playerOneScore, playerTwoScore, playerThreeScore, playerFourScore, playerFiveScore, playerSixScore
 let playerOneBonus, playerTwoBonus, playerThreeBonus, playerFourBonus, playerFiveBonus, playerSixBonus
+let player1bonus, player2bonus, player3bonus, player4bonus, player5bonus, player6bonus
 
 
 
@@ -399,7 +400,6 @@ function assignScore (evt){
       playerOneScore.push(score)
       playerOneBonus.push(score)
       recordScoreOnes.innerHTML = score
-      checkForBonus()
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
@@ -421,6 +421,7 @@ function assignScore (evt){
       playerSixBonus.push(score)
       recordScoreOnes.innerHTML = score
     }
+    checkForBonus()
     nextPlayerUp()
   } else if (evt.target.id === 'twos') {
     let score = 0
@@ -454,6 +455,7 @@ function assignScore (evt){
       playerSixBonus.push(score)
       recordScoreTwos.innerHTML = score
     }
+    checkForBonus()
     nextPlayerUp() 
   } else if (evt.target.id === 'threes') {
     let score = 0
@@ -487,6 +489,7 @@ function assignScore (evt){
       playerSixBonus.push(score)
       recordScoreThrees.innerHTML = score
     } 
+    checkForBonus()
     nextPlayerUp()
   } else if (evt.target.id === 'fours') {
     let score = 0
@@ -499,27 +502,33 @@ function assignScore (evt){
       playerOneScore.push(score)
       playerOneBonus.push(score)
       recordScoreFours.innerHTML = score
+      
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
       recordScoreFours.innerHTML = score
+      
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
       recordScoreFours.innerHTML = score
+      
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
       recordScoreFours.innerHTML = score
+      
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
       recordScoreFours.innerHTML = score
+      
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
       recordScoreFours.innerHTML = score
     } 
+    checkForBonus()
     nextPlayerUp()
   } else if (evt.target.id === 'fives') {
     let score = 0
@@ -532,26 +541,32 @@ function assignScore (evt){
       playerOneScore.push(score)
       playerOneBonus.push(score)
       recordScoreFives.innerHTML = score
+      checkForBonus()
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
       recordScoreFives.innerHTML = score
+      checkForBonus()
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
       recordScoreFives.innerHTML = score
+      checkForBonus()
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
       recordScoreFives.innerHTML = score
+      checkForBonus()
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
       recordScoreFives.innerHTML = score
+      checkForBonus()
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
       recordScoreFives.innerHTML = score
+      checkForBonus()
     } 
     nextPlayerUp()
   } else if (evt.target.id === 'sixes') {
@@ -565,26 +580,32 @@ function assignScore (evt){
       playerOneScore.push(score)
       playerOneBonus.push(score)
       recordScoreSixes.innerHTML = score
+      checkForBonus()
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
       recordScoreSixes.innerHTML = score
+      checkForBonus()
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
       recordScoreSixes.innerHTML = score
+      checkForBonus()
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
       recordScoreSixes.innerHTML = score
+      checkForBonus()
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
       recordScoreSixes.innerHTML = score
+      checkForBonus()
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
       recordScoreSixes.innerHTML = score
+      checkForBonus()
     } 
     nextPlayerUp()
   } else if (evt.target.id === 'bonus') {  
@@ -630,7 +651,6 @@ function assignScore (evt){
       recordScoreThreeKind.innerHTML = score
     } 
     nextPlayerUp() 
-
   } else if (evt.target.id === 'four-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
     if (playerTurn === 1) {
@@ -729,43 +749,57 @@ function resetDice (){
 }
 
 function checkForBonus () {
-  let player1bonus = playerOneBonus.reduce((x,y) => {
-    x + y
-  })
-  let player2bonus = playerTwoBonus.reduce((x,y) => {
-    x + y
-  })
-  let player3bonus = playerThreeBonus.reduce((x,y) => {
-    x + y
-  })
-  let player4bonus = playerFourBonus.reduce((x,y) => {
-    x + y
-  })
-  let player5bonus = playerFiveBonus.reduce((x,y) => {
-    x + y
-  })
-  let player6bonus = playerSixBonus.reduce((x,y) => {
-    x + y
-  })
-  if (playerOneBonus.length === 6 && player1bonus >= 63) {
+  console.log(playerOneBonus)
+  if (playerOneBonus.length === 6) {
+    player1bonus = playerOneBonus.reduce((x,y) => {
+      return x + y
+    })
+    console.log(player1bonus)
+  if (playerOneBonus.length === 6 && player1bonus >= 63)
     recordScoreBonus.innerHTML = '35'
+  } else if (playerOneBonus.length === 6 && player1bonus < 63) {
+    recordScoreBonus.innerHTML = '0'
   }
   if (playerTwoBonus.length === 6 && player2bonus >= 63) {
+    player2bonus = playerTwoBonus.reduce((x,y) => {
+      x + y
+    })
     recordScoreBonus.innerHTML = '35'
+  } else if (playerTwoBonus.length === 6 && player2bonus < 63) {
+    recordScoreBonus.innerHTML = '0'
   }
   if (playerThreeBonus.length === 6 && player4bonus >= 63) {
+    player3bonus = playerThreeBonus.reduce((x,y) => {
+      x + y
+    })
     recordScoreBonus.innerHTML = '35'
+  } else if (playerThreeBonus.length === 6 && player4bonus < 63) {
+    recordScoreBonus.innerHTML = '0'
   }
   if (playerFourBonus.length === 6 && player4bonus >= 63) {
+    player4bonus = playerFourBonus.reduce((x,y) => {
+      x + y
+    })
     recordScoreBonus.innerHTML = '35'
+  } else if (playerFourBonus.length === 6 && player4bonus < 63) {
+    recordScoreBonus.innerHTML = '0'
   }
   if (playerFiveBonus.length === 6 && player5bonus >= 63) {
+    player5bonus = playerFiveBonus.reduce((x,y) => {
+      x + y
+    })
     recordScoreBonus.innerHTML = '35'
+  } else if (playerFiveBonus.length === 6 && player5bonus < 63) {
+    recordScoreBonus.innerHTML = '0'
   }
   if (playerSixBonus.length === 6 && player6bonus >= 63) {
+    player6bonus = playerSixBonus.reduce((x,y) => {
+      x + y
+    })
     recordScoreBonus.innerHTML = '35'
+  } else if (playerSixBonus.length === 6 && player6bonus < 63) {
+    recordScoreBonus.innerHTML = '0'
   }
-  // if (playerOneBonus.length === 6 &&)
 }
 
 
