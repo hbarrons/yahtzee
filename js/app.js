@@ -673,30 +673,171 @@ function assignScore (evt){
       recordScoreFourKind.innerHTML = score
     } 
     nextPlayerUp() 
+
+
+    // need to write playerTurn === to each player so that the score can push into score array
   } else if (evt.target.id === 'full-house') {
     score = 25
-    recordScoreFullHouse.innerHTML = score
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      recordScoreFullHouse.innerHTML = score
+    }
+    if (playerTurn === 2) {
+      playerTwoScore.push(score)
+      recordScoreFullHouse.innerHTML = score
+    }
+    if (playerTurn === 3) {
+      playerThreeScore.push(score)
+      recordScoreFullHouse.innerHTML = score
+    }
+    if (playerTurn === 4) {
+      playerFourScore.push(score)
+      recordScoreFullHouse.innerHTML = score
+    }
+    if (playerTurn === 5) {
+      playerFiveScore.push(score)
+      recordScoreFullHouse.innerHTML = score
+    }
+    if (playerTurn === 6) {
+      playerSixScore.push(score)
+      recordScoreFullHouse.innerHTML = score
+    }
     nextPlayerUp() 
   } else if (evt.target.id === 'sm-straight') {
     score = 30
-    recordScoreSmStraight.innerHTML = score
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      recordScoreSmStraight.innerHTML = score
+    }
+    if (playerTurn === 2) {
+      playerTwoScore.push(score)
+      recordScoreSmStraight.innerHTML = score
+    }
+    if (playerTurn === 3) {
+      playerThreeScore.push(score)
+      recordScoreSmStraight.innerHTML = score
+    }
+    if (playerTurn === 4) {
+      playerFourScore.push(score)
+      recordScoreSmStraight.innerHTML = score
+    }
+    if (playerTurn === 5) {
+      playerFiveScore.push(score)
+      recordScoreSmStraight.innerHTML = score
+    }
+    if (playerTurn === 6) {
+      playerSixScore.push(score)
+      recordScoreSmStraight.innerHTML = score
+    }
     nextPlayerUp() 
   } else if (evt.target.id === 'lg-straight') {
     score = 40
-    recordScoreLgStraight.innerHTML = score
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      recordScoreLgStraight.innerHTML = score
+    }
+    if (playerTurn === 2) {
+      playerTwoScore.push(score)
+      recordScoreLgStraight.innerHTML = score
+    }
+    if (playerTurn === 3) {
+      playerThreeScore.push(score)
+      recordScoreLgStraight.innerHTML = score
+    }
+    if (playerTurn === 4) {
+      playerFourScore.push(score)
+      recordScoreLgStraight.innerHTML = score
+    }
+    if (playerTurn === 5) {
+      playerFiveScore.push(score)
+      recordScoreLgStraight.innerHTML = score
+    }
+    if (playerTurn === 6) {
+      playerSixScore.push(score)
+      recordScoreLgStraight.innerHTML = score
+    }
     nextPlayerUp() 
   } else if (evt.target.id === 'yahtzee') {
     score = 50
-    recordScoreYahtzee.innerHTML = score
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      recordScoreYahtzee.innerHTML = score
+    }
+    if (playerTurn === 2) {
+      playerTwoScore.push(score)
+      recordScoreYahtzee.innerHTML = score
+    }
+    if (playerTurn === 3) {
+      playerThreeScore.push(score)
+      recordScoreYahtzee.innerHTML = score
+    }
+    if (playerTurn === 4) {
+      playerFourScore.push(score)
+      recordScoreYahtzee.innerHTML = score
+    }
+    if (playerTurn === 5) {
+      playerFiveScore.push(score)
+      recordScoreYahtzee.innerHTML = score
+    }
+    if (playerTurn === 6) {
+      playerSixScore.push(score)
+      recordScoreYahtzee.innerHTML = score
+    }
     nextPlayerUp() 
   } else if (evt.target.id === 'chance') {
     score = diceArray.reduce((prev, amt) => prev + amt)
-    recordScoreChance.innerHTML = score
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      recordScoreChance.innerHTML = score
+    }
+    if (playerTurn === 2) {
+      playerTwoScore.push(score)
+      recordScoreChance.innerHTML = score
+    }
+    if (playerTurn === 3) {
+      playerThreeScore.push(score)
+      recordScoreChance.innerHTML = score
+    }
+    if (playerTurn === 4) {
+      playerFourScore.push(score)
+      recordScoreChance.innerHTML = score
+    }
+    if (playerTurn === 5) {
+      playerFiveScore.push(score)
+      recordScoreChance.innerHTML = score
+    }
+    if (playerTurn === 6) {
+      playerSixScore.push(score)
+      recordScoreChance.innerHTML = score
+    }
     nextPlayerUp() 
   } else if (evt.target.id === 'yahtzee-bonus') {
     score = 50
-    recordScoreYahtBonus.innerHTML = score
     nextPlayerUp() 
+    if (playerTurn === 1) {
+      playerOneScore.push(score)
+      recordScoreYahtBonus.innerHTML = score
+    }
+    if (playerTurn === 2) {
+      playerTwoScore.push(score)
+      recordScoreYahtBonus.innerHTML = score
+    }
+    if (playerTurn === 3) {
+      playerThreeScore.push(score)
+      recordScoreYahtBonus.innerHTML = score
+    }
+    if (playerTurn === 4) {
+      playerFourScore.push(score)
+      recordScoreYahtBonus.innerHTML = score
+    }
+    if (playerTurn === 5) {
+      playerFiveScore.push(score)
+      recordScoreYahtBonus.innerHTML = score
+    }
+    if (playerTurn === 6) {
+      playerSixScore.push(score)
+      recordScoreYahtBonus.innerHTML = score
+    }
   }
 }
 
@@ -756,48 +897,61 @@ function checkForBonus () {
     })
   if (playerOneBonus.length === 6 && player1bonus >= 63)
     recordScoreBonus.innerHTML = '35'
+    playerOneScore.push(35)
+    console.log(playerOneScore)
   } else if (playerOneBonus.length === 6 && player1bonus < 63) {
     recordScoreBonus.innerHTML = '0'
+    playerOneScore.push(0)
   }
   if (playerTwoBonus.length === 6 && player2bonus >= 63) {
     player2bonus = playerTwoBonus.reduce((x,y) => {
       return x + y
     })
     recordScoreBonus.innerHTML = '35'
+    playerTwoScore.push(35)
   } else if (playerTwoBonus.length === 6 && player2bonus < 63) {
     recordScoreBonus.innerHTML = '0'
+    playerTwoScore.push(0)
   }
   if (playerThreeBonus.length === 6 && player4bonus >= 63) {
     player3bonus = playerThreeBonus.reduce((x,y) => {
       return x + y
     })
     recordScoreBonus.innerHTML = '35'
+    playerThreeScore.push(35)
   } else if (playerThreeBonus.length === 6 && player4bonus < 63) {
     recordScoreBonus.innerHTML = '0'
+    playerThreeScore.push(0)
   }
   if (playerFourBonus.length === 6 && player4bonus >= 63) {
     player4bonus = playerFourBonus.reduce((x,y) => {
       return x + y
     })
     recordScoreBonus.innerHTML = '35'
+    playerFourScore.push(35)
   } else if (playerFourBonus.length === 6 && player4bonus < 63) {
     recordScoreBonus.innerHTML = '0'
+    playerFourScore.push(0)
   }
   if (playerFiveBonus.length === 6 && player5bonus >= 63) {
     player5bonus = playerFiveBonus.reduce((x,y) => {
       return x + y
     })
     recordScoreBonus.innerHTML = '35'
+    playerFiveScore.push(35)
   } else if (playerFiveBonus.length === 6 && player5bonus < 63) {
     recordScoreBonus.innerHTML = '0'
+    playerFiveScore.push(0)
   }
   if (playerSixBonus.length === 6 && player6bonus >= 63) {
     player6bonus = playerSixBonus.reduce((x,y) => {
       return x + y
     })
     recordScoreBonus.innerHTML = '35'
+    playerSixScore.push(35)
   } else if (playerSixBonus.length === 6 && player6bonus < 63) {
     recordScoreBonus.innerHTML = '0'
+    playerSixScore.push(0)
   }
 }
 
