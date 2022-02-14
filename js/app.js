@@ -128,6 +128,7 @@ let finalScores
 
 /*------------------------ Cached Element References ------------------------*/
 const playerScoreboard = document.getElementById("playerscoreboard")
+const player = document.querySelectorAll('.player')
 const scoreboardCategories = document.querySelectorAll('.category')
 const playerInput = document.querySelector("#playerInput")
 const form = document.querySelector('form')
@@ -234,8 +235,7 @@ function init () {
   startGameBtn.style.display = 'none'
   resetGameBtn.style.display = 'none'
   form.style.display = 'block'
-  playerBoard.innerHTML = ""
-  playerScoreboard.appendChild(playerBoard)
+  playerScoreboard.innerHTML = ""
 }
 
 function getPlayer(){
@@ -290,8 +290,7 @@ function appendScoreboard(str, idx) {
   let playerBoard = document.createElement("div")
   playerBoard.classList.add("playerscore")
   playerBoard.innerHTML =
-
-  `<div id="name player${idx + 1}" class="playerName">${str}</div>
+  `<div id="name player${idx + 1}" class="player playerName">${str}</div>
   <div id="ones" class="player ones${idx + 1} player${idx + 1}"></div>
   <div id="twos" class="player twos${idx + 1} player${idx + 1}"></div>
   <div id="threes" class="player threes${idx + 1} player${idx + 1}"></div>
@@ -1175,6 +1174,10 @@ function gameOver () {
       }
   }  
 }
+
+// function resetGame () {
+//   playerScoreboard.innerHTML = ""
+// }
 
 
 
