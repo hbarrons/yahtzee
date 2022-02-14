@@ -119,6 +119,7 @@ let diceArray
 let playerOneScore, playerTwoScore, playerThreeScore, playerFourScore, playerFiveScore, playerSixScore
 let playerOneBonus, playerTwoBonus, playerThreeBonus, playerFourBonus, playerFiveBonus, playerSixBonus
 let player1bonus, player2bonus, player3bonus, player4bonus, player5bonus, player6bonus
+let playerOneFinal, playerTwoFinal, playerThreeFinal, playerFourFinal, playerFiveFinal, playerSixFinal
 
 
 
@@ -388,6 +389,7 @@ function assignScore (evt){
   recordScoreYahtzee = document.querySelector(`.yahtzee${playerTurn}`)
   recordScoreChance = document.querySelector(`.chance${playerTurn}`)
   recordScoreYahtBonus = document.querySelector(`.yahtzee-bonus${playerTurn}`)
+  recordScoreFinal = document.querySelector(`.total${playerTurn}`)
   diceArray = [rollOutcome1, rollOutcome2, rollOutcome3, rollOutcome4, rollOutcome5]
   if (evt.target.id === 'ones') {
     let score = 0
@@ -421,7 +423,7 @@ function assignScore (evt){
       playerSixBonus.push(score)
       recordScoreOnes.innerHTML = score
     }
-    checkForBonus()
+    checkForTopBonus()
     nextPlayerUp()
   } else if (evt.target.id === 'twos') {
     let score = 0
@@ -455,7 +457,7 @@ function assignScore (evt){
       playerSixBonus.push(score)
       recordScoreTwos.innerHTML = score
     }
-    checkForBonus()
+    checkForTopBonus()
     nextPlayerUp() 
   } else if (evt.target.id === 'threes') {
     let score = 0
@@ -489,7 +491,7 @@ function assignScore (evt){
       playerSixBonus.push(score)
       recordScoreThrees.innerHTML = score
     } 
-    checkForBonus()
+    checkForTopBonus()
     nextPlayerUp()
   } else if (evt.target.id === 'fours') {
     let score = 0
@@ -528,7 +530,7 @@ function assignScore (evt){
       playerSixBonus.push(score)
       recordScoreFours.innerHTML = score
     } 
-    checkForBonus()
+    checkForTopBonus()
     nextPlayerUp()
   } else if (evt.target.id === 'fives') {
     let score = 0
@@ -541,33 +543,28 @@ function assignScore (evt){
       playerOneScore.push(score)
       playerOneBonus.push(score)
       recordScoreFives.innerHTML = score
-      checkForBonus()
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
       recordScoreFives.innerHTML = score
-      checkForBonus()
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
       recordScoreFives.innerHTML = score
-      checkForBonus()
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
       recordScoreFives.innerHTML = score
-      checkForBonus()
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
       recordScoreFives.innerHTML = score
-      checkForBonus()
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
       recordScoreFives.innerHTML = score
-      checkForBonus()
     } 
+    checkForTopBonus()
     nextPlayerUp()
   } else if (evt.target.id === 'sixes') {
     let score = 0
@@ -580,33 +577,28 @@ function assignScore (evt){
       playerOneScore.push(score)
       playerOneBonus.push(score)
       recordScoreSixes.innerHTML = score
-      checkForBonus()
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
       recordScoreSixes.innerHTML = score
-      checkForBonus()
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
       recordScoreSixes.innerHTML = score
-      checkForBonus()
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
       recordScoreSixes.innerHTML = score
-      checkForBonus()
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
       recordScoreSixes.innerHTML = score
-      checkForBonus()
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
       recordScoreSixes.innerHTML = score
-      checkForBonus()
     } 
+    checkForTopBonus()
     nextPlayerUp()
   } else if (evt.target.id === 'bonus') {  
     if (playerTurn === 1 && playerOneBonus.length === 5 && (playerOneBonus.reduce((prev, amt) => prev + amt)) >= 63) {
@@ -889,7 +881,7 @@ function resetDice (){
   diceFive.style.display = 'none'
 }
 
-function checkForBonus () {
+function checkForTopBonus () {
   console.log(playerOneBonus)
   if (playerOneBonus.length === 6) {
     player1bonus = playerOneBonus.reduce((x,y) => {
@@ -952,6 +944,51 @@ function checkForBonus () {
   } else if (playerSixBonus.length === 6 && player6bonus < 63) {
     recordScoreBonus.innerHTML = '0'
     playerSixScore.push(0)
+  }
+}
+
+function checkForYahtzeeBonus () {
+
+}
+
+function getFinalScore () {
+  console.log(playerOneBonus)
+  if (playerOneScore.length === 14) {
+    playerOneFinal = playerOneScore.reduce((x,y) => {
+      return x + y
+    })
+  if (playerOneScore.length === 14)
+    recordScoreFinal.innerHTML = playerOneFinal
+  } 
+  if (playerTwoScore.length === 14) {
+    playerTwoFinal = playerTwoScore.reduce((x,y) => {
+      return x + y
+    })
+    recordScoreFinal.innerHTML = playerTwoFinal
+  }
+  if (playerThreeScore.length === 14) {
+    playerThreeFinal = playerThreeScore.reduce((x,y) => {
+      return x + y
+    })
+    recordScoreFinal.innerHTML = playerThreeFinal
+  } 
+  if (playerFourScore.length === 14) {
+    playerFourFinal = playerFourScore.reduce((x,y) => {
+      return x + y
+    })
+    recordScoreFinal.innerHTML = playerFourFinal
+  } 
+  if (playerFiveScore.length === 14) {
+    playerFiveFinal = playerFiveScore.reduce((x,y) => {
+      return x + y
+    })
+    recordScoreFinal.innerHTML = playerFiveFinal
+  } 
+  if (playerSixScore.length === 14) {
+    playerSixFinal = playerSixScore.reduce((x,y) => {
+      return x + y
+    })
+    recordScoreFinal.innerHTML = playerSixFinal
   }
 }
 
