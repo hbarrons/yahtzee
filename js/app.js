@@ -122,6 +122,7 @@ let player1bonus, player2bonus, player3bonus, player4bonus, player5bonus, player
 let playerOneYahtBonus, playerTwoYahtBonus, playerThreeYahtBonus, playerFourYahtBonus, playerFiveYahtBonus, playerSixYahtBonus
 let playerOneTotal, playerTwoTotal, playerThreeTotal, playerFourTotal, playerFiveTotal, playerSixTotal
 let playerOneFinal, playerTwoFinal, playerThreeFinal, playerFourFinal, playerFiveFinal, playerSixFinal
+let finalScores
 
 
 
@@ -133,6 +134,7 @@ const form = document.querySelector('form')
 const gameMsg = document.getElementById('game-message')
 const nextUpMsg = document.querySelector('.playerUp')
 const startGameBtn = document.querySelector('.startgame')
+const resetGameBtn = document.getElementById('reset-game')
 const listNames = document.getElementById('listofplayers')
 const playerList = document.querySelector('playerlist')
 const diceOne = document.getElementById('dice1')
@@ -171,6 +173,7 @@ rollDiceBtn.addEventListener('click', rollDice)
 lockDiceIcon.forEach((evt, idx) => {
   addEventListener('click', handleLockClick)
   })
+resetGameBtn.addEventListener('click', init)
 
   
 
@@ -226,8 +229,13 @@ function init () {
   playerFourYahtBonus = []
   playerFiveYahtBonus = []
   playerSixYahtBonus = []
+  finalScores = []
   rollDiceBtn.style.display = 'none'
   startGameBtn.style.display = 'none'
+  resetGameBtn.style.display = 'none'
+  form.style.display = 'block'
+  playerBoard.innerHTML = ""
+  playerScoreboard.appendChild(playerBoard)
 }
 
 function getPlayer(){
@@ -901,6 +909,7 @@ function assignScore (evt){
     getFinalScore()
     nextPlayerUp() 
   }
+  gameOver()
 }
 
 function nextPlayerUp (){
@@ -1124,7 +1133,20 @@ function getFinalScore () {
 function gameOver () {
   if (allPlayers.length === 1) {
     if (playerOneScore.length === 14) {
-        gameMsg.innerHTML = `Game over! You're final score is ${player1}`
+        gameMsg.innerHTML = ''
+        nextUpMsg.innerHTML = `Game over! You're final score is ${playerOneFinal}`
+        diceLock1.style.display = 'none'
+        diceLock2.style.display = 'none'
+        diceLock3.style.display = 'none'
+        diceLock4.style.display = 'none'
+        diceLock5.style.display = 'none'
+        diceOne.style.display = 'none'
+        diceTwo.style.display = 'none'
+        diceThree.style.display = 'none'
+        diceFour.style.display = 'none'
+        diceFive.style.display = 'none'
+        rollDiceBtn.style.display = 'none'
+        resetGameBtn.style.display = 'block'
       }
   }  
   if (allPlayers.length === 2) {
