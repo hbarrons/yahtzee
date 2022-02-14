@@ -898,7 +898,6 @@ function assignScore (evt){
           recordScoreYahtBonus.innerHTML = score
         }
     }
-    checkForYahtzeeBonus()
     getFinalScore()
     nextPlayerUp() 
   }
@@ -953,73 +952,78 @@ function resetDice (){
 }
 
 function checkForTopBonus () {
-  console.log(playerOneBonus)
   if (playerOneBonus.length === 6) {
     player1bonus = playerOneBonus.reduce((x,y) => {
       return x + y
     })
-  if (playerOneBonus.length === 6 && player1bonus >= 63)
-    recordScoreBonus.innerHTML = '35'
-    playerOneScore.push(35)
-    console.log(playerOneScore)
-  } else if (playerOneBonus.length === 6 && player1bonus < 63) {
-    recordScoreBonus.innerHTML = '0'
-    playerOneScore.push(0)
+    if (player1bonus >= 63) {
+      recordScoreBonus.innerHTML = '35'
+      playerOneScore.push(35)
+    } else if (player1bonus < 63) {
+      recordScoreBonus.innerHTML = '0'
+      playerOneScore.push(0)
+   }
   }
-  if (playerTwoBonus.length === 6 && player2bonus >= 63) {
+  if (playerTwoBonus.length === 6) {
     player2bonus = playerTwoBonus.reduce((x,y) => {
       return x + y
     })
-    recordScoreBonus.innerHTML = '35'
-    playerTwoScore.push(35)
-  } else if (playerTwoBonus.length === 6 && player2bonus < 63) {
-    recordScoreBonus.innerHTML = '0'
-    playerTwoScore.push(0)
+    if ( player2bonus >= 63) {
+      recordScoreBonus.innerHTML = '35'
+      playerTwoScore.push(35)
+    } else if (player2bonus < 63) {
+      recordScoreBonus.innerHTML = '0'
+      playerTwoScore.push(0)
+    }
   }
-  if (playerThreeBonus.length === 6 && player4bonus >= 63) {
+  if (playerThreeBonus.length === 6) {
     player3bonus = playerThreeBonus.reduce((x,y) => {
       return x + y
     })
-    recordScoreBonus.innerHTML = '35'
-    playerThreeScore.push(35)
-  } else if (playerThreeBonus.length === 6 && player4bonus < 63) {
-    recordScoreBonus.innerHTML = '0'
-    playerThreeScore.push(0)
+    if (player3bonus >= 63) {
+      recordScoreBonus.innerHTML = '35'
+      playerThreeScore.push(35)
+    } else if (player3bonus < 63) {
+      recordScoreBonus.innerHTML = '0'
+      playerThreeScore.push(0)
+    }
   }
-  if (playerFourBonus.length === 6 && player4bonus >= 63) {
+  if (playerFourBonus.length === 6) {
     player4bonus = playerFourBonus.reduce((x,y) => {
       return x + y
     })
-    recordScoreBonus.innerHTML = '35'
-    playerFourScore.push(35)
-  } else if (playerFourBonus.length === 6 && player4bonus < 63) {
-    recordScoreBonus.innerHTML = '0'
-    playerFourScore.push(0)
+    if (player4bonus >= 63) {
+      recordScoreBonus.innerHTML = '35'
+      playerFourScore.push(35)
+    } else if (player4bonus < 63) {
+      recordScoreBonus.innerHTML = '0'
+      playerFourScore.push(0)
+    }
   }
-  if (playerFiveBonus.length === 6 && player5bonus >= 63) {
+  if (playerFiveBonus.length === 6) {
     player5bonus = playerFiveBonus.reduce((x,y) => {
       return x + y
     })
-    recordScoreBonus.innerHTML = '35'
-    playerFiveScore.push(35)
-  } else if (playerFiveBonus.length === 6 && player5bonus < 63) {
-    recordScoreBonus.innerHTML = '0'
-    playerFiveScore.push(0)
-  }
-  if (playerSixBonus.length === 6 && player6bonus >= 63) {
+    if (player5bonus >= 63) {
+      recordScoreBonus.innerHTML = '35'
+      playerFiveScore.push(35)
+    } else if (player5bonus < 63) {
+      recordScoreBonus.innerHTML = '0'
+      playerFiveScore.push(0)
+    }
+  } 
+  if (playerSixBonus.length === 6) {
     player6bonus = playerSixBonus.reduce((x,y) => {
       return x + y
     })
-    recordScoreBonus.innerHTML = '35'
-    playerSixScore.push(35)
-  } else if (playerSixBonus.length === 6 && player6bonus < 63) {
-    recordScoreBonus.innerHTML = '0'
-    playerSixScore.push(0)
+    if (player6bonus >= 63) {
+      recordScoreBonus.innerHTML = '35'
+      playerSixScore.push(35)
+    } else if (player6bonus < 63) {
+      recordScoreBonus.innerHTML = '0'
+      playerSixScore.push(0)
+    }
   }
-}
-
-function checkForYahtzeeBonus () {
-
 }
 
 function getFinalScore () {
