@@ -120,6 +120,7 @@ let playerOneScore, playerTwoScore, playerThreeScore, playerFourScore, playerFiv
 let playerOneBonus, playerTwoBonus, playerThreeBonus, playerFourBonus, playerFiveBonus, playerSixBonus
 let player1bonus, player2bonus, player3bonus, player4bonus, player5bonus, player6bonus
 let playerOneYahtBonus, playerTwoYahtBonus, playerThreeYahtBonus, playerFourYahtBonus, playerFiveYahtBonus, playerSixYahtBonus
+let playerOneTotal, playerTwoTotal, playerThreeTotal, playerFourTotal, playerFiveTotal, playerSixTotal
 let playerOneFinal, playerTwoFinal, playerThreeFinal, playerFourFinal, playerFiveFinal, playerSixFinal
 
 
@@ -1121,9 +1122,36 @@ function getFinalScore () {
 }
 
 function gameOver () {
-  if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14 && playerFiveScore.length === 14 && playerSixScore.length === 14) {
+  if (allPlayers.length === 1) {
+    if (playerOneScore.length === 14) {
+        gameMsg.innerHTML = `Game over! You're final score is ${player1}`
+      }
+  }  
+  if (allPlayers.length === 2) {
+    if (playerOneScore.length === 14 && playerTwoScore.length === 14) {
 
-  }
+      }
+  }  
+  if (allPlayers.length === 3) {
+    if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14) {
+
+      }
+  }  
+  if (allPlayers.length === 4) {
+    if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14) {
+
+      }
+  }  
+  if (allPlayers.length === 5) {
+    if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14 && playerFiveScore.length === 14) {
+
+      }
+  }  
+  if (allPlayers.length === 6) {
+    if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14 && playerFiveScore.length === 14 && playerSixScore.length === 14) {
+
+      }
+  }  
 }
 
 
