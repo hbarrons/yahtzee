@@ -125,6 +125,7 @@ let playerOneFinal, playerTwoFinal, playerThreeFinal, playerFourFinal, playerFiv
 let oneBonusApplied, twoBonusApplied, threeBonusApplied, fourBonusApplied, fiveBonusApplied, sixBonusApplied
 let finalScores
 let winner 
+let winningPlayer
 
 
 
@@ -1021,12 +1022,6 @@ function checkForTopBonus () {
     }
     sixBonusApplied = true
   }
-  console.log('Player 1:', playerOneScore)
-  console.log('Player 2:', playerTwoScore)
-  console.log('Player 3:', playerThreeScore)
-  console.log('Player 4:', playerFourScore)
-  console.log('Player 5:', playerFiveScore)
-  console.log('Player 6:', playerSixScore)
 }
 
 // playerXTotal is cumulative score of playerXScore array. playerXFinal is total + yahtzeeBonus array
@@ -1140,9 +1135,21 @@ function getWinner () {
   let finalScoresSort = Object.keys(finalScores).sort(function(x,y) {
     return finalScores[y]-finalScores[x]
   })
-  winner = finalScoresSort[0]
   console.log(finalScoresSort)
-  console.log(winner)
+  winner = finalScoresSort[0]
+  if (winner === 'player1') {
+    winningPlayer = allPlayers[0]
+  } else if (winner === 'player2') {
+    winningPlayer = allPlayers[1]
+  } else if (winner === 'player3') {
+    winningPlayer = allPlayers[2]
+  } else if (winner === 'player4') {
+    winningPlayer = allPlayers[3]
+  } else if (winner === 'player5') {
+    winningPlayer = allPlayers[4]
+  } else if (winner === 'player6') {
+    winningPlayer = allPlayers[5]
+  } 
 }
 
 function gameOver () {
@@ -1167,7 +1174,7 @@ function gameOver () {
   if (allPlayers.length === 2) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14) {
       gameMsg.innerHTML = ''
-      nextUpMsg.innerHTML = `${winner} wins!`
+      nextUpMsg.innerHTML = `${winningPlayer} wins!`
       diceLock1.style.display = 'none'
       diceLock2.style.display = 'none'
       diceLock3.style.display = 'none'
@@ -1186,7 +1193,7 @@ function gameOver () {
   if (allPlayers.length === 3) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14) {
       gameMsg.innerHTML = ''
-      nextUpMsg.innerHTML = "ADD MESSAGE"
+      nextUpMsg.innerHTML = `${winningPlayer} wins!`
       diceLock1.style.display = 'none'
       diceLock2.style.display = 'none'
       diceLock3.style.display = 'none'
@@ -1204,7 +1211,7 @@ function gameOver () {
   if (allPlayers.length === 4) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14) {
       gameMsg.innerHTML = ''
-      nextUpMsg.innerHTML = "ADD MESSAGE"
+      nextUpMsg.innerHTML = `${winningPlayer} wins!`
       diceLock1.style.display = 'none'
       diceLock2.style.display = 'none'
       diceLock3.style.display = 'none'
@@ -1222,7 +1229,7 @@ function gameOver () {
   if (allPlayers.length === 5) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14 && playerFiveScore.length === 14) {
       gameMsg.innerHTML = ''
-      nextUpMsg.innerHTML = `"ADD MESSAGE"`
+      nextUpMsg.innerHTML = `${winningPlayer} wins!`
       diceLock1.style.display = 'none'
       diceLock2.style.display = 'none'
       diceLock3.style.display = 'none'
@@ -1240,7 +1247,7 @@ function gameOver () {
   if (allPlayers.length === 6) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14 && playerFiveScore.length === 14 && playerSixScore.length === 14) {
       gameMsg.innerHTML = ''
-      nextUpMsg.innerHTML = "ADD MESSAGE"
+      nextUpMsg.innerHTML = `${winningPlayer} wins!`
       diceLock1.style.display = 'none'
       diceLock2.style.display = 'none'
       diceLock3.style.display = 'none'
