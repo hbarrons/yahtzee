@@ -119,6 +119,7 @@ let diceArray
 let playerOneScore, playerTwoScore, playerThreeScore, playerFourScore, playerFiveScore, playerSixScore
 let playerOneBonus, playerTwoBonus, playerThreeBonus, playerFourBonus, playerFiveBonus, playerSixBonus
 let player1bonus, player2bonus, player3bonus, player4bonus, player5bonus, player6bonus
+let playerOneYahtBonus, playerTwoYahtBonus, playerThreeYahtBonus, playerFourYahtBonus, playerFiveYahtBonus, playerSixYahtBonus
 let playerOneFinal, playerTwoFinal, playerThreeFinal, playerFourFinal, playerFiveFinal, playerSixFinal
 
 
@@ -218,6 +219,12 @@ function init () {
   playerFiveBonus = []
   playerSixScore = []
   playerSixBonus = []
+  playerOneYahtBonus = []
+  playerTwoYahtBonus = []
+  playerThreeYahtBonus = []
+  playerFourYahtBonus = []
+  playerFiveYahtBonus = []
+  playerSixYahtBonus = []
   rollDiceBtn.style.display = 'none'
   startGameBtn.style.display = 'none'
 }
@@ -424,6 +431,7 @@ function assignScore (evt){
       recordScoreOnes.innerHTML = score
     }
     checkForTopBonus()
+    getFinalScore()
     nextPlayerUp()
   } else if (evt.target.id === 'twos') {
     let score = 0
@@ -458,6 +466,7 @@ function assignScore (evt){
       recordScoreTwos.innerHTML = score
     }
     checkForTopBonus()
+    getFinalScore()
     nextPlayerUp() 
   } else if (evt.target.id === 'threes') {
     let score = 0
@@ -492,6 +501,7 @@ function assignScore (evt){
       recordScoreThrees.innerHTML = score
     } 
     checkForTopBonus()
+    getFinalScore()
     nextPlayerUp()
   } else if (evt.target.id === 'fours') {
     let score = 0
@@ -531,6 +541,7 @@ function assignScore (evt){
       recordScoreFours.innerHTML = score
     } 
     checkForTopBonus()
+    getFinalScore()
     nextPlayerUp()
   } else if (evt.target.id === 'fives') {
     let score = 0
@@ -565,6 +576,7 @@ function assignScore (evt){
       recordScoreFives.innerHTML = score
     } 
     checkForTopBonus()
+    getFinalScore()
     nextPlayerUp()
   } else if (evt.target.id === 'sixes') {
     let score = 0
@@ -599,6 +611,7 @@ function assignScore (evt){
       recordScoreSixes.innerHTML = score
     } 
     checkForTopBonus()
+    getFinalScore()
     nextPlayerUp()
   } else if (evt.target.id === 'bonus') {  
     if (playerTurn === 1 && playerOneBonus.length === 5 && (playerOneBonus.reduce((prev, amt) => prev + amt)) >= 63) {
@@ -620,6 +633,7 @@ function assignScore (evt){
       playerOneScore.push(35)
       recordScoreBonus.innerHTML = '35'
     } 
+    getFinalScore()
     nextPlayerUp()
   } else if (evt.target.id === 'three-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
@@ -642,6 +656,7 @@ function assignScore (evt){
       playerSixScore.push(score)
       recordScoreThreeKind.innerHTML = score
     } 
+    getFinalScore()
     nextPlayerUp() 
   } else if (evt.target.id === 'four-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
@@ -664,6 +679,7 @@ function assignScore (evt){
       playerSixScore.push(score)
       recordScoreFourKind.innerHTML = score
     } 
+    getFinalScore()
     nextPlayerUp() 
 
 
@@ -694,6 +710,7 @@ function assignScore (evt){
       playerSixScore.push(score)
       recordScoreFullHouse.innerHTML = score
     }
+    getFinalScore()
     nextPlayerUp() 
   } else if (evt.target.id === 'sm-straight') {
     score = 30
@@ -721,6 +738,7 @@ function assignScore (evt){
       playerSixScore.push(score)
       recordScoreSmStraight.innerHTML = score
     }
+    getFinalScore()
     nextPlayerUp() 
   } else if (evt.target.id === 'lg-straight') {
     score = 40
@@ -748,6 +766,7 @@ function assignScore (evt){
       playerSixScore.push(score)
       recordScoreLgStraight.innerHTML = score
     }
+    getFinalScore()
     nextPlayerUp() 
   } else if (evt.target.id === 'yahtzee') {
     score = 50
@@ -775,6 +794,7 @@ function assignScore (evt){
       playerSixScore.push(score)
       recordScoreYahtzee.innerHTML = score
     }
+    getFinalScore()
     nextPlayerUp() 
   } else if (evt.target.id === 'chance') {
     score = diceArray.reduce((prev, amt) => prev + amt)
@@ -802,34 +822,46 @@ function assignScore (evt){
       playerSixScore.push(score)
       recordScoreChance.innerHTML = score
     }
+    getFinalScore()
     nextPlayerUp() 
   } else if (evt.target.id === 'yahtzee-bonus') {
     score = 50
-    nextPlayerUp() 
     if (playerTurn === 1) {
-      playerOneScore.push(score)
+      playerOneYahtBonus.push(score)
+      if (playerOneYahtBonus.length === 0) {
       recordScoreYahtBonus.innerHTML = score
+      } else if (playerOneYahtBonus.length >= 1) {
+        score = 0
+        for (let i=0; i < playerOneYahtBonus.length; i++) {
+          score = score + playerOneYahtBonus[i]
+          console.log(playerOneYahtBonus)
+        }
+        recordScoreYahtBonus.innerHTML = score
+      }
     }
     if (playerTurn === 2) {
-      playerTwoScore.push(score)
+      playerTwoYahtBonus.push(score)
       recordScoreYahtBonus.innerHTML = score
     }
     if (playerTurn === 3) {
-      playerThreeScore.push(score)
+      playerThreeYahtBonus.push(score)
       recordScoreYahtBonus.innerHTML = score
     }
     if (playerTurn === 4) {
-      playerFourScore.push(score)
+      playerFourYahtBonus.push(score)
       recordScoreYahtBonus.innerHTML = score
     }
     if (playerTurn === 5) {
-      playerFiveScore.push(score)
+      playerFiveYahtBonus.push(score)
       recordScoreYahtBonus.innerHTML = score
     }
     if (playerTurn === 6) {
-      playerSixScore.push(score)
+      playerSixYahtBonus.push(score)
       recordScoreYahtBonus.innerHTML = score
     }
+    checkForYahtzeeBonus()
+    getFinalScore()
+    nextPlayerUp() 
   }
 }
 
@@ -952,7 +984,6 @@ function checkForYahtzeeBonus () {
 }
 
 function getFinalScore () {
-  console.log(playerOneBonus)
   if (playerOneScore.length === 14) {
     playerOneFinal = playerOneScore.reduce((x,y) => {
       return x + y
