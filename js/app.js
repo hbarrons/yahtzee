@@ -1042,6 +1042,7 @@ function getFinalScore () {
       return x + y
     })
     if (playerOneYahtBonus.length === 0) {
+      playerOneFinal = playerOneTotal
       recordScoreFinal.innerHTML = playerOneTotal
     } else if (playerOneYahtBonus.length >= 1) {
       score = 0
@@ -1057,6 +1058,7 @@ function getFinalScore () {
       return x + y
     })
     if (playerTwoYahtBonus.length === 0) {
+      playerTwoFinal = playerTwoTotal
       recordScoreFinal.innerHTML = playerTwoTotal
     } else if (playerTwoYahtBonus.length >= 1) {
       score = 0
@@ -1072,6 +1074,7 @@ function getFinalScore () {
       return x + y
     })
     if (playerThreeYahtBonus.length === 0) {
+      playerThreeFinal = playerThreeTotal
       recordScoreFinal.innerHTML = playerThreeTotal
     } else if (playerThreeYahtBonus.length >= 1) {
       score = 0
@@ -1087,6 +1090,7 @@ function getFinalScore () {
       return x + y
     })
     if (playerFourYahtBonus.length === 0) {
+      playerFourFinal = playerFourTotal
       recordScoreFinal.innerHTML = playerFourTotal
     } else if (playerFourYahtBonus.length >= 1) {
       score = 0
@@ -1102,6 +1106,7 @@ function getFinalScore () {
       return x + y
     })
     if (playerFiveYahtBonus.length === 0) {
+      playerFiveFinal = playerFiveTotal
       recordScoreFinal.innerHTML = playerFiveTotal
     } else if (playerFiveYahtBonus.length >= 1) {
       score = 0
@@ -1117,6 +1122,7 @@ function getFinalScore () {
       return x + y
     })
     if (playerSixYahtBonus.length === 0) {
+      playerSixFinal = playerSixTotal
       recordScoreFinal.innerHTML = playerSixTotal
     } else if (playerSixYahtBonus.length >= 1) {
       score = 0
@@ -1133,7 +1139,7 @@ function gameOver () {
   if (allPlayers.length === 1) {
     if (playerOneScore.length === 14) {
         gameMsg.innerHTML = ''
-        nextUpMsg.innerHTML = `Game over! You're final score is ${playerOneFinal}`
+        nextUpMsg.innerHTML = "Game over! You're final score is " + playerOneFinal + "."
         diceLock1.style.display = 'none'
         diceLock2.style.display = 'none'
         diceLock3.style.display = 'none'
@@ -1150,35 +1156,99 @@ function gameOver () {
   }  
   if (allPlayers.length === 2) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14) {
-
-      }
-  }  
+      gameMsg.innerHTML = ''
+      nextUpMsg.innerHTML = "ADD MESSAGE"
+      diceLock1.style.display = 'none'
+      diceLock2.style.display = 'none'
+      diceLock3.style.display = 'none'
+      diceLock4.style.display = 'none'
+      diceLock5.style.display = 'none'
+      diceOne.style.display = 'none'
+      diceTwo.style.display = 'none'
+      diceThree.style.display = 'none'
+      diceFour.style.display = 'none'
+      diceFive.style.display = 'none'
+      rollDiceBtn.style.display = 'none'
+      resetGameBtn.style.display = 'block'
+    }
+  }
+    
   if (allPlayers.length === 3) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14) {
-
-      }
+      gameMsg.innerHTML = ''
+      nextUpMsg.innerHTML = "ADD MESSAGE"
+      diceLock1.style.display = 'none'
+      diceLock2.style.display = 'none'
+      diceLock3.style.display = 'none'
+      diceLock4.style.display = 'none'
+      diceLock5.style.display = 'none'
+      diceOne.style.display = 'none'
+      diceTwo.style.display = 'none'
+      diceThree.style.display = 'none'
+      diceFour.style.display = 'none'
+      diceFive.style.display = 'none'
+      rollDiceBtn.style.display = 'none'
+      resetGameBtn.style.display = 'block'
+    }
   }  
   if (allPlayers.length === 4) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14) {
-
-      }
+      gameMsg.innerHTML = ''
+      nextUpMsg.innerHTML = "ADD MESSAGE"
+      diceLock1.style.display = 'none'
+      diceLock2.style.display = 'none'
+      diceLock3.style.display = 'none'
+      diceLock4.style.display = 'none'
+      diceLock5.style.display = 'none'
+      diceOne.style.display = 'none'
+      diceTwo.style.display = 'none'
+      diceThree.style.display = 'none'
+      diceFour.style.display = 'none'
+      diceFive.style.display = 'none'
+      rollDiceBtn.style.display = 'none'
+      resetGameBtn.style.display = 'block'
+    }
   }  
   if (allPlayers.length === 5) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14 && playerFiveScore.length === 14) {
-
-      }
+      gameMsg.innerHTML = ''
+      nextUpMsg.innerHTML = "ADD MESSAGE"
+      diceLock1.style.display = 'none'
+      diceLock2.style.display = 'none'
+      diceLock3.style.display = 'none'
+      diceLock4.style.display = 'none'
+      diceLock5.style.display = 'none'
+      diceOne.style.display = 'none'
+      diceTwo.style.display = 'none'
+      diceThree.style.display = 'none'
+      diceFour.style.display = 'none'
+      diceFive.style.display = 'none'
+      rollDiceBtn.style.display = 'none'
+      resetGameBtn.style.display = 'block'
+    }
   }  
   if (allPlayers.length === 6) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14 && playerFiveScore.length === 14 && playerSixScore.length === 14) {
-
-      }
+      gameMsg.innerHTML = ''
+      nextUpMsg.innerHTML = "ADD MESSAGE"
+      diceLock1.style.display = 'none'
+      diceLock2.style.display = 'none'
+      diceLock3.style.display = 'none'
+      diceLock4.style.display = 'none'
+      diceLock5.style.display = 'none'
+      diceOne.style.display = 'none'
+      diceTwo.style.display = 'none'
+      diceThree.style.display = 'none'
+      diceFour.style.display = 'none'
+      diceFive.style.display = 'none'
+      rollDiceBtn.style.display = 'none'
+      resetGameBtn.style.display = 'block'
+    }
   }  
 }
 
-// function resetGame () {
-//   playerScoreboard.innerHTML = ""
-// }
 
 
 
-//go to next turn if score assigned before rollCount = 3
+// Need to do:
+// -prevent score click before dice are rolled
