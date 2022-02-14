@@ -465,27 +465,27 @@ function assignScore (evt){
     if (playerTurn === 1) {
       playerOneScore.push(score)
       playerOneBonus.push(score)
-      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
+      recordScoreThrees.innerHTML = score
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
-      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
+      recordScoreThrees.innerHTML = score
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
-      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
+      recordScoreThrees.innerHTML = score
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
-      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
+      recordScoreThrees.innerHTML = score
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
-      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
+      recordScoreThrees.innerHTML = score
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
-      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
+      recordScoreThrees.innerHTML = score
     } 
     nextPlayerUp()
   } else if (evt.target.id === 'fours') {
