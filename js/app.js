@@ -124,6 +124,7 @@ let playerOneTotal, playerTwoTotal, playerThreeTotal, playerFourTotal, playerFiv
 let playerOneFinal, playerTwoFinal, playerThreeFinal, playerFourFinal, playerFiveFinal, playerSixFinal
 let oneBonusApplied, twoBonusApplied, threeBonusApplied, fourBonusApplied, fiveBonusApplied, sixBonusApplied
 let finalScores
+let winner 
 
 
 
@@ -1132,11 +1133,16 @@ function getFinalScore () {
     }
     finalScores.player6 = playerSixFinal
   } 
-  console.log(finalScores)
+  getWinner()
 }
 
 function getWinner () {
-
+  let finalScoresSort = Object.keys(finalScores).sort(function(x,y) {
+    return finalScores[y]-finalScores[x]
+  })
+  winner = finalScoresSort[0]
+  console.log(finalScoresSort)
+  console.log(winner)
 }
 
 function gameOver () {
@@ -1161,7 +1167,7 @@ function gameOver () {
   if (allPlayers.length === 2) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14) {
       gameMsg.innerHTML = ''
-      nextUpMsg.innerHTML = "ADD MESSAGE"
+      nextUpMsg.innerHTML = `${winner} wins!`
       diceLock1.style.display = 'none'
       diceLock2.style.display = 'none'
       diceLock3.style.display = 'none'
@@ -1216,7 +1222,7 @@ function gameOver () {
   if (allPlayers.length === 5) {
     if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14 && playerFiveScore.length === 14) {
       gameMsg.innerHTML = ''
-      nextUpMsg.innerHTML = "ADD MESSAGE"
+      nextUpMsg.innerHTML = `"ADD MESSAGE"`
       diceLock1.style.display = 'none'
       diceLock2.style.display = 'none'
       diceLock3.style.display = 'none'
