@@ -380,7 +380,6 @@ function handleLockClick (event){
 
 function assignScore (evt){
   playerTurn = parseInt(evt.target.className.split('').pop())
-  console.log(playerTurn)
   recordScoreOnes = document.querySelector(`.ones${playerTurn}`)
   recordScoreTwos = document.querySelector(`.twos${playerTurn}`)
   recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
@@ -1026,43 +1025,104 @@ function checkForTopBonus () {
   }
 }
 
+// playerXTotal is cumulative score of playerXScore array. playerXFinal is total + yahtzeeBonus array
+
 function getFinalScore () {
   if (playerOneScore.length === 14) {
-    playerOneFinal = playerOneScore.reduce((x,y) => {
+    playerOneTotal = playerOneScore.reduce((x,y) => {
       return x + y
     })
-  if (playerOneScore.length === 14)
-    recordScoreFinal.innerHTML = playerOneFinal
+    if (playerOneYahtBonus.length === 0) {
+      recordScoreFinal.innerHTML = playerOneTotal
+    } else if (playerOneYahtBonus.length >= 1) {
+      score = 0
+      for (let i=0; i < playerOneYahtBonus.length; i++) {
+        score = score + playerOneYahtBonus[i]
+      }
+      playerOneFinal = playerOneTotal + score
+      recordScoreFinal.innerHTML = playerOneFinal
+    }
   } 
   if (playerTwoScore.length === 14) {
-    playerTwoFinal = playerTwoScore.reduce((x,y) => {
+    playerTwoTotal = playerTwoScore.reduce((x,y) => {
       return x + y
     })
-    recordScoreFinal.innerHTML = playerTwoFinal
+    if (playerTwoYahtBonus.length === 0) {
+      recordScoreFinal.innerHTML = playerTwoTotal
+    } else if (playerTwoYahtBonus.length >= 1) {
+      score = 0
+      for (let i=0; i < playerTwoYahtBonus.length; i++) {
+        score = score + playerTwoYahtBonus[i]
+      }
+      playerTwoFinal = playerTwoTotal + score
+      recordScoreFinal.innerHTML = playerTwoFinal
+    }
   }
   if (playerThreeScore.length === 14) {
-    playerThreeFinal = playerThreeScore.reduce((x,y) => {
+    playerThreeTotal = playerThreeScore.reduce((x,y) => {
       return x + y
     })
-    recordScoreFinal.innerHTML = playerThreeFinal
-  } 
+    if (playerThreeYahtBonus.length === 0) {
+      recordScoreFinal.innerHTML = playerThreeTotal
+    } else if (playerThreeYahtBonus.length >= 1) {
+      score = 0
+      for (let i=0; i < playerThreeYahtBonus.length; i++) {
+        score = score + playerThreeYahtBonus[i]
+      }
+      playerThreeFinal = playerThreeTotal + score
+      recordScoreFinal.innerHTML = playerThreeFinal
+    }
+  }  
   if (playerFourScore.length === 14) {
-    playerFourFinal = playerFourScore.reduce((x,y) => {
+    playerFourTotal = playerFourScore.reduce((x,y) => {
       return x + y
     })
-    recordScoreFinal.innerHTML = playerFourFinal
+    if (playerFourYahtBonus.length === 0) {
+      recordScoreFinal.innerHTML = playerFourTotal
+    } else if (playerFourYahtBonus.length >= 1) {
+      score = 0
+      for (let i=0; i < playerFourYahtBonus.length; i++) {
+        score = score + playerFourYahtBonus[i]
+      }
+      playerFourFinal = playerFourTotal + score
+      recordScoreFinal.innerHTML = playerFourFinal
+    }
   } 
   if (playerFiveScore.length === 14) {
-    playerFiveFinal = playerFiveScore.reduce((x,y) => {
+    playerFiveTotal = playerFiveScore.reduce((x,y) => {
       return x + y
     })
-    recordScoreFinal.innerHTML = playerFiveFinal
+    if (playerFiveYahtBonus.length === 0) {
+      recordScoreFinal.innerHTML = playerFiveTotal
+    } else if (playerFiveYahtBonus.length >= 1) {
+      score = 0
+      for (let i=0; i < playerFiveYahtBonus.length; i++) {
+        score = score + playerFiveYahtBonus[i]
+      }
+      playerFiveFinal = playerFiveTotal + score
+      recordScoreFinal.innerHTML = playerFiveFinal
+    }
   } 
   if (playerSixScore.length === 14) {
-    playerSixFinal = playerSixScore.reduce((x,y) => {
+    playerSixTotal = playerSixScore.reduce((x,y) => {
       return x + y
     })
-    recordScoreFinal.innerHTML = playerSixFinal
+    if (playerSixYahtBonus.length === 0) {
+      recordScoreFinal.innerHTML = playerSixTotal
+    } else if (playerSixYahtBonus.length >= 1) {
+      score = 0
+      for (let i=0; i < playerSixYahtBonus.length; i++) {
+        score = score + playerSixYahtBonus[i]
+      }
+      playerSixFinal = playerSixTotal + score
+      recordScoreFinal.innerHTML = playerSixFinal
+    }
+  } 
+}
+
+function gameOver () {
+  if (playerOneScore.length === 14 && playerTwoScore.length === 14 && playerThreeScore.length === 14 && playerFourScore.length === 14 && playerFiveScore.length === 14 && playerSixScore.length === 14) {
+
   }
 }
 
