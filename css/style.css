@@ -154,6 +154,12 @@ section.scoreboard{
   font-size: 12px;
 }
 
+.playerName {
+  background-color: rgb(240, 240, 210);
+  color:rgb(165, 77, 77);
+  font-size: 12px;
+}
+
 .container {
   width: 100%;
   display: flex;

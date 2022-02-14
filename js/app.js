@@ -217,8 +217,6 @@ function init () {
   playerSixScore = []
   playerSixBonus = []
   rollDiceBtn.style.display = 'none'
-  console.log(scoreboardCategories)
-  // scoreboardCategories.style.display = 'none'
   render()
   startGameBtn.style.display = 'none'
 }
@@ -265,6 +263,7 @@ function startGame () {
     addEventListener('click', assignScore, nextPlayerUp)
     })
 
+
   playerTurn = 0
 
   nextPlayerUp()
@@ -278,25 +277,28 @@ function appendScoreboard(str, idx) {
   let playerBoard = document.createElement("div")
   playerBoard.classList.add("playerscore")
   playerBoard.innerHTML =
-  `<div id="name" class="player player${idx + 1}">${str}</div>
-  <div id="ones" class="player player${idx + 1}"></div>
-  <div id="twos" class="player player${idx + 1}"></div>
-  <div id="threes" class="player player${idx + 1}"></div>
-  <div id="fours" class="player player${idx + 1}"></div>
-  <div id="fives" class="player player${idx + 1}"></div>
-  <div id="sixes" class="player player${idx + 1}"></div>
-  <div id="bonus" class="player player${idx + 1}"></div>
-  <div id="three-kind" class="player player${idx + 1}"></div>
-  <div id="four-kind" class="player player${idx + 1}"></div>
-  <div id="full-house" class="player player${idx + 1}"></div>
-  <div id="sm-straight" class="player player${idx + 1}"></div>
-  <div id="lg-straight" class="player player${idx + 1}"></div>
-  <div id="yahtzee" class="player player${idx + 1}"></div>
-  <div id="chance" class="player player${idx + 1}"></div>
-  <div id="yahtzee-bonus" class="player player${idx + 1}"></div>
-  <div id="total-score" class="player player${idx + 1}"></div>`
+
+  `<div id="name player${idx + 1}" class="playerName">${str}</div>
+  <div id="ones" class="player ones${idx + 1} player${idx + 1}"></div>
+  <div id="twos" class="player twos${idx + 1} player${idx + 1}"></div>
+  <div id="threes" class="player threes${idx + 1} player${idx + 1}"></div>
+  <div id="fours" class="player fours${idx + 1} player${idx + 1}"></div>
+  <div id="fives" class="player fives${idx + 1} player${idx + 1}"></div>
+  <div id="sixes" class="player sixes${idx + 1} player${idx + 1}"></div>
+  <div id="bonus" class="player bonus${idx + 1} player${idx + 1}"></div>
+  <div id="three-kind" class="player three-kind${idx + 1} player${idx + 1}"></div>
+  <div id="four-kind" class="player four-kind${idx + 1} player${idx + 1}"></div>
+  <div id="full-house" class="player full-house${idx + 1} player${idx + 1}"></div>
+  <div id="sm-straight" class="player sm-str${idx + 1} player${idx + 1}"></div>
+  <div id="lg-straight" class="player lg-str${idx + 1} player${idx + 1}"></div>
+  <div id="yahtzee" class="player yahtzee${idx + 1} player${idx + 1}"></div>
+  <div id="chance" class="player chance${idx + 1} player${idx + 1}"></div>
+  <div id="yahtzee-bonus" class="player yahtzee-bonus${idx + 1} player${idx + 1}"></div>
+  <div id="total-score" class="player total${idx + 1} player${idx + 1}"></div>`
   playerScoreboard.appendChild(playerBoard)
 }
+
+
 
 function rollDice () {
   if (rollCount < 3) {
@@ -370,6 +372,22 @@ function handleLockClick (event){
 
 function assignScore (evt){
   playerTurn = parseInt(evt.target.className.split('').pop())
+  console.log(playerTurn)
+  recordScoreOnes = document.querySelector(`.ones${playerTurn}`)
+  recordScoreTwos = document.querySelector(`.twos${playerTurn}`)
+  recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
+  recordScoreFours = document.querySelector(`.fours${playerTurn}`)
+  recordScoreFives = document.querySelector(`.fives${playerTurn}`)
+  recordScoreSixes = document.querySelector(`.sixes${playerTurn}`)
+  recordScoreBonus = document.querySelector(`.bonus${playerTurn}`)
+  recordScoreThreeKind = document.querySelector(`.three-kind${playerTurn}`)
+  recordScoreFourKind = document.querySelector(`.four-kind${playerTurn}`)
+  recordScoreFullHouse = document.querySelector(`.full-house${playerTurn}`)
+  recordScoreSmStraight = document.querySelector(`.sm-str${playerTurn}`)
+  recordScoreLgStraight = document.querySelector(`.lg-str${playerTurn}`)
+  recordScoreYahtzee = document.querySelector(`.yahtzee${playerTurn}`)
+  recordScoreChance = document.querySelector(`.chance${playerTurn}`)
+  recordScoreYahtBonus = document.querySelector(`.yahtzee-bonus${playerTurn}`)
   diceArray = [rollOutcome1, rollOutcome2, rollOutcome3, rollOutcome4, rollOutcome5]
   if (evt.target.id === 'ones') {
     let score = 0
@@ -381,21 +399,27 @@ function assignScore (evt){
     if (playerTurn === 1) {
       playerOneScore.push(score)
       playerOneBonus.push(score)
+      recordScoreOnes.innerHTML = score
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
+      recordScoreOnes.innerHTML = score
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
+      recordScoreOnes.innerHTML = score
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
+      recordScoreOnes.innerHTML = score
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
+      recordScoreOnes.innerHTML = score
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
+      recordScoreOnes.innerHTML = score
     }
     nextPlayerUp()
   } else if (evt.target.id === 'twos') {
@@ -408,24 +432,29 @@ function assignScore (evt){
     if (playerTurn === 1) {
       playerOneScore.push(score)
       playerOneBonus.push(score)
+      recordScoreTwos.innerHTML = score
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
+      recordScoreTwos.innerHTML = score
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
+      recordScoreTwos.innerHTML = score
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
+      recordScoreTwos.innerHTML = score
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
+      recordScoreTwos.innerHTML = score
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
+      recordScoreTwos.innerHTML = score
     }
     nextPlayerUp() 
-    console.log(score)
   } else if (evt.target.id === 'threes') {
     let score = 0
     for (let i=0; i < diceArray.length; i++){
@@ -436,24 +465,29 @@ function assignScore (evt){
     if (playerTurn === 1) {
       playerOneScore.push(score)
       playerOneBonus.push(score)
+      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
+      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
+      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
+      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
+      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
+      recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
     } 
     nextPlayerUp()
-    console.log(score)
   } else if (evt.target.id === 'fours') {
     let score = 0
     for (let i=0; i < diceArray.length; i++){
@@ -464,24 +498,29 @@ function assignScore (evt){
     if (playerTurn === 1) {
       playerOneScore.push(score)
       playerOneBonus.push(score)
+      recordScoreFours.innerHTML = score
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
+      recordScoreFours.innerHTML = score
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
+      recordScoreFours.innerHTML = score
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
+      recordScoreFours.innerHTML = score
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
+      recordScoreFours.innerHTML = score
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
+      recordScoreFours.innerHTML = score
     } 
     nextPlayerUp()
-    console.log(score)
   } else if (evt.target.id === 'fives') {
     let score = 0
     for (let i=0; i < diceArray.length; i++){
@@ -492,24 +531,28 @@ function assignScore (evt){
     if (playerTurn === 1) {
       playerOneScore.push(score)
       playerOneBonus.push(score)
+      recordScoreFives.innerHTML = score
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
+      recordScoreFives.innerHTML = score
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
+      recordScoreFives.innerHTML = score
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
+      recordScoreFives.innerHTML = score
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
+      recordScoreFives.innerHTML = score
     } 
     nextPlayerUp()
-    console.log(score)
   } else if (evt.target.id === 'sixes') {
     let score = 0
     for (let i=0; i < diceArray.length; i++){
@@ -520,104 +563,119 @@ function assignScore (evt){
     if (playerTurn === 1) {
       playerOneScore.push(score)
       playerOneBonus.push(score)
+      recordScoreSixes.innerHTML = score
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
+      recordScoreSixes.innerHTML = score
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
       playerThreeBonus.push(score)
+      recordScoreSixes.innerHTML = score
     } else if (playerTurn === 4){
       playerFourScore.push(score)
       playerFourBonus.push(score)
+      recordScoreSixes.innerHTML = score
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
       playerFiveBonus.push(score)
+      recordScoreSixes.innerHTML = score
     } else if (playerTurn === 6){
       playerSixScore.push(score)
       playerSixBonus.push(score)
+      recordScoreSixes.innerHTML = score
     } 
     nextPlayerUp()
-    console.log(score)
   } else if (evt.target.id === 'bonus') {  
     if (playerTurn === 1 && playerOneBonus.length === 5 && (playerOneBonus.reduce((prev, amt) => prev + amt)) >= 63) {
       playerOneScore.push(35)
+      recordScoreBonus.innerHTML = '35'
     } else if (playerTurn === 2 && playerTwoBonus.length === 5 && (playerTwoBonus.reduce((prev, amt) => prev + amt)) >= 63) {
       playerOneScore.push(35)
+      recordScoreBonus.innerHTML = '35'
     } else if (playerTurn === 3 && playerThreeBonus.length === 5 && (playerThreeBonus.reduce((prev, amt) => prev + amt)) >= 63) {
       playerOneScore.push(35)
+      recordScoreBonus.innerHTML = '35'
     } else if (playerTurn === 4 && playerFourBonus.length === 5 && (playerFourBonus.reduce((prev, amt) => prev + amt)) >= 63) {
       playerOneScore.push(35)
+      recordScoreBonus.innerHTML = '35'
     } else if (playerTurn === 5 && playerFiveBonus.length === 5 && (playerFiveBonus.reduce((prev, amt) => prev + amt)) >= 63) {
       playerOneScore.push(35)
+      recordScoreBonus.innerHTML = '35'
     } else if (playerTurn === 6 && playerSixBonus.length === 5 && (playerSixBonus.reduce((prev, amt) => prev + amt)) >= 63) {
       playerOneScore.push(35)
+      recordScoreBonus.innerHTML = '35'
     } 
     nextPlayerUp()
-    console.log(playerOneScore)
   } else if (evt.target.id === 'three-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
     if (playerTurn === 1) {
       playerOneScore.push(score)
+      recordScoreThreeKind.innerHTML = score
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
+      recordScoreThreeKind.innerHTML = score
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
+      recordScoreThreeKind.innerHTML = score
     } else if (playerTurn === 4){
       playerFourScore.push(score)
+      recordScoreThreeKind.innerHTML = score
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
+      recordScoreThreeKind.innerHTML = score
     } else if (playerTurn === 6){
       playerSixScore.push(score)
+      recordScoreThreeKind.innerHTML = score
     } 
     nextPlayerUp() 
-    console.log(score)
+
   } else if (evt.target.id === 'four-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
     if (playerTurn === 1) {
       playerOneScore.push(score)
-      playerOneBonus.push(score)
+      recordScoreFourKind.innerHTML = score
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
-      playerTwoBonus.push(score)
+      recordScoreFourKind.innerHTML = score
     } else if (playerTurn === 3){
       playerThreeScore.push(score)
-      playerThreeBonus.push(score)
+      recordScoreFourKind.innerHTML = score
     } else if (playerTurn === 4){
       playerFourScore.push(score)
-      playerFourBonus.push(score)
+      recordScoreFourKind.innerHTML = score
     } else if (playerTurn === 5){
       playerFiveScore.push(score)
-      playerFiveBonus.push(score)
+      recordScoreFourKind.innerHTML = score
     } else if (playerTurn === 6){
       playerSixScore.push(score)
-      playerSixBonus.push(score)
+      recordScoreFourKind.innerHTML = score
     } 
-    nextPlayerUp()
-    console.log(score)
+    nextPlayerUp() 
   } else if (evt.target.id === 'full-house') {
     score = 25
-    nextPlayerUp()
-    console.log(score)
+    recordScoreFullHouse.innerHTML = score
+    nextPlayerUp() 
   } else if (evt.target.id === 'sm-straight') {
     score = 30
-    nextPlayerUp()
-    console.log(score)
+    recordScoreSmStraight.innerHTML = score
+    nextPlayerUp() 
   } else if (evt.target.id === 'lg-straight') {
     score = 40
-    nextPlayerUp()
-    console.log(score)
+    recordScoreLgStraight.innerHTML = score
+    nextPlayerUp() 
   } else if (evt.target.id === 'yahtzee') {
     score = 50
-    nextPlayerUp()
-    console.log(score)
+    recordScoreYahtzee.innerHTML = score
+    nextPlayerUp() 
   } else if (evt.target.id === 'chance') {
     score = diceArray.reduce((prev, amt) => prev + amt)
-    console.log(score)
-    nextPlayerUp()
+    recordScoreChance.innerHTML = score
+    nextPlayerUp() 
   } else if (evt.target.id === 'yahtzee-bonus') {
     score = 50
-    console.log(score)
-    nextPlayerUp()
+    recordScoreYahtBonus.innerHTML = score
+    nextPlayerUp() 
   }
 }
 
@@ -649,25 +707,28 @@ function nextPlayerUp (){
   rollDiceBtn.style.display = 'block'
   resetDice()
   rollCount = 0
-  console.log(playerTurn)
+  resetDice()
+
 }
 
 function resetDice (){
-  if (rollCount === 3) {
-    isUnlocked1 = true
-    isUnlocked2 = true
-    isUnlocked3 = true
-    isUnlocked4 = true
-    isUnlocked5 = true
-    diceLock1.style.display = 'none'
-    diceLock2.style.display = 'none'
-    diceLock3.style.display = 'none'
-    diceLock4.style.display = 'none'
-    diceLock5.style.display = 'none'
-    diceOne.innerHTML = ''
-    diceTwo.innerHTML = ''
-    diceThree.innerHTML = ''
-    diceFour.innerHTML = ''
-    diceFive.innerHTML = ''
-  }
+  isUnlocked1 = true
+  isUnlocked2 = true
+  isUnlocked3 = true
+  isUnlocked4 = true
+  isUnlocked5 = true
+  diceLock1.style.display = 'none'
+  diceLock2.style.display = 'none'
+  diceLock3.style.display = 'none'
+  diceLock4.style.display = 'none'
+  diceLock5.style.display = 'none'
+  diceOne.innerHTML = ''
+  diceTwo.innerHTML = ''
+  diceThree.innerHTML = ''
+  diceFour.innerHTML = ''
+  diceFive.innerHTML = ''
 }
+
+
+
+//go to next turn if score assigned before rollCount = 3
