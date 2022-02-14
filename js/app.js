@@ -830,34 +830,73 @@ function assignScore (evt){
       playerOneYahtBonus.push(score)
       if (playerOneYahtBonus.length === 0) {
       recordScoreYahtBonus.innerHTML = score
-      } else if (playerOneYahtBonus.length >= 1) {
-        score = 0
-        for (let i=0; i < playerOneYahtBonus.length; i++) {
-          score = score + playerOneYahtBonus[i]
-          console.log(playerOneYahtBonus)
+        } else if (playerOneYahtBonus.length >= 1) {
+          score = 0
+          for (let i=0; i < playerOneYahtBonus.length; i++) {
+            score = score + playerOneYahtBonus[i]
+          }
+          recordScoreYahtBonus.innerHTML = score
         }
-        recordScoreYahtBonus.innerHTML = score
-      }
     }
     if (playerTurn === 2) {
       playerTwoYahtBonus.push(score)
-      recordScoreYahtBonus.innerHTML = score
+      if (playerTwoYahtBonus.length === 0) {
+        recordScoreYahtBonus.innerHTML = score
+        } else if (playerTwoYahtBonus.length >= 1) {
+          score = 0
+          for (let i=0; i < playerTwoYahtBonus.length; i++) {
+            score = score + playerTwoYahtBonus[i]
+          }
+          recordScoreYahtBonus.innerHTML = score
+        }
     }
     if (playerTurn === 3) {
       playerThreeYahtBonus.push(score)
-      recordScoreYahtBonus.innerHTML = score
+      if (playerThreeYahtBonus.length === 0) {
+        recordScoreYahtBonus.innerHTML = score
+        } else if (playerThreeYahtBonus.length >= 1) {
+          score = 0
+          for (let i=0; i < playerThreeYahtBonus.length; i++) {
+            score = score + playerThreeYahtBonus[i]
+          }
+          recordScoreYahtBonus.innerHTML = score
+        }
     }
     if (playerTurn === 4) {
       playerFourYahtBonus.push(score)
-      recordScoreYahtBonus.innerHTML = score
+      if (playerFourYahtBonus.length === 0) {
+        recordScoreYahtBonus.innerHTML = score
+        } else if (playerFourYahtBonus.length >= 1) {
+          score = 0
+          for (let i=0; i < playerFourYahtBonus.length; i++) {
+            score = score + playerFourYahtBonus[i]
+          }
+          recordScoreYahtBonus.innerHTML = score
+        }
     }
     if (playerTurn === 5) {
       playerFiveYahtBonus.push(score)
-      recordScoreYahtBonus.innerHTML = score
+      if (playerFiveYahtBonus.length === 0) {
+        recordScoreYahtBonus.innerHTML = score
+        } else if (playerFiveYahtBonus.length >= 1) {
+          score = 0
+          for (let i=0; i < playerFiveYahtBonus.length; i++) {
+            score = score + playerFiveYahtBonus[i]
+          }
+          recordScoreYahtBonus.innerHTML = score
+        }
     }
     if (playerTurn === 6) {
       playerSixYahtBonus.push(score)
-      recordScoreYahtBonus.innerHTML = score
+      if (playerSixYahtBonus.length === 0) {
+        recordScoreYahtBonus.innerHTML = score
+        } else if (playerSixYahtBonus.length >= 1) {
+          score = 0
+          for (let i=0; i < playerSixYahtBonus.length; i++) {
+            score = score + playerSixYahtBonus[i]
+          }
+          recordScoreYahtBonus.innerHTML = score
+        }
     }
     checkForYahtzeeBonus()
     getFinalScore()
