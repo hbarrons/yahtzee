@@ -217,7 +217,6 @@ function init () {
   playerSixScore = []
   playerSixBonus = []
   rollDiceBtn.style.display = 'none'
-  render()
   startGameBtn.style.display = 'none'
 }
 
@@ -400,6 +399,7 @@ function assignScore (evt){
       playerOneScore.push(score)
       playerOneBonus.push(score)
       recordScoreOnes.innerHTML = score
+      checkForBonus()
     } else if (playerTurn === 2){
       playerTwoScore.push(score)
       playerTwoBonus.push(score)
@@ -726,6 +726,46 @@ function resetDice (){
   diceThree.style.display = 'none'
   diceFour.style.display = 'none'
   diceFive.style.display = 'none'
+}
+
+function checkForBonus () {
+  let player1bonus = playerOneBonus.reduce((x,y) => {
+    x + y
+  })
+  let player2bonus = playerTwoBonus.reduce((x,y) => {
+    x + y
+  })
+  let player3bonus = playerThreeBonus.reduce((x,y) => {
+    x + y
+  })
+  let player4bonus = playerFourBonus.reduce((x,y) => {
+    x + y
+  })
+  let player5bonus = playerFiveBonus.reduce((x,y) => {
+    x + y
+  })
+  let player6bonus = playerSixBonus.reduce((x,y) => {
+    x + y
+  })
+  if (playerOneBonus.length === 6 && player1bonus >= 63) {
+    recordScoreBonus.innerHTML = '35'
+  }
+  if (playerTwoBonus.length === 6 && player2bonus >= 63) {
+    recordScoreBonus.innerHTML = '35'
+  }
+  if (playerThreeBonus.length === 6 && player4bonus >= 63) {
+    recordScoreBonus.innerHTML = '35'
+  }
+  if (playerFourBonus.length === 6 && player4bonus >= 63) {
+    recordScoreBonus.innerHTML = '35'
+  }
+  if (playerFiveBonus.length === 6 && player5bonus >= 63) {
+    recordScoreBonus.innerHTML = '35'
+  }
+  if (playerSixBonus.length === 6 && player6bonus >= 63) {
+    recordScoreBonus.innerHTML = '35'
+  }
+  // if (playerOneBonus.length === 6 &&)
 }
 
 
