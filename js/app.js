@@ -115,7 +115,8 @@ let playerName
 let isUnlocked1, isUnlocked2, isUnlocked3, isUnlocked4, isUnlocked5
 let scoreCategory
 let roll1
-let diceArray
+let diceArray, diceSort, diceCount
+let threeKind, fourKind, isYahtzee, largeStraight, smallStraight, fullHouse
 let playerOneScore, playerTwoScore, playerThreeScore, playerFourScore, playerFiveScore, playerSixScore
 let playerOneBonus, playerTwoBonus, playerThreeBonus, playerFourBonus, playerFiveBonus, playerSixBonus
 let player1bonus, player2bonus, player3bonus, player4bonus, player5bonus, player6bonus
@@ -124,7 +125,6 @@ let playerOneTotal, playerTwoTotal, playerThreeTotal, playerFourTotal, playerFiv
 let playerOneFinal, playerTwoFinal, playerThreeFinal, playerFourFinal, playerFiveFinal, playerSixFinal
 let oneBonusApplied, twoBonusApplied, threeBonusApplied, fourBonusApplied, fiveBonusApplied, sixBonusApplied
 let finalScores
-let consecutive
 let winner 
 let winningPlayer
 
@@ -234,7 +234,8 @@ function init () {
   playerFourYahtBonus = []
   playerFiveYahtBonus = []
   playerSixYahtBonus = []
-  consecutive = false
+  diceSort = []
+  diceCount = {}
   finalScores = {}
   oneBonusApplied = false
   twoBonusApplied = false
@@ -242,6 +243,12 @@ function init () {
   fourBonusApplied = false
   fiveBonusApplied = false
   sixBonusApplied = false
+  fourKind = false
+  threeKind = false
+  fullHouse = false
+  isYahtzee = false
+  largeStraight = false
+  smallStraight = false
   rollDiceBtn.style.display = 'none'
   startGameBtn.style.display = 'none'
   resetGameBtn.style.display = 'none'
@@ -331,8 +338,6 @@ function rollDice () {
     diceRollThree()
     diceRollFour()
     diceRollFive()
-    checkLgStraight()
-    checkSmStraight()
     diceOne.style.display = 'block'
     diceTwo.style.display = 'block'
     diceThree.style.display = 'block'
@@ -344,6 +349,8 @@ function rollDice () {
     diceLock4.style.display = 'block'
     diceLock5.style.display = 'block'
     gameMsg.innerHTML = ""
+    checkLgStraight()
+    checkSmStraight()
     if (rollCount ===3) {
       nextUpMsg.innerHTML = `Which category would you like to score?`
     }
@@ -635,83 +642,98 @@ function assignScore (evt){
     nextPlayerUp()
   } else if (evt.target.id === 'three-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      recordScoreThreeKind.innerHTML = score
-    } else if (playerTurn === 2){
-      playerTwoScore.push(score)
-      recordScoreThreeKind.innerHTML = score
-    } else if (playerTurn === 3){
-      playerThreeScore.push(score)
-      recordScoreThreeKind.innerHTML = score
-    } else if (playerTurn === 4){
-      playerFourScore.push(score)
-      recordScoreThreeKind.innerHTML = score
-    } else if (playerTurn === 5){
-      playerFiveScore.push(score)
-      recordScoreThreeKind.innerHTML = score
-    } else if (playerTurn === 6){
-      playerSixScore.push(score)
-      recordScoreThreeKind.innerHTML = score
-    } 
+    if (threeKind = false) {
+      console.log('three of a kind criteria not met')
+      recordScoreThreeKind.innerHTML = '0'
+    } else if (threeKind === true) {
+      if (playerTurn === 1) {
+        playerOneScore.push(score)
+        recordScoreThreeKind.innerHTML = score
+      } else if (playerTurn === 2){
+        playerTwoScore.push(score)
+        recordScoreThreeKind.innerHTML = score
+      } else if (playerTurn === 3){
+        playerThreeScore.push(score)
+        recordScoreThreeKind.innerHTML = score
+      } else if (playerTurn === 4){
+        playerFourScore.push(score)
+        recordScoreThreeKind.innerHTML = score
+      } else if (playerTurn === 5){
+        playerFiveScore.push(score)
+        recordScoreThreeKind.innerHTML = score
+      } else if (playerTurn === 6){
+        playerSixScore.push(score)
+        recordScoreThreeKind.innerHTML = score
+      } 
+    }
     getFinalScore()
     nextPlayerUp() 
   } else if (evt.target.id === 'four-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      recordScoreFourKind.innerHTML = score
-    } else if (playerTurn === 2){
-      playerTwoScore.push(score)
-      recordScoreFourKind.innerHTML = score
-    } else if (playerTurn === 3){
-      playerThreeScore.push(score)
-      recordScoreFourKind.innerHTML = score
-    } else if (playerTurn === 4){
-      playerFourScore.push(score)
-      recordScoreFourKind.innerHTML = score
-    } else if (playerTurn === 5){
-      playerFiveScore.push(score)
-      recordScoreFourKind.innerHTML = score
-    } else if (playerTurn === 6){
-      playerSixScore.push(score)
-      recordScoreFourKind.innerHTML = score
-    } 
+    if (fourKind === false) {
+      console.log('four of a kind criteria not met')
+      recordScoreFourKind.innerHTML = '0'
+    } else if (fourKind === true) {
+      if (playerTurn === 1) {
+        playerOneScore.push(score)
+        recordScoreFourKind.innerHTML = score
+      } else if (playerTurn === 2){
+        playerTwoScore.push(score)
+        recordScoreFourKind.innerHTML = score
+      } else if (playerTurn === 3){
+        playerThreeScore.push(score)
+        recordScoreFourKind.innerHTML = score
+      } else if (playerTurn === 4){
+        playerFourScore.push(score)
+        recordScoreFourKind.innerHTML = score
+      } else if (playerTurn === 5){
+        playerFiveScore.push(score)
+        recordScoreFourKind.innerHTML = score
+      } else if (playerTurn === 6){
+        playerSixScore.push(score)
+        recordScoreFourKind.innerHTML = score
+      } 
+    }
     getFinalScore()
     nextPlayerUp() 
   } else if (evt.target.id === 'full-house') {
     score = 25
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      recordScoreFullHouse.innerHTML = score
-    }
-    if (playerTurn === 2) {
-      playerTwoScore.push(score)
-      recordScoreFullHouse.innerHTML = score
-    }
-    if (playerTurn === 3) {
-      playerThreeScore.push(score)
-      recordScoreFullHouse.innerHTML = score
-    }
-    if (playerTurn === 4) {
-      playerFourScore.push(score)
-      recordScoreFullHouse.innerHTML = score
-    }
-    if (playerTurn === 5) {
-      playerFiveScore.push(score)
-      recordScoreFullHouse.innerHTML = score
-    }
-    if (playerTurn === 6) {
-      playerSixScore.push(score)
-      recordScoreFullHouse.innerHTML = score
+    if (fullHouse === false) {
+      console.log('full house criteria not met')
+      recordScoreFullHouse.innerHTML = '0'
+    } else if (fullHouse === true) {
+      if (playerTurn === 1) {
+        playerOneScore.push(score)
+        recordScoreFullHouse.innerHTML = score
+      }
+      if (playerTurn === 2) {
+        playerTwoScore.push(score)
+        recordScoreFullHouse.innerHTML = score
+      }
+      if (playerTurn === 3) {
+        playerThreeScore.push(score)
+        recordScoreFullHouse.innerHTML = score
+      }
+      if (playerTurn === 4) {
+        playerFourScore.push(score)
+        recordScoreFullHouse.innerHTML = score
+      }
+      if (playerTurn === 5) {
+        playerFiveScore.push(score)
+        recordScoreFullHouse.innerHTML = score
+      }
+      if (playerTurn === 6) {
+        playerSixScore.push(score)
+        recordScoreFullHouse.innerHTML = score
+      }
     }
     getFinalScore()
     nextPlayerUp() 
   } else if (evt.target.id === 'sm-straight') {
     score = 30
-    if (consecutive === false) {
-      console.log('sm-straight not valid')
-    } else if (consecutive === true) {
+    if (smallStraight === false) {
+      recordScoreSmStraight.innerHTML = '0'
+    } else if (smallStraight === true) {
       if (playerTurn === 1) {
         playerOneScore.push(score)
         recordScoreSmStraight.innerHTML = score
@@ -741,10 +763,9 @@ function assignScore (evt){
     nextPlayerUp() 
   } else if (evt.target.id === 'lg-straight') {
     score = 40
-    
-    if (consecutive === false) {
-      console.log('lg straight not valid')
-    } else if (consecutive === true) {
+    if (largeStraight === false) {
+      recordScoreLgStraight.innerHTML = '0'
+    } else if (largeStraight === true) {
       if (playerTurn === 1) {
         playerOneScore.push(score)
         recordScoreLgStraight.innerHTML = score
@@ -774,29 +795,35 @@ function assignScore (evt){
     nextPlayerUp() 
   } else if (evt.target.id === 'yahtzee') {
     score = 50
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      recordScoreYahtzee.innerHTML = score
-    }
-    if (playerTurn === 2) {
-      playerTwoScore.push(score)
-      recordScoreYahtzee.innerHTML = score
-    }
-    if (playerTurn === 3) {
-      playerThreeScore.push(score)
-      recordScoreYahtzee.innerHTML = score
-    }
-    if (playerTurn === 4) {
-      playerFourScore.push(score)
-      recordScoreYahtzee.innerHTML = score
-    }
-    if (playerTurn === 5) {
-      playerFiveScore.push(score)
-      recordScoreYahtzee.innerHTML = score
-    }
-    if (playerTurn === 6) {
-      playerSixScore.push(score)
-      recordScoreYahtzee.innerHTML = score
+    countLikeDice ()
+    if (isYahtzee === false) {
+      console.log('yahtzee criteria not met')
+      recordScoreYahtzee.innerHTML = '0'
+    } else if (isYahtzee === true) {
+      if (playerTurn === 1) {
+        playerOneScore.push(score)
+        recordScoreYahtzee.innerHTML = score
+      }
+      if (playerTurn === 2) {
+        playerTwoScore.push(score)
+        recordScoreYahtzee.innerHTML = score
+      }
+      if (playerTurn === 3) {
+        playerThreeScore.push(score)
+        recordScoreYahtzee.innerHTML = score
+      }
+      if (playerTurn === 4) {
+        playerFourScore.push(score)
+        recordScoreYahtzee.innerHTML = score
+      }
+      if (playerTurn === 5) {
+        playerFiveScore.push(score)
+        recordScoreYahtzee.innerHTML = score
+      }
+      if (playerTurn === 6) {
+        playerSixScore.push(score)
+        recordScoreYahtzee.innerHTML = score
+      }
     }
     getFinalScore()
     nextPlayerUp() 
@@ -908,20 +935,49 @@ function assignScore (evt){
   gameOver()
 }
 
+function countLikeDice () {
+  diceArray.forEach(function (num) {
+    diceCount[num] = (diceCount[num] || 0) + 1
+  })
+  for (num in diceCount) {
+    diceSort.push([num, diceCount[num]])
+  }
+  diceSort.sort(function (a,b) {
+    return b[1]-a[1]
+  })
+  if (diceSort[0][1] === 3 || diceSort[0][1] === 4) {
+    threeKind = true
+  }
+  if (diceSort[0][1] === 4) {
+    fourKind = true
+  }
+  if (diceSort[0][1] === 5) {
+    isYahtzee = true
+  }
+  if (diceSort[0][1] === 3 && diceSort[1][1] === 2) {
+    fullHouse = true
+  }
+  console.log(threeKind)
+  console.log(fourKind)
+  console.log(isYahtzee)
+  diceCount = {}
+  diceSort = []
+}
+
 function checkLgStraight() {
-  consecutive = false;
+  largeStraight = false;
   diceArray.sort(function(a, b) {
     return a - b;
   });
   let max = Math.max.apply(null, diceArray);
   let min = Math.min.apply(null, diceArray);
   if (max - min === 4) {
-      consecutive = true;
+      largeStraight = true;
     }
 }
 
 function checkSmStraight() {
-  consecutive = false;
+  smallStraight = false;
   diceArray.sort(function(a, b) {
     return a - b;
   });
@@ -930,7 +986,7 @@ function checkSmStraight() {
   let min1 = Math.min.apply(null, diceArray.slice(1, diceArray.length));
   let min2 = Math.min.apply(null, diceArray.slice(0, diceArray.length-1));
   if (max1 - min1 === 3 || max2 - min2 === 3) {
-      consecutive = true;
+      smallStraight = true;
     }   
 }
   
@@ -980,15 +1036,6 @@ function resetDice (){
   diceThree.style.display = 'none'
   diceFour.style.display = 'none'
   diceFive.style.display = 'none'
-}
-
-function checkLikeDice(element) {
-  let count = 0;
-  for (let i = 0; i < diceArray.length; i++){
-    if (diceArray[i] === element) {
-      count++;
-    }
-  }
 }
 
 function checkForTopBonus () {
