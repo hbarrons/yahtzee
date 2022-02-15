@@ -168,7 +168,7 @@ init()
 function init () {
   allPlayers = []
   diceArray = []
-  gameMsg.innerHTML = "Enter the name of each player one by one! Start game when ready!"
+  gameMsg.innerHTML = "Enter the name of each player one by one!<br>Start game when ready!"
   nextUpMsg.innerHTML = ''
   rollCount = 0
   playerTurn = 1
