@@ -331,6 +331,8 @@ function rollDice () {
     diceRollThree()
     diceRollFour()
     diceRollFive()
+    checkLgStraight()
+    checkSmStraight()
     diceOne.style.display = 'block'
     diceTwo.style.display = 'block'
     diceThree.style.display = 'block'
@@ -707,7 +709,6 @@ function assignScore (evt){
     nextPlayerUp() 
   } else if (evt.target.id === 'sm-straight') {
     score = 30
-    checkSmStraight()
     if (consecutive === false) {
       console.log('sm-straight not valid')
     } else if (consecutive === true) {
@@ -740,7 +741,7 @@ function assignScore (evt){
     nextPlayerUp() 
   } else if (evt.target.id === 'lg-straight') {
     score = 40
-    checkLgStraight()
+    
     if (consecutive === false) {
       console.log('lg straight not valid')
     } else if (consecutive === true) {
