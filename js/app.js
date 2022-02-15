@@ -899,8 +899,6 @@ function assignScore (evt){
           }
       }
     }
-    getFinalScore()
-    nextPlayerUp() 
   }
   gameOver()
 }
