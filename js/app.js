@@ -124,6 +124,7 @@ let playerOneTotal, playerTwoTotal, playerThreeTotal, playerFourTotal, playerFiv
 let playerOneFinal, playerTwoFinal, playerThreeFinal, playerFourFinal, playerFiveFinal, playerSixFinal
 let oneBonusApplied, twoBonusApplied, threeBonusApplied, fourBonusApplied, fiveBonusApplied, sixBonusApplied
 let finalScores
+let consecutive
 let winner 
 let winningPlayer
 
@@ -233,6 +234,7 @@ function init () {
   playerFourYahtBonus = []
   playerFiveYahtBonus = []
   playerSixYahtBonus = []
+  consecutive = false
   finalScores = {}
   oneBonusApplied = false
   twoBonusApplied = false
@@ -705,57 +707,67 @@ function assignScore (evt){
     nextPlayerUp() 
   } else if (evt.target.id === 'sm-straight') {
     score = 30
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      recordScoreSmStraight.innerHTML = score
-    }
-    if (playerTurn === 2) {
-      playerTwoScore.push(score)
-      recordScoreSmStraight.innerHTML = score
-    }
-    if (playerTurn === 3) {
-      playerThreeScore.push(score)
-      recordScoreSmStraight.innerHTML = score
-    }
-    if (playerTurn === 4) {
-      playerFourScore.push(score)
-      recordScoreSmStraight.innerHTML = score
-    }
-    if (playerTurn === 5) {
-      playerFiveScore.push(score)
-      recordScoreSmStraight.innerHTML = score
-    }
-    if (playerTurn === 6) {
-      playerSixScore.push(score)
-      recordScoreSmStraight.innerHTML = score
+    checkSmStraight()
+    if (consecutive === false) {
+      console.log('sm-straight not valid')
+    } else if (consecutive === true) {
+      if (playerTurn === 1) {
+        playerOneScore.push(score)
+        recordScoreSmStraight.innerHTML = score
+      }
+      if (playerTurn === 2) {
+        playerTwoScore.push(score)
+        recordScoreSmStraight.innerHTML = score
+      }
+      if (playerTurn === 3) {
+        playerThreeScore.push(score)
+        recordScoreSmStraight.innerHTML = score
+      }
+      if (playerTurn === 4) {
+        playerFourScore.push(score)
+        recordScoreSmStraight.innerHTML = score
+      }
+      if (playerTurn === 5) {
+        playerFiveScore.push(score)
+        recordScoreSmStraight.innerHTML = score
+      }
+      if (playerTurn === 6) {
+        playerSixScore.push(score)
+        recordScoreSmStraight.innerHTML = score
+      }
     }
     getFinalScore()
     nextPlayerUp() 
   } else if (evt.target.id === 'lg-straight') {
     score = 40
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      recordScoreLgStraight.innerHTML = score
-    }
-    if (playerTurn === 2) {
-      playerTwoScore.push(score)
-      recordScoreLgStraight.innerHTML = score
-    }
-    if (playerTurn === 3) {
-      playerThreeScore.push(score)
-      recordScoreLgStraight.innerHTML = score
-    }
-    if (playerTurn === 4) {
-      playerFourScore.push(score)
-      recordScoreLgStraight.innerHTML = score
-    }
-    if (playerTurn === 5) {
-      playerFiveScore.push(score)
-      recordScoreLgStraight.innerHTML = score
-    }
-    if (playerTurn === 6) {
-      playerSixScore.push(score)
-      recordScoreLgStraight.innerHTML = score
+    checkLgStraight()
+    if (consecutive === false) {
+      console.log('lg straight not valid')
+    } else if (consecutive === true) {
+      if (playerTurn === 1) {
+        playerOneScore.push(score)
+        recordScoreLgStraight.innerHTML = score
+      }
+      if (playerTurn === 2) {
+        playerTwoScore.push(score)
+        recordScoreLgStraight.innerHTML = score
+      }
+      if (playerTurn === 3) {
+        playerThreeScore.push(score)
+        recordScoreLgStraight.innerHTML = score
+      }
+      if (playerTurn === 4) {
+        playerFourScore.push(score)
+        recordScoreLgStraight.innerHTML = score
+      }
+      if (playerTurn === 5) {
+        playerFiveScore.push(score)
+        recordScoreLgStraight.innerHTML = score
+      }
+      if (playerTurn === 6) {
+        playerSixScore.push(score)
+        recordScoreLgStraight.innerHTML = score
+      }
     }
     getFinalScore()
     nextPlayerUp() 
@@ -895,6 +907,32 @@ function assignScore (evt){
   gameOver()
 }
 
+function checkLgStraight() {
+  consecutive = false;
+  diceArray.sort(function(a, b) {
+    return a - b;
+  });
+  let max = Math.max.apply(null, diceArray);
+  let min = Math.min.apply(null, diceArray);
+  if (max - min === 4) {
+      consecutive = true;
+    }
+}
+
+function checkSmStraight() {
+  consecutive = false;
+  diceArray.sort(function(a, b) {
+    return a - b;
+  });
+  let max1 = Math.max.apply(null, diceArray.slice(1, diceArray.length));
+  let max2 = Math.max.apply(null, diceArray.slice(0, diceArray.length-1));
+  let min1 = Math.min.apply(null, diceArray.slice(1, diceArray.length));
+  let min2 = Math.min.apply(null, diceArray.slice(0, diceArray.length-1));
+  if (max1 - min1 === 3 || max2 - min2 === 3) {
+      consecutive = true;
+    }   
+}
+  
 function nextPlayerUp (){
   if (playerTurn === allPlayers.length) {
     playerTurn = 0
@@ -941,6 +979,15 @@ function resetDice (){
   diceThree.style.display = 'none'
   diceFour.style.display = 'none'
   diceFive.style.display = 'none'
+}
+
+function checkLikeDice(element) {
+  let count = 0;
+  for (let i = 0; i < diceArray.length; i++){
+    if (diceArray[i] === element) {
+      count++;
+    }
+  }
 }
 
 function checkForTopBonus () {
