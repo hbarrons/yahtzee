@@ -1,9 +1,3 @@
-/*-------------------------------- Notes --------------------------------*/
-
-
-//Add modal from bootsrap to confirm player category selection
-
-
 /*-------------------------------- Constants --------------------------------*/
   function diceRollOne () {
     if(isUnlocked1 === true) {
@@ -22,7 +16,6 @@
       diceOne.innerHTML = '<img src="img/dice6.png" alt="">'
     } 
   }
-
 
   const diceRollTwo = function () {
     if (isUnlocked2 === true) {
@@ -96,16 +89,9 @@
     } 
   }
 
-
 const diceRollAudio = new Audio ('../audio/dice.wav')
 
-
-
-
-
-
-
-/*-------------------------------- Constants --------------------------------*/
+/*-------------------------------- Variables --------------------------------*/
 let allDice
 let rollOutcome1, rollOutcome2, rollOutcome3, rollOutcome4, rollOutcome5
 let playerTurn
@@ -127,8 +113,6 @@ let oneBonusApplied, twoBonusApplied, threeBonusApplied, fourBonusApplied, fiveB
 let finalScores
 let winner 
 let winningPlayer
-
-
 
 /*------------------------ Cached Element References ------------------------*/
 const playerScoreboard = document.getElementById("playerscoreboard")
@@ -168,10 +152,6 @@ const yahtzee = document.getElementById('yahtzee')
 const chance = document.getElementById('chance')
 const yahtzBonus = document.getElementById('yahtzee-bonus')
 
-
-
-
-
 /*----------------------------- Event Listeners -----------------------------*/
 startGameBtn.addEventListener('click', startGame)
 rollDiceBtn.addEventListener('click', rollDice)
@@ -179,17 +159,6 @@ lockDiceIcon.forEach((evt, idx) => {
   addEventListener('click', handleLockClick)
   })
 resetGameBtn.addEventListener('click', init)
-
-  
-
-
-
-
-
-
-
-
-
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -327,8 +296,6 @@ function appendScoreboard(str, idx) {
   <div id="total-score" class="player total${idx + 1} player${idx + 1}"></div>`
   playerScoreboard.appendChild(playerBoard)
 }
-
-
 
 function rollDice () {
   if (rollCount < 3) {
@@ -644,7 +611,6 @@ function assignScore (evt){
     score = diceArray.reduce((prev, amt) => prev + amt)
     countLikeDice ()
     if (threeKind === false) {
-      console.log('three of a kind criteria not met')
       recordScoreThreeKind.innerHTML = '0'
     } else if (threeKind === true) {
       if (playerTurn === 1) {
@@ -673,7 +639,6 @@ function assignScore (evt){
     score = diceArray.reduce((prev, amt) => prev + amt)
     countLikeDice ()
     if (fourKind === false) {
-      console.log('four of a kind criteria not met')
       recordScoreFourKind.innerHTML = '0'
     } else if (fourKind === true) {
       if (playerTurn === 1) {
@@ -702,7 +667,6 @@ function assignScore (evt){
     score = 25
     countLikeDice ()
     if (fullHouse === false) {
-      console.log('full house criteria not met')
       recordScoreFullHouse.innerHTML = '0'
     } else if (fullHouse === true) {
       if (playerTurn === 1) {
@@ -800,7 +764,6 @@ function assignScore (evt){
     score = 50
     countLikeDice ()
     if (isYahtzee === false) {
-      console.log('yahtzee criteria not met')
       recordScoreYahtzee.innerHTML = '0'
     } else if (isYahtzee === true) {
       if (playerTurn === 1) {
@@ -862,7 +825,6 @@ function assignScore (evt){
     score = 50
     countLikeDice ()
     if (isYahtzee === false) {
-      console.log('no yahtzee bonus')
     } else if (isYahtzee === true) {
       if (playerTurn === 1) {
         playerOneYahtBonus.push(score)
@@ -965,10 +927,6 @@ function countLikeDice () {
   if (diceSort[0][1] === 3 && diceSort[1][1] === 2) {
     fullHouse = true
   }
-  console.log(threeKind)
-  console.log(fourKind)
-  console.log(isYahtzee)
-  console.log(fullHouse)
   diceCount = {}
   diceSort = []
 }
@@ -1128,7 +1086,6 @@ function checkForTopBonus () {
   }
 }
 
-// playerXTotal is cumulative score of playerXScore array. playerXFinal is total + yahtzeeBonus array
 function getFinalScore () {
   if (playerOneScore.length === 14) {
     playerOneTotal = playerOneScore.reduce((x,y) => {
@@ -1366,9 +1323,3 @@ function gameOver () {
     }
   }  
 }
-
-
-
-
-// Need to do:
-// -prevent score click before dice are rolled
