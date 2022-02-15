@@ -1,25 +1,26 @@
 /*-------------------------------- Constants --------------------------------*/
-  function diceRollOne () {
-    if(isUnlocked1 === true) {
-      rollOutcome1 = (Math.floor(Math.random() * 6 + 1))}
-    if (rollOutcome1 === 1 && isUnlocked1 === true) {
-      diceOne.innerHTML = `<img src="img/dice1.png" alt="">`
-    } else if (rollOutcome1 === 2 && isUnlocked1 === true) {
-      diceOne.innerHTML = '<img src="img/dice2.png" alt="">'
-    } else if (rollOutcome1 === 3 && isUnlocked1 === true) {
-      diceOne.innerHTML = '<img src="img/dice3.png" alt="">'
-    } else if (rollOutcome1 === 4 && isUnlocked1 === true) {
-      diceOne.innerHTML = '<img src="img/dice4.png" alt="">'
-    } else if (rollOutcome1 === 5 && isUnlocked1 === true) {
-      diceOne.innerHTML = '<img src="img/dice5.png" alt="">'
-    } else if (rollOutcome1 === 6 && isUnlocked1 === true) {
-      diceOne.innerHTML = '<img src="img/dice6.png" alt="">'
-    } 
-  }
+function diceRollOne () {
+  if(isUnlocked1 === true) {
+    rollOutcome1 = (Math.floor(Math.random() * 6 + 1))}
+  if (rollOutcome1 === 1 && isUnlocked1 === true) {
+    diceOne.innerHTML = `<img src="img/dice1.png" alt="">`
+  } else if (rollOutcome1 === 2 && isUnlocked1 === true) {
+    diceOne.innerHTML = '<img src="img/dice2.png" alt="">'
+  } else if (rollOutcome1 === 3 && isUnlocked1 === true) {
+    diceOne.innerHTML = '<img src="img/dice3.png" alt="">'
+  } else if (rollOutcome1 === 4 && isUnlocked1 === true) {
+    diceOne.innerHTML = '<img src="img/dice4.png" alt="">'
+  } else if (rollOutcome1 === 5 && isUnlocked1 === true) {
+    diceOne.innerHTML = '<img src="img/dice5.png" alt="">'
+  } else if (rollOutcome1 === 6 && isUnlocked1 === true) {
+    diceOne.innerHTML = '<img src="img/dice6.png" alt="">'
+  } 
+}
 
-  const diceRollTwo = function () {
-    if (isUnlocked2 === true) {
-      rollOutcome2 = (Math.floor(Math.random() * 6 + 1))}
+
+const diceRollTwo = function () {
+  if (isUnlocked2 === true) {
+    rollOutcome2 = (Math.floor(Math.random() * 6 + 1))}
     if (rollOutcome2 === 1 && isUnlocked2 === true) {
       diceTwo.innerHTML = `<img src="img/dice1.png" alt="">`
     } else if (rollOutcome2 === 2 && isUnlocked2 === true) {
@@ -33,11 +34,11 @@
     } else if (rollOutcome2 === 6 && isUnlocked2 === true) {
       diceTwo.innerHTML = '<img src="img/dice6.png" alt="">'
     }
-  }
-
-  const diceRollThree = function () {
-    if (isUnlocked3 === true) {
-      rollOutcome3 = (Math.floor(Math.random() * 6 + 1))}
+}
+  
+const diceRollThree = function () {
+  if (isUnlocked3 === true) {
+    rollOutcome3 = (Math.floor(Math.random() * 6 + 1))}
     if (rollOutcome3 === 1 && isUnlocked3 === true) {
       diceThree.innerHTML = `<img src="img/dice1.png" alt="">`
     } else if (rollOutcome3 === 2 && isUnlocked3 === true) {
@@ -51,10 +52,10 @@
     } else if (rollOutcome3 === 6 && isUnlocked3 === true) {
       diceThree.innerHTML = '<img src="img/dice6.png" alt="">'
     } 
-  }
-
-  const diceRollFour = function () {
-    if (isUnlocked4 === true){
+}
+    
+const diceRollFour = function () {
+  if (isUnlocked4 === true){
     rollOutcome4 = (Math.floor(Math.random() * 6 + 1))}
     if (rollOutcome4 === 1 && isUnlocked4 === true) {
       diceFour.innerHTML = `<img src="img/dice1.png" alt="">`
@@ -69,10 +70,11 @@
     } else if (rollOutcome4 === 6 && isUnlocked4 === true) {
       diceFour.innerHTML = '<img src="img/dice6.png" alt="">'
     } 
-  }
-
-  const diceRollFive = function () {
-    if (isUnlocked5 === true) {
+ }
+      
+  
+const diceRollFive = function () {
+  if (isUnlocked5 === true) {
     rollOutcome5 = (Math.floor(Math.random() * 6 + 1))}
     if (rollOutcome5 === 1 && isUnlocked5 === true) {
       diceFive.innerHTML = `<img src="img/dice1.png" alt="">`
@@ -87,7 +89,7 @@
     } else if (rollOutcome5 === 6 && isUnlocked5 === true) {
       diceFive.innerHTML = '<img src="img/dice6.png" alt="">'
     } 
-  }
+}
 
 const diceRollAudio = new Audio ('../audio/dice.wav')
 
@@ -254,10 +256,7 @@ function startGame () {
   gameMsg.innerHTML = "Rules: "
   listNames.textContent = "";
   form.style.display = 'none'
-  gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. Click the lock emoji lock in a dice before rerolling <br> 3. Once all dice are locked in, click on the category you'd like to assing points to.<br>Good luck, have fun!`;
-  
-  // because these elements aren't being added until startGame, they need to be defined here
-  // cached elements
+  gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. To keep a dice, click on the lock emoji lock or that specific dice before rerolling <br> 3. After three rolls (or less if you have the outcome you want) click on the category you'd like to assing points to. Be sure to click on the right player!<br>If you need to scratch, click on the category you'd like to scrach and 0 points will be assigned. <br>Good luck, have fun!`;
   scoreCategory = document.querySelectorAll(".player")
   scoreCategory.forEach((evt, idx) => {
     addEventListener('click', assignScore)
@@ -266,10 +265,7 @@ function startGame () {
   playerTurn.forEach((evt, idx) => {
     addEventListener('click', assignScore, nextPlayerUp)
     })
-
-
   playerTurn = 0
-
   nextPlayerUp()
 }
 

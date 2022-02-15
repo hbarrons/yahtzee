@@ -46,9 +46,9 @@ h1{
 }
 
 h3{
-  font-size: 20px;
+  font-size: 15px;
   align-items: start;
-  text-align: center;
+  text-align: left;
   margin: auto;
   padding: 10px 10px 10px 10px;
   grid-column: 1 / 2;
@@ -180,6 +180,7 @@ section.scoreboard{
 /* this class is being added with js */
 .playerscore {
   text-align: center;
+  font-size: 20px;
   justify-content: center;
   flex-direction: column;
   display: grid;
