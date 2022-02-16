@@ -925,6 +925,23 @@ function countLikeDice () {
   diceSort = []
 }
 
+function celebrateYahtzee () {
+  diceArray.forEach(function (num) {
+    diceCount[num] = (diceCount[num] || 0) + 1
+  })
+  for (num in diceCount) {
+    diceSort.push([num, diceCount[num]])
+  }
+  diceSort.sort(function (a,b) {
+    return b[1]-a[1]
+  })
+  if (diceSort[0][1] === 5) {
+    
+  }
+  diceCount = {}
+  diceSort = []
+}
+
 function checkLgStraight() {
   largeStraight = false;
   diceArray.sort(function(a, b) {

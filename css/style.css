@@ -176,10 +176,11 @@ section.scoreboard{
 .container {
   width: 50px;
   display: flex;
-  padding-left: 10vh;
+  padding-left: 5px;
   padding-top: 20px;
   padding-bottom: 50px;
   flex-direction: row;
+  margin: 0;
 }
 
 #playerscoreboard {
