@@ -780,64 +780,65 @@ function assignScore (evt){
       getFinalScore()
     } else if (evt.target.id === 'sm-straight') {
       score = 30
+      checkSmStraight()
       if (smallStraight === true) {
-        if (playerTurn === 1 && evt.target.classList == `player sm-straight1 player1`) {
+        if (playerTurn === 1 && evt.target.classList == `player sm-str1 player1`) {
           playerOneScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 2 && evt.target.classList == `player sm-straight2 player2`) {
+        if (playerTurn === 2 && evt.target.classList == `player sm-str2 player2`) {
           playerTwoScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 3 && evt.target.classList == `player sm-straight3 player3`) {
+        if (playerTurn === 3 && evt.target.classList == `player sm-str3 player3`) {
           playerThreeScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 4 && evt.target.classList == `player sm-straight4 player4`) {
+        if (playerTurn === 4 && evt.target.classList == `player sm-str4 player4`) {
           playerFourScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 5 && evt.target.classList == `player sm-straight5 player5`) {
+        if (playerTurn === 5 && evt.target.classList == `player sm-str5 player5`) {
           playerFiveScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 6 && evt.target.classList == `player sm-straight6 player6`) {
+        if (playerTurn === 6 && evt.target.classList == `player sm-str6 player6`) {
           playerSixScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
       } else if (smallStraight === false) {
-        if (playerTurn === 1 && evt.target.classList == `player sm-straight1 player1`) {
+        if (playerTurn === 1 && evt.target.classList == `player sm-str1 player1`) {
           playerOneScore.push('0')
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 2 && evt.target.classList == `player sm-straight2 player2`) {
+        if (playerTurn === 2 && evt.target.classList == `player sm-str2 player2`) {
           playerTwoScore.push('0')
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 3 && evt.target.classList == `player sm-straight3 player3`) {
+        if (playerTurn === 3 && evt.target.classList == `player sm-str3 player3`) {
           playerThreeScore.push('0')
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 4 && evt.target.classList == `player sm-straight4 player4`) {
+        if (playerTurn === 4 && evt.target.classList == `player sm-str4 player4`) {
           playerFourScore.push('0')
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 5 && evt.target.classList == `player sm-straight5 player5`) {
+        if (playerTurn === 5 && evt.target.classList == `player sm-str5 player5`) {
           playerFiveScore.push('0')
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 6 && evt.target.classList == `player sm-straight6 player6`) {
+        if (playerTurn === 6 && evt.target.classList == `player sm-str6 player6`) {
           playerSixScore.push('0')
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
@@ -846,64 +847,65 @@ function assignScore (evt){
       getFinalScore()
     } else if (evt.target.id === 'lg-straight') {
       score = 40
+      checkLgStraight()
       if (largeStraight === true) {
-        if (playerTurn === 1 && evt.target.classList == `player lg-straight1 player1`) {
+        if (playerTurn === 1 && evt.target.classList == `player lg-str1 player1`) {
           playerOneScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 2 && evt.target.classList == `player lg-straight2 player2`) {
+        if (playerTurn === 2 && evt.target.classList == `player lg-str2 player2`) {
           playerTwoScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 3 && evt.target.classList == `player lg-straight3 player3`) {
+        if (playerTurn === 3 && evt.target.classList == `player lg-str3 player3`) {
           playerThreeScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 4 && evt.target.classList == `player lg-straight4 player4`) {
+        if (playerTurn === 4 && evt.target.classList == `player lg-str4 player4`) {
           playerFourScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 5 && evt.target.classList == `player lg-straight5 player5`) {
+        if (playerTurn === 5 && evt.target.classList == `player lg-str5 player5`) {
           playerFiveScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 6 && evt.target.classList == `player lg-straight6 player6`) {
+        if (playerTurn === 6 && evt.target.classList == `player lg-str6 player6`) {
           playerSixScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
       } else if (largeStraight === false) {
-        if (playerTurn === 1 && evt.target.classList == `player lg-straight1 player1`) {
+        if (playerTurn === 1 && evt.target.classList == `player lg-str1 player1`) {
           playerOneScore.push('0')
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 2 && evt.target.classList == `player lg-straight2 player2`) {
+        if (playerTurn === 2 && evt.target.classList == `player lg-str2 player2`) {
           playerTwoScore.push('0')
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 3 && evt.target.classList == `player lg-straight3 player3`) {
+        if (playerTurn === 3 && evt.target.classList == `player lg-str3 player3`) {
           playerThreeScore.push('0')
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 4 && evt.target.classList == `player lg-straight4 player4`) {
+        if (playerTurn === 4 && evt.target.classList == `player lg-str4 player4`) {
           playerFourScore.push('0')
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 5 && evt.target.classList == `player lg-straight5 player5`) {
+        if (playerTurn === 5 && evt.target.classList == `player lg-str5 player5`) {
           playerFiveScore.push('0')
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 6 && evt.target.classList == `player lg-straight6 player6`) {
+        if (playerTurn === 6 && evt.target.classList == `player lg-str6 player6`) {
           playerSixScore.push('0')
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
