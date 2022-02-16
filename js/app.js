@@ -821,6 +821,7 @@ function assignScore (evt){
     score = 50
     countLikeDice ()
     if (isYahtzee === false) {
+
     } else if (isYahtzee === true) {
       if (playerTurn === 1) {
         playerOneYahtBonus.push(score)
@@ -917,26 +918,10 @@ function countLikeDice () {
   }
   if (diceSort[0][1] === 5) {
     isYahtzee = true
+    confetti.start(2000)
   }
   if (diceSort[0][1] === 3 && diceSort[1][1] === 2) {
     fullHouse = true
-  }
-  diceCount = {}
-  diceSort = []
-}
-
-function celebrateYahtzee () {
-  diceArray.forEach(function (num) {
-    diceCount[num] = (diceCount[num] || 0) + 1
-  })
-  for (num in diceCount) {
-    diceSort.push([num, diceCount[num]])
-  }
-  diceSort.sort(function (a,b) {
-    return b[1]-a[1]
-  })
-  if (diceSort[0][1] === 5) {
-    
   }
   diceCount = {}
   diceSort = []
