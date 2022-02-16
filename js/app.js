@@ -308,10 +308,7 @@ function rollDice () {
     diceRollFour()
     diceRollFive()
     diceArray = [rollOutcome1, rollOutcome2, rollOutcome3, rollOutcome4, rollOutcome5]
-    checkLgStraight()
-    checkSmStraight()
     celebrateYahtzee()
-    countLikeDice()
     diceOne.style.display = 'block'
     diceTwo.style.display = 'block'
     diceThree.style.display = 'block'
@@ -649,8 +646,33 @@ function assignScore (evt){
       getFinalScore()
     } else if (evt.target.id === 'three-kind') {
       score = diceArray.reduce((prev, amt) => prev + amt)
+      countLikeDice()
       if (threeKind === false) {
-        recordScoreThreeKind.innerHTML = '0'
+        if (playerTurn === 1 && evt.target.classList == `player three-kind1 player1`) {
+          playerOneScore.push(parseInt(0))
+          recordScoreThreeKind.innerHTML = '0'
+          nextPlayerUp() 
+        } else if (playerTurn === 2 && evt.target.classList == `player three-kind2 player2`){
+          playerTwoScore.push(parseInt(0))
+          recordScoreThreeKind.innerHTML = '0'
+          nextPlayerUp() 
+        } else if (playerTurn === 3 && evt.target.classList == `player three-kind3 player3`){
+          playerThreeScore.push(parseInt(0))
+          recordScoreThreeKind.innerHTML = '0'
+          nextPlayerUp() 
+        } else if (playerTurn === 4 && evt.target.classList == `player three-kind4 player4`){
+          playerFourScore.push(parseInt(0))
+          recordScoreThreeKind.innerHTML = '0'
+          nextPlayerUp() 
+        } else if (playerTurn === 5 && evt.target.classList == `player three-kind5 player5`){
+          playerFiveScore.push(parseInt(0))
+          recordScoreThreeKind.innerHTML = '0'
+          nextPlayerUp() 
+        } else if (playerTurn === 6 && evt.target.classList == `player three-kind6 player6`){
+          playerSixScore.push(parseInt(0))
+          recordScoreThreeKind.innerHTML = '0'
+          nextPlayerUp() 
+        } 
       } else if (threeKind === true) {
         if (playerTurn === 1 && evt.target.classList == `player three-kind1 player1`) {
           playerOneScore.push(score)
@@ -681,8 +703,33 @@ function assignScore (evt){
       getFinalScore()
     } else if (evt.target.id === 'four-kind') {
       score = diceArray.reduce((prev, amt) => prev + amt)
+      countLikeDice()
       if (fourKind === false) {
-        recordScoreFourKind.innerHTML = '0'
+        if (playerTurn === 1 && evt.target.classList == `player four-kind1 player1`) {
+          playerOneScore.push(parseInt(0))
+          recordScoreFourKind.innerHTML = '0'
+          nextPlayerUp() 
+        } else if (playerTurn === 2 && evt.target.classList == `player four-kind2 player2`){
+          playerTwoScore.push(parseInt(0))
+          recordScoreFourKind.innerHTML = '0'
+          nextPlayerUp() 
+        } else if (playerTurn === 3 && evt.target.classList == `player four-kind3 player3`){
+          playerThreeScore.push(parseInt(0))
+          recordScoreFourKind.innerHTML = '0'
+          nextPlayerUp() 
+        } else if (playerTurn === 4 && evt.target.classList == `player four-kind4 player4`){
+          playerFourScore.push(parseInt(0))
+          recordScoreFourKind.innerHTML = '0'
+          nextPlayerUp() 
+        } else if (playerTurn === 5 && evt.target.classList == `player four-kind5 player5`){
+          playerFiveScore.push(parseInt(0))
+          recordScoreFourKind.innerHTML = '0'
+          nextPlayerUp() 
+        } else if (playerTurn === 6 && evt.target.classList == `player four-kind6 player6`){
+          playerSixScore.push(parseInt(0))
+          recordScoreFourKind.innerHTML = '0'
+          nextPlayerUp() 
+        } 
       } else if (fourKind === true) {
         if (playerTurn === 1 && evt.target.classList == `player four-kind1 player1`) {
           playerOneScore.push(score)
@@ -713,7 +760,7 @@ function assignScore (evt){
       getFinalScore()
     } else if (evt.target.id === 'full-house') {
       score = 25
-      countLikeDice ()
+      countLikeDice()
       if (fullHouse === true) {
         if (playerTurn === 1 && evt.target.classList == `player full-house1 player1`) {
           playerOneScore.push(score)
@@ -747,32 +794,32 @@ function assignScore (evt){
         }
       } else if (fullHouse === false) {
         if (playerTurn === 1 && evt.target.classList == `player full-house1 player1`) {
-          playerOneScore.push('0')
+          playerOneScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
         if (playerTurn === 2 && evt.target.classList == `player full-house2 player2`) {
-          playerTwoScore.push('0')
+          playerTwoScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
         if (playerTurn === 3 && evt.target.classList == `player full-house3 player3`) {
-          playerThreeScore.push('0')
+          playerThreeScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
         if (playerTurn === 4 && evt.target.classList == `player full-house4 player4`) {
-          playerFourScore.push('0')
+          playerFourScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
         if (playerTurn === 5 && evt.target.classList == `player full-house5 player5`) {
-          playerFiveScore.push('0')
+          playerFiveScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
         if (playerTurn === 6 && evt.target.classList == `playerfull-house6 player6`) {
-          playerSixScore.push('0')
+          playerSixScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
@@ -814,32 +861,32 @@ function assignScore (evt){
         }
       } else if (smallStraight === false) {
         if (playerTurn === 1 && evt.target.classList == `player sm-str1 player1`) {
-          playerOneScore.push('0')
+          playerOneScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 2 && evt.target.classList == `player sm-str2 player2`) {
-          playerTwoScore.push('0')
+          playerTwoScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 3 && evt.target.classList == `player sm-str3 player3`) {
-          playerThreeScore.push('0')
+          playerThreeScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 4 && evt.target.classList == `player sm-str4 player4`) {
-          playerFourScore.push('0')
+          playerFourScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 5 && evt.target.classList == `player sm-str5 player5`) {
-          playerFiveScore.push('0')
+          playerFiveScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 6 && evt.target.classList == `player sm-str6 player6`) {
-          playerSixScore.push('0')
+          playerSixScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
@@ -881,32 +928,32 @@ function assignScore (evt){
         }
       } else if (largeStraight === false) {
         if (playerTurn === 1 && evt.target.classList == `player lg-str1 player1`) {
-          playerOneScore.push('0')
+          playerOneScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 2 && evt.target.classList == `player lg-str2 player2`) {
-          playerTwoScore.push('0')
+          playerTwoScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 3 && evt.target.classList == `player lg-str3 player3`) {
-          playerThreeScore.push('0')
+          playerThreeScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 4 && evt.target.classList == `player lg-str4 player4`) {
-          playerFourScore.push('0')
+          playerFourScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 5 && evt.target.classList == `player lg-str5 player5`) {
-          playerFiveScore.push('0')
+          playerFiveScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 6 && evt.target.classList == `player lg-str6 player6`) {
-          playerSixScore.push('0')
+          playerSixScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
@@ -914,7 +961,7 @@ function assignScore (evt){
       getFinalScore()
     } else if (evt.target.id === 'yahtzee') {
       score = 50
-      countLikeDice ()
+      countLikeDice()
       if (isYahtzee === true) {
         if (playerTurn === 1 && evt.target.classList == `player yahtzee1 player1`) {
           playerOneScore.push(score)
@@ -948,32 +995,32 @@ function assignScore (evt){
         }
       } else if (isYahtzee === false) {
         if (playerTurn === 1 && evt.target.classList == `player yahtzee1 player1`) {
-          playerOneScore.push('0')
+          playerOneScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 2 && evt.target.classList == `player yahtzee2 player2`) {
-          playerTwoScore.push('0')
+          playerTwoScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 3 && evt.target.classList == `player yahtzee3 player3`) {
-          playerThreeScore.push('0')
+          playerThreeScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 4 && evt.target.classList == `player yahtzee4 player4`) {
-          playerFourScore.push('0')
+          playerFourScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 5 && evt.target.classList == `player yahtzee5 player5`) {
-          playerFiveScore.push('0')
+          playerFiveScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
         if (playerTurn === 6 && evt.target.classList == `player yahtzee6 player6`) {
-          playerSixScore.push('0')
+          playerSixScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
@@ -1014,7 +1061,7 @@ function assignScore (evt){
       getFinalScore()
     } else if (evt.target.id === 'yahtzee-bonus') {
       score = 50
-      countLikeDice ()
+      countLikeDice()
       if (isYahtzee === false) {
   
       } else if (isYahtzee === true) {
@@ -1103,6 +1150,10 @@ function assignScore (evt){
 }
 
 function countLikeDice () {
+  threeKind = false
+  fourKind = false
+  isYahtzee = false
+  diceSort = []
   diceArray.forEach(function (num) {
     diceCount[num] = (diceCount[num] || 0) + 1
   })
@@ -1228,7 +1279,7 @@ function checkForTopBonus () {
       playerOneScore.push(35)
     } else if (player1bonus < 63) {
       recordScoreBonus.innerHTML = '0'
-      playerOneScore.push(0)
+      playerOneScore.push(parseInt(0))
    }
    oneBonusApplied = true
   }
@@ -1241,7 +1292,7 @@ function checkForTopBonus () {
       playerTwoScore.push(35)
     } else if (player2bonus < 63) {
       recordScoreBonus.innerHTML = '0'
-      playerTwoScore.push(0)
+      playerTwoScore.push(parseInt(0))
     }
     twoBonusApplied = true
   }
@@ -1254,7 +1305,7 @@ function checkForTopBonus () {
       playerThreeScore.push(35)
     } else if (player3bonus < 63) {
       recordScoreBonus.innerHTML = '0'
-      playerThreeScore.push(0)
+      playerThreeScore.push(parseInt(0))
     }
     threeBonusApplied = true
   }
@@ -1267,7 +1318,7 @@ function checkForTopBonus () {
       playerFourScore.push(35)
     } else if (player4bonus < 63) {
       recordScoreBonus.innerHTML = '0'
-      playerFourScore.push(0)
+      playerFourScore.push(parseInt(0))
     }
     fourBonusApplied = true
   }
@@ -1280,7 +1331,7 @@ function checkForTopBonus () {
       playerFiveScore.push(35)
     } else if (player5bonus < 63) {
       recordScoreBonus.innerHTML = '0'
-      playerFiveScore.push(0)
+      playerFiveScore.push(parseInt(0))
     }
     fiveBonusApplied = true
   } 
@@ -1293,7 +1344,7 @@ function checkForTopBonus () {
       playerSixScore.push(35)
     } else if (player6bonus < 63) {
       recordScoreBonus.innerHTML = '0'
-      playerSixScore.push(0)
+      playerSixScore.push(parseInt(0))
     }
     sixBonusApplied = true
   }
@@ -1554,8 +1605,5 @@ function checkDarkPref() {
 checkDarkPref()
 
 // Remaining Objections
-// 1. Dark mode
 // 1.1 Dice animation on all rolls
 // 2. Add text bubble on hover with point scoring explanations
-// 3. Solve touchscreen/mouse click issue
-// 4. Bootstrap buttons (need to resolve defer issue causing bug)
