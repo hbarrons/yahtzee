@@ -18,25 +18,66 @@ html {
 }
 
 body {
+  --body-bg: #1c1c20;
+  --btn-text-color: #2a2a2a;
+  --body-text-color: #d4d0d0;
+  --header-bg: #1c1c20;
+  --header-text-color: #d8d8d8;
+  --inverted-btn-text-color: #eaeaea;
+  --light-dark-btn-bg: #1d1e2b;
+  --light-dark-btn-content: "Dark Mode";
   background-color: rgb(165, 77, 77);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
 }
 
-/* .gameInfo {
-  color: whitesmoke;
-  margin: auto;
+body.dark {
+  --body-bg: #22232b;
+  --btn-text-color: #eaeaea;
+  --card-text-color: #dedede;
+  --header-bg: #005e9d;
+  --header-text-color: #d8d8d8;
+  --inverted-btn-text-color: #2a2a2a;
+  --light-dark-btn-bg: linear-gradient(to right top, #444655, #595b6b, #6f7181,
+    #868898, #9ea0b0, #acaebe, #bbbccd, #cacbdc, #d2d4e5, #dadced, #e3e5f6, #ebeeff);
+  --light-dark-btn-content: "Light Mode";
+  --tay: linear-gradient(to right top, #560185, #6b0092, #7e009b, #89009b, 
+    #920097, #a7008b, #bd0281, #ac0064, #bd134f, #c52f39, #c54a22, #be6300);
+  --ye: linear-gradient(to right top, #213555, #213c59, #22425d, #254960,
+    #2a4f63, #264c61, #224860, #1e455e, #173757, #18294e, #1d1941, #210632);
+  background-color: var(--body-bg);
+}
+
+.btn {
+  border: none;
   display: flex;
+  margin: auto;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  color: var(--btn-text-color);
+  font-family: var(--cursive);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
 
-} */
+#light-dark-button {
+  background-color: var(--light-dark-btn-bg);
+  background-image: var(--light-dark-btn-bg);
+}
+
+#light-dark-button::after {
+  border: none;
+  color: var(--inverted-btn-text-color);
+  content: var(--light-dark-btn-content);
+}
 
 h1{
   font-size: 80px;
   display: flex;
-  color: whitesmoke;
+  color: var(--body-text-color);
   flex-direction: column;
   font-style: italic;
   text-align: center;
@@ -398,8 +439,9 @@ div {
     flex-direction: column;
     align-items: start;
     text-align: center;
-   padding-top: 8px; 
+    padding-top: 8px; 
     height: 100%;
+    background-color: ;
   }
   
   /* this class is being added with js */

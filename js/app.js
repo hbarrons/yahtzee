@@ -153,6 +153,9 @@ const lgStraight = document.getElementById('lg-straight')
 const yahtzee = document.getElementById('yahtzee')
 const chance = document.getElementById('chance')
 const yahtzBonus = document.getElementById('yahtzee-bonus')
+const lightDarkBtn = document.querySelector("#light-dark-button")
+const body = document.querySelector("body")
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 startGameBtn.addEventListener('click', startGame)
@@ -161,6 +164,7 @@ lockDiceIcon.forEach((evt, idx) => {
   addEventListener('click', handleLockClick)
   })
 resetGameBtn.addEventListener('click', init)
+lightDarkBtn.addEventListener('click', toggleLightDark)
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -1524,10 +1528,25 @@ function gameOver () {
   }  
 }
 
+function toggleLightDark() {
+  body.className = body.className === "dark" ? "" : "dark"
+  category.classList = section.category.classList === "dark" ? "" : "dark"
+}
+
+function checkDarkPref() {
+  if (
+    window.matchMedia("(prefers-color-scheme:dark)").matches &&
+    body.className !== "dark"
+  ) {
+    toggleLightDark()
+  }
+}
+
+checkDarkPref()
 
 // Remaining Objections
-// 0. Prevent click on other play score line
-// 1. Add text bubble on hover with point scoring explanations
-// 2. Dark mode
+// 1. Dark mode
+// 1.1 Dice animation on all rolls
+// 2. Add text bubble on hover with point scoring explanations
 // 3. Solve touchscreen/mouse click issue
 // 4. Bootstrap buttons (need to resolve defer issue causing bug)
