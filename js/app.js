@@ -319,6 +319,7 @@ function rollDice () {
     gameMsg.innerHTML = ""
     if (rollCount ===3) {
       nextUpMsg.innerHTML = `Which category would you like to score?`
+      rollDiceBtn.style.display = 'none'
     }
     diceRollAudio.valume = .05
     diceRollAudio.play()
