@@ -301,6 +301,11 @@ function rollDice () {
     diceRollThree()
     diceRollFour()
     diceRollFive()
+    diceArray = [rollOutcome1, rollOutcome2, rollOutcome3, rollOutcome4, rollOutcome5]
+    checkLgStraight()
+    checkSmStraight()
+    celebrateYahtzee()
+    countLikeDice()
     diceOne.style.display = 'block'
     diceTwo.style.display = 'block'
     diceThree.style.display = 'block'
@@ -312,8 +317,6 @@ function rollDice () {
     diceLock4.style.display = 'block'
     diceLock5.style.display = 'block'
     gameMsg.innerHTML = ""
-    checkLgStraight()
-    checkSmStraight()
     if (rollCount ===3) {
       nextUpMsg.innerHTML = `Which category would you like to score?`
     }
@@ -387,7 +390,7 @@ function assignScore (evt){
   recordScoreChance = document.querySelector(`.chance${playerTurn}`)
   recordScoreYahtBonus = document.querySelector(`.yahtzee-bonus${playerTurn}`)
   recordScoreFinal = document.querySelector(`.total${playerTurn}`)
-  diceArray = [rollOutcome1, rollOutcome2, rollOutcome3, rollOutcome4, rollOutcome5]
+  // diceArray = [rollOutcome1, rollOutcome2, rollOutcome3, rollOutcome4, rollOutcome5]
   if (evt.target.id === 'ones') {
     let score = 0
     for (let i=0; i < diceArray.length; i++){
@@ -605,7 +608,6 @@ function assignScore (evt){
     nextPlayerUp()
   } else if (evt.target.id === 'three-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
-    countLikeDice ()
     if (threeKind === false) {
       recordScoreThreeKind.innerHTML = '0'
     } else if (threeKind === true) {
@@ -633,7 +635,6 @@ function assignScore (evt){
     nextPlayerUp() 
   } else if (evt.target.id === 'four-kind') {
     score = diceArray.reduce((prev, amt) => prev + amt)
-    countLikeDice ()
     if (fourKind === false) {
       recordScoreFourKind.innerHTML = '0'
     } else if (fourKind === true) {
@@ -918,13 +919,27 @@ function countLikeDice () {
   }
   if (diceSort[0][1] === 5) {
     isYahtzee = true
-    confetti.start(2000)
   }
   if (diceSort[0][1] === 3 && diceSort[1][1] === 2) {
     fullHouse = true
   }
   diceCount = {}
   diceSort = []
+}
+
+function celebrateYahtzee () {
+  diceArray.forEach(function (num) {
+    diceCount[num] = (diceCount[num] || 0) + 1
+  })
+  for (num in diceCount) {
+    diceSort.push([num, diceCount[num]])
+  }
+  diceSort.sort(function (a,b) {
+    return b[1]-a[1]
+  })
+  if (diceSort[0][1] === 5) {
+    confetti.start(2000)
+  }
 }
 
 function checkLgStraight() {
