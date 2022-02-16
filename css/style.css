@@ -34,7 +34,7 @@ body {
 } */
 
 h1{
-  font-size: 42px;
+  font-size: 80px;
   display: flex;
   color: whitesmoke;
   flex-direction: column;
@@ -252,7 +252,7 @@ div {
   }
   
   h1{
-    font-size: 42px;
+    font-size: 80px;
     align-items: center;
     font-style: italic;
     text-align: center;

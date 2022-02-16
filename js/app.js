@@ -708,9 +708,7 @@ function assignScore (evt){
     } else if (evt.target.id === 'full-house') {
       score = 25
       countLikeDice ()
-      if (fullHouse === false) {
-        recordScoreFullHouse.innerHTML = '0'
-      } else if (fullHouse === true) {
+      if (fullHouse === true) {
         if (playerTurn === 1 && evt.target.classList == `player full-house1 player1`) {
           playerOneScore.push(score)
           recordScoreFullHouse.innerHTML = score
@@ -741,13 +739,42 @@ function assignScore (evt){
           recordScoreFullHouse.innerHTML = score
           nextPlayerUp()
         }
+      } else if (fullHouse === false) {
+        if (playerTurn === 1 && evt.target.classList == `player full-house1 player1`) {
+          playerOneScore.push('0')
+          recordScoreFullHouse.innerHTML = '0'
+          nextPlayerUp()
+        }
+        if (playerTurn === 2 && evt.target.classList == `player full-house2 player2`) {
+          playerTwoScore.push('0')
+          recordScoreFullHouse.innerHTML = '0'
+          nextPlayerUp()
+        }
+        if (playerTurn === 3 && evt.target.classList == `player full-house3 player3`) {
+          playerThreeScore.push('0')
+          recordScoreFullHouse.innerHTML = '0'
+          nextPlayerUp()
+        }
+        if (playerTurn === 4 && evt.target.classList == `player full-house4 player4`) {
+          playerFourScore.push('0')
+          recordScoreFullHouse.innerHTML = '0'
+          nextPlayerUp()
+        }
+        if (playerTurn === 5 && evt.target.classList == `player full-house5 player5`) {
+          playerFiveScore.push('0')
+          recordScoreFullHouse.innerHTML = '0'
+          nextPlayerUp()
+        }
+        if (playerTurn === 6 && evt.target.classList == `playerfull-house6 player6`) {
+          playerSixScore.push('0')
+          recordScoreFullHouse.innerHTML = '0'
+          nextPlayerUp()
+        }
       }
       getFinalScore()
     } else if (evt.target.id === 'sm-straight') {
       score = 30
-      if (smallStraight === false) {
-        recordScoreSmStraight.innerHTML = '0'
-      } else if (smallStraight === true) {
+      if (smallStraight === true) {
         if (playerTurn === 1 && evt.target.classList == `player sm-straight1 player1`) {
           playerOneScore.push(score)
           recordScoreSmStraight.innerHTML = score
@@ -778,13 +805,42 @@ function assignScore (evt){
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
+      } else if (smallStraight === false) {
+        if (playerTurn === 1 && evt.target.classList == `player sm-straight1 player1`) {
+          playerOneScore.push('0')
+          recordScoreSmStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 2 && evt.target.classList == `player sm-straight2 player2`) {
+          playerTwoScore.push('0')
+          recordScoreSmStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 3 && evt.target.classList == `player sm-straight3 player3`) {
+          playerThreeScore.push('0')
+          recordScoreSmStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 4 && evt.target.classList == `player sm-straight4 player4`) {
+          playerFourScore.push('0')
+          recordScoreSmStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 5 && evt.target.classList == `player sm-straight5 player5`) {
+          playerFiveScore.push('0')
+          recordScoreSmStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 6 && evt.target.classList == `player sm-straight6 player6`) {
+          playerSixScore.push('0')
+          recordScoreSmStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
       }
       getFinalScore()
     } else if (evt.target.id === 'lg-straight') {
       score = 40
-      if (largeStraight === false) {
-        recordScoreLgStraight.innerHTML = '0'
-      } else if (largeStraight === true) {
+      if (largeStraight === true) {
         if (playerTurn === 1 && evt.target.classList == `player lg-straight1 player1`) {
           playerOneScore.push(score)
           recordScoreLgStraight.innerHTML = score
@@ -815,14 +871,43 @@ function assignScore (evt){
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
+      } else if (largeStraight === false) {
+        if (playerTurn === 1 && evt.target.classList == `player lg-straight1 player1`) {
+          playerOneScore.push('0')
+          recordScoreLgStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 2 && evt.target.classList == `player lg-straight2 player2`) {
+          playerTwoScore.push('0')
+          recordScoreLgStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 3 && evt.target.classList == `player lg-straight3 player3`) {
+          playerThreeScore.push('0')
+          recordScoreLgStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 4 && evt.target.classList == `player lg-straight4 player4`) {
+          playerFourScore.push('0')
+          recordScoreLgStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 5 && evt.target.classList == `player lg-straight5 player5`) {
+          playerFiveScore.push('0')
+          recordScoreLgStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 6 && evt.target.classList == `player lg-straight6 player6`) {
+          playerSixScore.push('0')
+          recordScoreLgStraight.innerHTML = '0'
+          nextPlayerUp() 
+        }
       }
       getFinalScore()
     } else if (evt.target.id === 'yahtzee') {
       score = 50
       countLikeDice ()
-      if (isYahtzee === false) {
-        recordScoreYahtzee.innerHTML = '0'
-      } else if (isYahtzee === true) {
+      if (isYahtzee === true) {
         if (playerTurn === 1 && evt.target.classList == `player yahtzee1 player1`) {
           playerOneScore.push(score)
           recordScoreYahtzee.innerHTML = score
@@ -851,6 +936,37 @@ function assignScore (evt){
         if (playerTurn === 6 && evt.target.classList == `player yahtzee6 player6`) {
           playerSixScore.push(score)
           recordScoreYahtzee.innerHTML = score
+          nextPlayerUp() 
+        }
+      } else if (isYahtzee === false) {
+        if (playerTurn === 1 && evt.target.classList == `player yahtzee1 player1`) {
+          playerOneScore.push('0')
+          recordScoreYahtzee.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 2 && evt.target.classList == `player yahtzee2 player2`) {
+          playerTwoScore.push('0')
+          recordScoreYahtzee.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 3 && evt.target.classList == `player yahtzee3 player3`) {
+          playerThreeScore.push('0')
+          recordScoreYahtzee.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 4 && evt.target.classList == `player yahtzee4 player4`) {
+          playerFourScore.push('0')
+          recordScoreYahtzee.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 5 && evt.target.classList == `player yahtzee5 player5`) {
+          playerFiveScore.push('0')
+          recordScoreYahtzee.innerHTML = '0'
+          nextPlayerUp() 
+        }
+        if (playerTurn === 6 && evt.target.classList == `player yahtzee6 player6`) {
+          playerSixScore.push('0')
+          recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
       }
@@ -1065,6 +1181,7 @@ function nextPlayerUp (){
   } else if (playerTurn === 6){
     nextUpMsg.innerHTML = `${allPlayers[5]} is up!`
   } 
+
   rollDiceBtn.style.display = 'block'
   rollCount = 0
   resetDice()
