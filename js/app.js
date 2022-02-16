@@ -173,6 +173,7 @@ function init () {
   allPlayers = []
   diceArray = []
   gameMsg.innerHTML = "Enter the name of each player one by one!<br>Start game when ready!"
+  gameMsg.style.textAlign = 'center'
   nextUpMsg.innerHTML = ''
   rollCount = 0
   playerTurn = 1
@@ -261,6 +262,7 @@ function startGame () {
   listNames.textContent = "";
   form.style.display = 'none'
   gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. To keep a dice, click on the lock emoji lock or that specific dice before rerolling <br> 3. After three rolls (or less if you have the outcome you want) click on the category you'd like to assing points to. Be sure to click on the right player!<br>4. If you need to scratch, click on the category you'd like to scrach and 0 points will be assigned. <br>Good luck, have fun!`;
+  gameMsg.style.textAlign = 'left'
   scoreCategory = document.querySelectorAll(".player")
   scoreCategory.forEach((evt, idx) => {
     addEventListener('click', assignScore)
