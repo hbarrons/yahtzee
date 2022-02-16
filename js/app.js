@@ -374,7 +374,7 @@ function handleLockClick (event){
 }
 
 function assignScore (evt){
-  playerTurn = parseInt(evt.target.className.split('').pop())
+  // playerTurn = parseInt(evt.target.className.split('').pop())
   recordScoreOnes = document.querySelector(`.ones${playerTurn}`)
   recordScoreTwos = document.querySelector(`.twos${playerTurn}`)
   recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
@@ -391,511 +391,587 @@ function assignScore (evt){
   recordScoreChance = document.querySelector(`.chance${playerTurn}`)
   recordScoreYahtBonus = document.querySelector(`.yahtzee-bonus${playerTurn}`)
   recordScoreFinal = document.querySelector(`.total${playerTurn}`)
-  // diceArray = [rollOutcome1, rollOutcome2, rollOutcome3, rollOutcome4, rollOutcome5]
-  if (evt.target.id === 'ones') {
-    let score = 0
-    for (let i=0; i < diceArray.length; i++){
-      if (diceArray[i] === 1){
-        score = score + 1
-      }
-    }
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      playerOneBonus.push(score)
-      recordScoreOnes.innerHTML = score
-    } else if (playerTurn === 2){
-      playerTwoScore.push(score)
-      playerTwoBonus.push(score)
-      recordScoreOnes.innerHTML = score
-    } else if (playerTurn === 3){
-      playerThreeScore.push(score)
-      playerThreeBonus.push(score)
-      recordScoreOnes.innerHTML = score
-    } else if (playerTurn === 4){
-      playerFourScore.push(score)
-      playerFourBonus.push(score)
-      recordScoreOnes.innerHTML = score
-    } else if (playerTurn === 5){
-      playerFiveScore.push(score)
-      playerFiveBonus.push(score)
-      recordScoreOnes.innerHTML = score
-    } else if (playerTurn === 6){
-      playerSixScore.push(score)
-      playerSixBonus.push(score)
-      recordScoreOnes.innerHTML = score
-    }
-    checkForTopBonus()
-    getFinalScore()
-    nextPlayerUp()
-  } else if (evt.target.id === 'twos') {
-    let score = 0
-    for (let i=0; i < diceArray.length; i++){
-      if (diceArray[i] === 2){
-        score = score + 2
-      }
-    }
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      playerOneBonus.push(score)
-      recordScoreTwos.innerHTML = score
-    } else if (playerTurn === 2){
-      playerTwoScore.push(score)
-      playerTwoBonus.push(score)
-      recordScoreTwos.innerHTML = score
-    } else if (playerTurn === 3){
-      playerThreeScore.push(score)
-      playerThreeBonus.push(score)
-      recordScoreTwos.innerHTML = score
-    } else if (playerTurn === 4){
-      playerFourScore.push(score)
-      playerFourBonus.push(score)
-      recordScoreTwos.innerHTML = score
-    } else if (playerTurn === 5){
-      playerFiveScore.push(score)
-      playerFiveBonus.push(score)
-      recordScoreTwos.innerHTML = score
-    } else if (playerTurn === 6){
-      playerSixScore.push(score)
-      playerSixBonus.push(score)
-      recordScoreTwos.innerHTML = score
-    }
-    checkForTopBonus()
-    getFinalScore()
-    nextPlayerUp() 
-  } else if (evt.target.id === 'threes') {
-    let score = 0
-    for (let i=0; i < diceArray.length; i++){
-      if (diceArray[i] === 3){
-        score = score + 3
-      }
-    }
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      playerOneBonus.push(score)
-      recordScoreThrees.innerHTML = score
-    } else if (playerTurn === 2){
-      playerTwoScore.push(score)
-      playerTwoBonus.push(score)
-      recordScoreThrees.innerHTML = score
-    } else if (playerTurn === 3){
-      playerThreeScore.push(score)
-      playerThreeBonus.push(score)
-      recordScoreThrees.innerHTML = score
-    } else if (playerTurn === 4){
-      playerFourScore.push(score)
-      playerFourBonus.push(score)
-      recordScoreThrees.innerHTML = score
-    } else if (playerTurn === 5){
-      playerFiveScore.push(score)
-      playerFiveBonus.push(score)
-      recordScoreThrees.innerHTML = score
-    } else if (playerTurn === 6){
-      playerSixScore.push(score)
-      playerSixBonus.push(score)
-      recordScoreThrees.innerHTML = score
-    } 
-    checkForTopBonus()
-    getFinalScore()
-    nextPlayerUp()
-  } else if (evt.target.id === 'fours') {
-    let score = 0
-    for (let i=0; i < diceArray.length; i++){
-      if (diceArray[i] === 4){
-        score = score + 4
-      }
-    }
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      playerOneBonus.push(score)
-      recordScoreFours.innerHTML = score
-      
-    } else if (playerTurn === 2){
-      playerTwoScore.push(score)
-      playerTwoBonus.push(score)
-      recordScoreFours.innerHTML = score
-      
-    } else if (playerTurn === 3){
-      playerThreeScore.push(score)
-      playerThreeBonus.push(score)
-      recordScoreFours.innerHTML = score
-      
-    } else if (playerTurn === 4){
-      playerFourScore.push(score)
-      playerFourBonus.push(score)
-      recordScoreFours.innerHTML = score
-      
-    } else if (playerTurn === 5){
-      playerFiveScore.push(score)
-      playerFiveBonus.push(score)
-      recordScoreFours.innerHTML = score
-      
-    } else if (playerTurn === 6){
-      playerSixScore.push(score)
-      playerSixBonus.push(score)
-      recordScoreFours.innerHTML = score
-    } 
-    checkForTopBonus()
-    getFinalScore()
-    nextPlayerUp()
-  } else if (evt.target.id === 'fives') {
-    let score = 0
-    for (let i=0; i < diceArray.length; i++){
-      if (diceArray[i] === 5){
-        score = score + 5
-      }
-    }
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      playerOneBonus.push(score)
-      recordScoreFives.innerHTML = score
-    } else if (playerTurn === 2){
-      playerTwoScore.push(score)
-      playerTwoBonus.push(score)
-      recordScoreFives.innerHTML = score
-    } else if (playerTurn === 3){
-      playerThreeScore.push(score)
-      playerThreeBonus.push(score)
-      recordScoreFives.innerHTML = score
-    } else if (playerTurn === 4){
-      playerFourScore.push(score)
-      playerFourBonus.push(score)
-      recordScoreFives.innerHTML = score
-    } else if (playerTurn === 5){
-      playerFiveScore.push(score)
-      playerFiveBonus.push(score)
-      recordScoreFives.innerHTML = score
-    } else if (playerTurn === 6){
-      playerSixScore.push(score)
-      playerSixBonus.push(score)
-      recordScoreFives.innerHTML = score
-    } 
-    checkForTopBonus()
-    getFinalScore()
-    nextPlayerUp()
-  } else if (evt.target.id === 'sixes') {
-    let score = 0
-    for (let i=0; i < diceArray.length; i++){
-      if (diceArray[i] === 6){
-        score = score + 6
-      }
-    }
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      playerOneBonus.push(score)
-      recordScoreSixes.innerHTML = score
-    } else if (playerTurn === 2){
-      playerTwoScore.push(score)
-      playerTwoBonus.push(score)
-      recordScoreSixes.innerHTML = score
-    } else if (playerTurn === 3){
-      playerThreeScore.push(score)
-      playerThreeBonus.push(score)
-      recordScoreSixes.innerHTML = score
-    } else if (playerTurn === 4){
-      playerFourScore.push(score)
-      playerFourBonus.push(score)
-      recordScoreSixes.innerHTML = score
-    } else if (playerTurn === 5){
-      playerFiveScore.push(score)
-      playerFiveBonus.push(score)
-      recordScoreSixes.innerHTML = score
-    } else if (playerTurn === 6){
-      playerSixScore.push(score)
-      playerSixBonus.push(score)
-      recordScoreSixes.innerHTML = score
-    } 
-    checkForTopBonus()
-    getFinalScore()
-    nextPlayerUp()
-  } else if (evt.target.id === 'three-kind') {
-    score = diceArray.reduce((prev, amt) => prev + amt)
-    if (threeKind === false) {
-      recordScoreThreeKind.innerHTML = '0'
-    } else if (threeKind === true) {
-      if (playerTurn === 1) {
-        playerOneScore.push(score)
-        recordScoreThreeKind.innerHTML = score
-      } else if (playerTurn === 2){
-        playerTwoScore.push(score)
-        recordScoreThreeKind.innerHTML = score
-      } else if (playerTurn === 3){
-        playerThreeScore.push(score)
-        recordScoreThreeKind.innerHTML = score
-      } else if (playerTurn === 4){
-        playerFourScore.push(score)
-        recordScoreThreeKind.innerHTML = score
-      } else if (playerTurn === 5){
-        playerFiveScore.push(score)
-        recordScoreThreeKind.innerHTML = score
-      } else if (playerTurn === 6){
-        playerSixScore.push(score)
-        recordScoreThreeKind.innerHTML = score
-      } 
-    }
-    getFinalScore()
-    nextPlayerUp() 
-  } else if (evt.target.id === 'four-kind') {
-    score = diceArray.reduce((prev, amt) => prev + amt)
-    if (fourKind === false) {
-      recordScoreFourKind.innerHTML = '0'
-    } else if (fourKind === true) {
-      if (playerTurn === 1) {
-        playerOneScore.push(score)
-        recordScoreFourKind.innerHTML = score
-      } else if (playerTurn === 2){
-        playerTwoScore.push(score)
-        recordScoreFourKind.innerHTML = score
-      } else if (playerTurn === 3){
-        playerThreeScore.push(score)
-        recordScoreFourKind.innerHTML = score
-      } else if (playerTurn === 4){
-        playerFourScore.push(score)
-        recordScoreFourKind.innerHTML = score
-      } else if (playerTurn === 5){
-        playerFiveScore.push(score)
-        recordScoreFourKind.innerHTML = score
-      } else if (playerTurn === 6){
-        playerSixScore.push(score)
-        recordScoreFourKind.innerHTML = score
-      } 
-    }
-    getFinalScore()
-    nextPlayerUp() 
-  } else if (evt.target.id === 'full-house') {
-    score = 25
-    countLikeDice ()
-    if (fullHouse === false) {
-      recordScoreFullHouse.innerHTML = '0'
-    } else if (fullHouse === true) {
-      if (playerTurn === 1) {
-        playerOneScore.push(score)
-        recordScoreFullHouse.innerHTML = score
-      }
-      if (playerTurn === 2) {
-        playerTwoScore.push(score)
-        recordScoreFullHouse.innerHTML = score
-      }
-      if (playerTurn === 3) {
-        playerThreeScore.push(score)
-        recordScoreFullHouse.innerHTML = score
-      }
-      if (playerTurn === 4) {
-        playerFourScore.push(score)
-        recordScoreFullHouse.innerHTML = score
-      }
-      if (playerTurn === 5) {
-        playerFiveScore.push(score)
-        recordScoreFullHouse.innerHTML = score
-      }
-      if (playerTurn === 6) {
-        playerSixScore.push(score)
-        recordScoreFullHouse.innerHTML = score
-      }
-    }
-    getFinalScore()
-    nextPlayerUp() 
-  } else if (evt.target.id === 'sm-straight') {
-    score = 30
-    if (smallStraight === false) {
-      recordScoreSmStraight.innerHTML = '0'
-    } else if (smallStraight === true) {
-      if (playerTurn === 1) {
-        playerOneScore.push(score)
-        recordScoreSmStraight.innerHTML = score
-      }
-      if (playerTurn === 2) {
-        playerTwoScore.push(score)
-        recordScoreSmStraight.innerHTML = score
-      }
-      if (playerTurn === 3) {
-        playerThreeScore.push(score)
-        recordScoreSmStraight.innerHTML = score
-      }
-      if (playerTurn === 4) {
-        playerFourScore.push(score)
-        recordScoreSmStraight.innerHTML = score
-      }
-      if (playerTurn === 5) {
-        playerFiveScore.push(score)
-        recordScoreSmStraight.innerHTML = score
-      }
-      if (playerTurn === 6) {
-        playerSixScore.push(score)
-        recordScoreSmStraight.innerHTML = score
-      }
-    }
-    getFinalScore()
-    nextPlayerUp() 
-  } else if (evt.target.id === 'lg-straight') {
-    score = 40
-    if (largeStraight === false) {
-      recordScoreLgStraight.innerHTML = '0'
-    } else if (largeStraight === true) {
-      if (playerTurn === 1) {
-        playerOneScore.push(score)
-        recordScoreLgStraight.innerHTML = score
-      }
-      if (playerTurn === 2) {
-        playerTwoScore.push(score)
-        recordScoreLgStraight.innerHTML = score
-      }
-      if (playerTurn === 3) {
-        playerThreeScore.push(score)
-        recordScoreLgStraight.innerHTML = score
-      }
-      if (playerTurn === 4) {
-        playerFourScore.push(score)
-        recordScoreLgStraight.innerHTML = score
-      }
-      if (playerTurn === 5) {
-        playerFiveScore.push(score)
-        recordScoreLgStraight.innerHTML = score
-      }
-      if (playerTurn === 6) {
-        playerSixScore.push(score)
-        recordScoreLgStraight.innerHTML = score
-      }
-    }
-    getFinalScore()
-    nextPlayerUp() 
-  } else if (evt.target.id === 'yahtzee') {
-    score = 50
-    countLikeDice ()
-    if (isYahtzee === false) {
-      recordScoreYahtzee.innerHTML = '0'
-    } else if (isYahtzee === true) {
-      if (playerTurn === 1) {
-        playerOneScore.push(score)
-        recordScoreYahtzee.innerHTML = score
-      }
-      if (playerTurn === 2) {
-        playerTwoScore.push(score)
-        recordScoreYahtzee.innerHTML = score
-      }
-      if (playerTurn === 3) {
-        playerThreeScore.push(score)
-        recordScoreYahtzee.innerHTML = score
-      }
-      if (playerTurn === 4) {
-        playerFourScore.push(score)
-        recordScoreYahtzee.innerHTML = score
-      }
-      if (playerTurn === 5) {
-        playerFiveScore.push(score)
-        recordScoreYahtzee.innerHTML = score
-      }
-      if (playerTurn === 6) {
-        playerSixScore.push(score)
-        recordScoreYahtzee.innerHTML = score
-      }
-    }
-    getFinalScore()
-    nextPlayerUp() 
-  } else if (evt.target.id === 'chance') {
-    score = diceArray.reduce((prev, amt) => prev + amt)
-    if (playerTurn === 1) {
-      playerOneScore.push(score)
-      recordScoreChance.innerHTML = score
-    }
-    if (playerTurn === 2) {
-      playerTwoScore.push(score)
-      recordScoreChance.innerHTML = score
-    }
-    if (playerTurn === 3) {
-      playerThreeScore.push(score)
-      recordScoreChance.innerHTML = score
-    }
-    if (playerTurn === 4) {
-      playerFourScore.push(score)
-      recordScoreChance.innerHTML = score
-    }
-    if (playerTurn === 5) {
-      playerFiveScore.push(score)
-      recordScoreChance.innerHTML = score
-    }
-    if (playerTurn === 6) {
-      playerSixScore.push(score)
-      recordScoreChance.innerHTML = score
-    }
-    getFinalScore()
-    nextPlayerUp() 
-  } else if (evt.target.id === 'yahtzee-bonus') {
-    score = 50
-    countLikeDice ()
-    if (isYahtzee === false) {
+  console.log(evt.target.className)
+  console.log(playerTurn)
+  if (rollCount >= 1) {
 
-    } else if (isYahtzee === true) {
-      if (playerTurn === 1) {
-        playerOneYahtBonus.push(score)
-        if (playerOneYahtBonus.length === 0) {
-        recordScoreYahtBonus.innerHTML = score
-          } else if (playerOneYahtBonus.length >= 1) {
-            score = 0
-            for (let i=0; i < playerOneYahtBonus.length; i++) {
-              score = score + playerOneYahtBonus[i]
-            }
-            recordScoreYahtBonus.innerHTML = score
-          }
+    if (evt.target.id === 'ones') {
+      let score = 0
+      for (let i=0; i < diceArray.length; i++){
+        if (diceArray[i] === 1){
+          score = score + 1
+        }
       }
-      if (playerTurn === 2) {
-        playerTwoYahtBonus.push(score)
-        if (playerTwoYahtBonus.length === 0) {
-          recordScoreYahtBonus.innerHTML = score
-          } else if (playerTwoYahtBonus.length >= 1) {
-            score = 0
-            for (let i=0; i < playerTwoYahtBonus.length; i++) {
-              score = score + playerTwoYahtBonus[i]
-            }
-            recordScoreYahtBonus.innerHTML = score
-          }
+      if (playerTurn === 1 && evt.target.classList == `player ones1 player1`) {
+        playerOneScore.push(score)
+        playerOneBonus.push(score)
+        recordScoreOnes.innerHTML = score
+        nextPlayerUp()
+      } 
+      else if (playerTurn === 2 && evt.target.classList == `player ones2 player2`){
+        playerTwoScore.push(score)
+        playerTwoBonus.push(score)
+        recordScoreOnes.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 3 && evt.target.classList == `player ones3 player3`){
+        playerThreeScore.push(score)
+        playerThreeBonus.push(score)
+        recordScoreOnes.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 4 && evt.target.classList == `player ones4 player4`){
+        playerFourScore.push(score)
+        playerFourBonus.push(score)
+        recordScoreOnes.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 5 && evt.target.classList == `player ones5 player5`){
+        playerFiveScore.push(score)
+        playerFiveBonus.push(score)
+        recordScoreOnes.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 6 && evt.target.classList == `player ones6 player6`){
+        playerSixScore.push(score)
+        playerSixBonus.push(score)
+        recordScoreOnes.innerHTML = score
+        nextPlayerUp()
       }
-      if (playerTurn === 3) {
-        playerThreeYahtBonus.push(score)
-        if (playerThreeYahtBonus.length === 0) {
-          recordScoreYahtBonus.innerHTML = score
-          } else if (playerThreeYahtBonus.length >= 1) {
-            score = 0
-            for (let i=0; i < playerThreeYahtBonus.length; i++) {
-              score = score + playerThreeYahtBonus[i]
-            }
-            recordScoreYahtBonus.innerHTML = score
-          }
+      checkForTopBonus()
+      getFinalScore()
+    } else if (evt.target.id === 'twos') {
+      let score = 0
+      for (let i=0; i < diceArray.length; i++){
+        if (diceArray[i] === 2){
+          score = score + 2
+        }
       }
-      if (playerTurn === 4) {
-        playerFourYahtBonus.push(score)
-        if (playerFourYahtBonus.length === 0) {
-          recordScoreYahtBonus.innerHTML = score
-          } else if (playerFourYahtBonus.length >= 1) {
-            score = 0
-            for (let i=0; i < playerFourYahtBonus.length; i++) {
-              score = score + playerFourYahtBonus[i]
-            }
-            recordScoreYahtBonus.innerHTML = score
-          }
+      if (playerTurn === 1 && evt.target.classList == `player twos1 player1`) {
+        playerOneScore.push(score)
+        playerOneBonus.push(score)
+        recordScoreTwos.innerHTML = score
+        nextPlayerUp() 
+      } else if (playerTurn === 2 && evt.target.classList == `player twos2 player2`){
+        playerTwoScore.push(score)
+        playerTwoBonus.push(score)
+        recordScoreTwos.innerHTML = score
+        nextPlayerUp() 
+      } else if (playerTurn === 3 && evt.target.classList == `player twos3 player3`){
+        playerThreeScore.push(score)
+        playerThreeBonus.push(score)
+        recordScoreTwos.innerHTML = score
+        nextPlayerUp() 
+      } else if (playerTurn === 4 && evt.target.classList == `player twos4 player4`){
+        playerFourScore.push(score)
+        playerFourBonus.push(score)
+        recordScoreTwos.innerHTML = score
+        nextPlayerUp() 
+      } else if (playerTurn === 5 && evt.target.classList == `player twos5 player5`){
+        playerFiveScore.push(score)
+        playerFiveBonus.push(score)
+        recordScoreTwos.innerHTML = score
+        nextPlayerUp() 
+      } else if (playerTurn === 6 && evt.target.classList == `player ones6 player6`){
+        playerSixScore.push(score)
+        playerSixBonus.push(score)
+        recordScoreTwos.innerHTML = score
+        nextPlayerUp() 
       }
-      if (playerTurn === 5) {
-        playerFiveYahtBonus.push(score)
-        if (playerFiveYahtBonus.length === 0) {
-          recordScoreYahtBonus.innerHTML = score
-          } else if (playerFiveYahtBonus.length >= 1) {
-            score = 0
-            for (let i=0; i < playerFiveYahtBonus.length; i++) {
-              score = score + playerFiveYahtBonus[i]
-            }
-            recordScoreYahtBonus.innerHTML = score
-          }
+      checkForTopBonus()
+      getFinalScore()
+    } else if (evt.target.id === 'threes') {
+      let score = 0
+      for (let i=0; i < diceArray.length; i++){
+        if (diceArray[i] === 3){
+          score = score + 3
+        }
       }
-      if (playerTurn === 6) {
-        playerSixYahtBonus.push(score)
-        if (playerSixYahtBonus.length === 0) {
+      if (playerTurn === 1 && evt.target.classList == `player threes1 player1`) {
+        playerOneScore.push(score)
+        playerOneBonus.push(score)
+        recordScoreThrees.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 2 && evt.target.classList == `player threes2 player2`){
+        playerTwoScore.push(score)
+        playerTwoBonus.push(score)
+        recordScoreThrees.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 3 && evt.target.classList == `player threes3 player3`){
+        playerThreeScore.push(score)
+        playerThreeBonus.push(score)
+        recordScoreThrees.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 4 && evt.target.classList == `player threes4 player4`){
+        playerFourScore.push(score)
+        playerFourBonus.push(score)
+        recordScoreThrees.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 5 && evt.target.classList == `player threes5 player5`){
+        playerFiveScore.push(score)
+        playerFiveBonus.push(score)
+        recordScoreThrees.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 6 && evt.target.classList == `player threes6 player6`){
+        playerSixScore.push(score)
+        playerSixBonus.push(score)
+        recordScoreThrees.innerHTML = score
+        nextPlayerUp()
+      } 
+      checkForTopBonus()
+      getFinalScore()
+    } else if (evt.target.id === 'fours') {
+      let score = 0
+      for (let i=0; i < diceArray.length; i++){
+        if (diceArray[i] === 4){
+          score = score + 4
+        }
+      }
+      if (playerTurn === 1 && evt.target.classList == `player fours1 player1`) {
+        playerOneScore.push(score)
+        playerOneBonus.push(score)
+        recordScoreFours.innerHTML = score
+        nextPlayerUp()
+        
+      } else if (playerTurn === 2 && evt.target.classList == `player fours2 player2`){
+        playerTwoScore.push(score)
+        playerTwoBonus.push(score)
+        recordScoreFours.innerHTML = score
+        nextPlayerUp()
+        
+      } else if (playerTurn === 3 && evt.target.classList == `player fours3 player3`){
+        playerThreeScore.push(score)
+        playerThreeBonus.push(score)
+        recordScoreFours.innerHTML = score
+        nextPlayerUp()
+        
+      } else if (playerTurn === 4 && evt.target.classList == `player fours4 player4`){
+        playerFourScore.push(score)
+        playerFourBonus.push(score)
+        recordScoreFours.innerHTML = score
+        nextPlayerUp()
+        
+      } else if (playerTurn === 5 && evt.target.classList == `player fours5 player5`){
+        playerFiveScore.push(score)
+        playerFiveBonus.push(score)
+        recordScoreFours.innerHTML = score
+        nextPlayerUp()
+        
+      } else if (playerTurn === 6 && evt.target.classList == `player fours6 player6`){
+        playerSixScore.push(score)
+        playerSixBonus.push(score)
+        recordScoreFours.innerHTML = score
+        nextPlayerUp()
+      } 
+      checkForTopBonus()
+      getFinalScore()
+    } else if (evt.target.id === 'fives') {
+      let score = 0
+      for (let i=0; i < diceArray.length; i++){
+        if (diceArray[i] === 5){
+          score = score + 5
+        }
+      }
+      if (playerTurn === 1 && evt.target.classList == `player fives1 player1`) {
+        playerOneScore.push(score)
+        playerOneBonus.push(score)
+        recordScoreFives.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 2 && evt.target.classList == `player fives2 player2`){
+        playerTwoScore.push(score)
+        playerTwoBonus.push(score)
+        recordScoreFives.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 3 && evt.target.classList == `player fives3 player3`){
+        playerThreeScore.push(score)
+        playerThreeBonus.push(score)
+        recordScoreFives.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 4 && evt.target.classList == `player fives4 player4`){
+        playerFourScore.push(score)
+        playerFourBonus.push(score)
+        recordScoreFives.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 5 && evt.target.classList == `player fives5 player5`){
+        playerFiveScore.push(score)
+        playerFiveBonus.push(score)
+        recordScoreFives.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 6 && evt.target.classList == `player fives6 player6`){
+        playerSixScore.push(score)
+        playerSixBonus.push(score)
+        recordScoreFives.innerHTML = score
+        nextPlayerUp()
+      } 
+      checkForTopBonus()
+      getFinalScore()
+    } else if (evt.target.id === 'sixes') {
+      let score = 0
+      for (let i=0; i < diceArray.length; i++){
+        if (diceArray[i] === 6){
+          score = score + 6
+        }
+      }
+      if (playerTurn === 1 && evt.target.classList == `player sixes1 player1`) {
+        playerOneScore.push(score)
+        playerOneBonus.push(score)
+        recordScoreSixes.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 2 && evt.target.classList == `player sixes2 player2`){
+        playerTwoScore.push(score)
+        playerTwoBonus.push(score)
+        recordScoreSixes.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 3 && evt.target.classList == `player sixes3 player3`){
+        playerThreeScore.push(score)
+        playerThreeBonus.push(score)
+        recordScoreSixes.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 4 && evt.target.classList == `player sixes4 player4`){
+        playerFourScore.push(score)
+        playerFourBonus.push(score)
+        recordScoreSixes.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 5 && evt.target.classList == `player sixes5 player5`){
+        playerFiveScore.push(score)
+        playerFiveBonus.push(score)
+        recordScoreSixes.innerHTML = score
+        nextPlayerUp()
+      } else if (playerTurn === 6 && evt.target.classList == `player sixes6 player6`){
+        playerSixScore.push(score)
+        playerSixBonus.push(score)
+        recordScoreSixes.innerHTML = score
+        nextPlayerUp()
+      } 
+      checkForTopBonus()
+      getFinalScore()
+    } else if (evt.target.id === 'three-kind') {
+      score = diceArray.reduce((prev, amt) => prev + amt)
+      if (threeKind === false) {
+        recordScoreThreeKind.innerHTML = '0'
+      } else if (threeKind === true) {
+        if (playerTurn === 1 && evt.target.classList == `player three-kind1 player1`) {
+          playerOneScore.push(score)
+          recordScoreThreeKind.innerHTML = score
+          nextPlayerUp() 
+        } else if (playerTurn === 2 && evt.target.classList == `player three-kind2 player2`){
+          playerTwoScore.push(score)
+          recordScoreThreeKind.innerHTML = score
+          nextPlayerUp() 
+        } else if (playerTurn === 3 && evt.target.classList == `player three-kind3 player3`){
+          playerThreeScore.push(score)
+          recordScoreThreeKind.innerHTML = score
+          nextPlayerUp() 
+        } else if (playerTurn === 4 && evt.target.classList == `player three-kind4 player4`){
+          playerFourScore.push(score)
+          recordScoreThreeKind.innerHTML = score
+          nextPlayerUp() 
+        } else if (playerTurn === 5 && evt.target.classList == `player three-kind5 player5`){
+          playerFiveScore.push(score)
+          recordScoreThreeKind.innerHTML = score
+          nextPlayerUp() 
+        } else if (playerTurn === 6 && evt.target.classList == `player three-kind6 player6`){
+          playerSixScore.push(score)
+          recordScoreThreeKind.innerHTML = score
+          nextPlayerUp() 
+        } 
+      }
+      getFinalScore()
+    } else if (evt.target.id === 'four-kind') {
+      score = diceArray.reduce((prev, amt) => prev + amt)
+      if (fourKind === false) {
+        recordScoreFourKind.innerHTML = '0'
+      } else if (fourKind === true) {
+        if (playerTurn === 1 && evt.target.classList == `player four-kind1 player1`) {
+          playerOneScore.push(score)
+          recordScoreFourKind.innerHTML = score
+          nextPlayerUp() 
+        } else if (playerTurn === 2 && evt.target.classList == `player four-kind2 player2`){
+          playerTwoScore.push(score)
+          recordScoreFourKind.innerHTML = score
+          nextPlayerUp() 
+        } else if (playerTurn === 3 && evt.target.classList == `player four-kind3 player3`){
+          playerThreeScore.push(score)
+          recordScoreFourKind.innerHTML = score
+          nextPlayerUp() 
+        } else if (playerTurn === 4 && evt.target.classList == `player four-kind4 player4`){
+          playerFourScore.push(score)
+          recordScoreFourKind.innerHTML = score
+          nextPlayerUp() 
+        } else if (playerTurn === 5 && evt.target.classList == `player four-kind5 player5`){
+          playerFiveScore.push(score)
+          recordScoreFourKind.innerHTML = score
+          nextPlayerUp() 
+        } else if (playerTurn === 6 && evt.target.classList == `player four-kind6 player6`){
+          playerSixScore.push(score)
+          recordScoreFourKind.innerHTML = score
+          nextPlayerUp() 
+        } 
+      }
+      getFinalScore()
+    } else if (evt.target.id === 'full-house') {
+      score = 25
+      countLikeDice ()
+      if (fullHouse === false) {
+        recordScoreFullHouse.innerHTML = '0'
+      } else if (fullHouse === true) {
+        if (playerTurn === 1 && evt.target.classList == `player full-house1 player1`) {
+          playerOneScore.push(score)
+          recordScoreFullHouse.innerHTML = score
+          nextPlayerUp()
+        }
+        if (playerTurn === 2 && evt.target.classList == `player full-house2 player2`) {
+          playerTwoScore.push(score)
+          recordScoreFullHouse.innerHTML = score
+          nextPlayerUp()
+        }
+        if (playerTurn === 3 && evt.target.classList == `player full-house3 player3`) {
+          playerThreeScore.push(score)
+          recordScoreFullHouse.innerHTML = score
+          nextPlayerUp()
+        }
+        if (playerTurn === 4 && evt.target.classList == `player full-house4 player4`) {
+          playerFourScore.push(score)
+          recordScoreFullHouse.innerHTML = score
+          nextPlayerUp()
+        }
+        if (playerTurn === 5 && evt.target.classList == `player full-house5 player5`) {
+          playerFiveScore.push(score)
+          recordScoreFullHouse.innerHTML = score
+          nextPlayerUp()
+        }
+        if (playerTurn === 6 && evt.target.classList == `playerfull-house6 player6`) {
+          playerSixScore.push(score)
+          recordScoreFullHouse.innerHTML = score
+          nextPlayerUp()
+        }
+      }
+      getFinalScore()
+    } else if (evt.target.id === 'sm-straight') {
+      score = 30
+      if (smallStraight === false) {
+        recordScoreSmStraight.innerHTML = '0'
+      } else if (smallStraight === true) {
+        if (playerTurn === 1 && evt.target.classList == `player sm-straight1 player1`) {
+          playerOneScore.push(score)
+          recordScoreSmStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 2 && evt.target.classList == `player sm-straight2 player2`) {
+          playerTwoScore.push(score)
+          recordScoreSmStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 3 && evt.target.classList == `player sm-straight3 player3`) {
+          playerThreeScore.push(score)
+          recordScoreSmStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 4 && evt.target.classList == `player sm-straight4 player4`) {
+          playerFourScore.push(score)
+          recordScoreSmStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 5 && evt.target.classList == `player sm-straight5 player5`) {
+          playerFiveScore.push(score)
+          recordScoreSmStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 6 && evt.target.classList == `player sm-straight6 player6`) {
+          playerSixScore.push(score)
+          recordScoreSmStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+      }
+      getFinalScore()
+    } else if (evt.target.id === 'lg-straight') {
+      score = 40
+      if (largeStraight === false) {
+        recordScoreLgStraight.innerHTML = '0'
+      } else if (largeStraight === true) {
+        if (playerTurn === 1 && evt.target.classList == `player lg-straight1 player1`) {
+          playerOneScore.push(score)
+          recordScoreLgStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 2 && evt.target.classList == `player lg-straight2 player2`) {
+          playerTwoScore.push(score)
+          recordScoreLgStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 3 && evt.target.classList == `player lg-straight3 player3`) {
+          playerThreeScore.push(score)
+          recordScoreLgStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 4 && evt.target.classList == `player lg-straight4 player4`) {
+          playerFourScore.push(score)
+          recordScoreLgStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 5 && evt.target.classList == `player lg-straight5 player5`) {
+          playerFiveScore.push(score)
+          recordScoreLgStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 6 && evt.target.classList == `player lg-straight6 player6`) {
+          playerSixScore.push(score)
+          recordScoreLgStraight.innerHTML = score
+          nextPlayerUp() 
+        }
+      }
+      getFinalScore()
+    } else if (evt.target.id === 'yahtzee') {
+      score = 50
+      countLikeDice ()
+      if (isYahtzee === false) {
+        recordScoreYahtzee.innerHTML = '0'
+      } else if (isYahtzee === true) {
+        if (playerTurn === 1 && evt.target.classList == `player yahtzee1 player1`) {
+          playerOneScore.push(score)
+          recordScoreYahtzee.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 2 && evt.target.classList == `player yahtzee2 player2`) {
+          playerTwoScore.push(score)
+          recordScoreYahtzee.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 3 && evt.target.classList == `player yahtzee3 player3`) {
+          playerThreeScore.push(score)
+          recordScoreYahtzee.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 4 && evt.target.classList == `player yahtzee4 player4`) {
+          playerFourScore.push(score)
+          recordScoreYahtzee.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 5 && evt.target.classList == `player yahtzee5 player5`) {
+          playerFiveScore.push(score)
+          recordScoreYahtzee.innerHTML = score
+          nextPlayerUp() 
+        }
+        if (playerTurn === 6 && evt.target.classList == `player yahtzee6 player6`) {
+          playerSixScore.push(score)
+          recordScoreYahtzee.innerHTML = score
+          nextPlayerUp() 
+        }
+      }
+      getFinalScore()
+    } else if (evt.target.id === 'chance') {
+      score = diceArray.reduce((prev, amt) => prev + amt)
+      if (playerTurn === 1 && evt.target.classList == `player chance1 player1`) {
+        playerOneScore.push(score)
+        recordScoreChance.innerHTML = score
+        nextPlayerUp() 
+      }
+      if (playerTurn === 2 && evt.target.classList == `player chance2 player2`) {
+        playerTwoScore.push(score)
+        recordScoreChance.innerHTML = score
+        nextPlayerUp() 
+      }
+      if (playerTurn === 3 && evt.target.classList == `player chance3 player3`) {
+        playerThreeScore.push(score)
+        recordScoreChance.innerHTML = score
+        nextPlayerUp() 
+      }
+      if (playerTurn === 4 && evt.target.classList == `player chance4 player4`) {
+        playerFourScore.push(score)
+        recordScoreChance.innerHTML = score
+        nextPlayerUp() 
+      }
+      if (playerTurn === 5 && evt.target.classList == `player chance5 player5`) {
+        playerFiveScore.push(score)
+        recordScoreChance.innerHTML = score
+        nextPlayerUp() 
+      }
+      if (playerTurn === 6 && evt.target.classList == `player chance6 player6`) {
+        playerSixScore.push(score)
+        recordScoreChance.innerHTML = score
+        nextPlayerUp() 
+      }
+      getFinalScore()
+    } else if (evt.target.id === 'yahtzee-bonus') {
+      score = 50
+      countLikeDice ()
+      if (isYahtzee === false) {
+  
+      } else if (isYahtzee === true) {
+        if (playerTurn === 1 && evt.target.classList == `player yahtzee-bonus1 player1`) {
+          playerOneYahtBonus.push(score)
+          if (playerOneYahtBonus.length === 0) {
           recordScoreYahtBonus.innerHTML = score
-          } else if (playerSixYahtBonus.length >= 1) {
-            score = 0
-            for (let i=0; i < playerSixYahtBonus.length; i++) {
-              score = score + playerSixYahtBonus[i]
+            } else if (playerOneYahtBonus.length >= 1) {
+              score = 0
+              for (let i=0; i < playerOneYahtBonus.length; i++) {
+                score = score + playerOneYahtBonus[i]
+              }
+              recordScoreYahtBonus.innerHTML = score
+              nextPlayerUp() 
             }
+        }
+        if (playerTurn === 2 && evt.target.classList == `player yahtzee-bonus2 player2`) {
+          playerTwoYahtBonus.push(score)
+          if (playerTwoYahtBonus.length === 0) {
             recordScoreYahtBonus.innerHTML = score
-          }
+            } else if (playerTwoYahtBonus.length >= 1) {
+              score = 0
+              for (let i=0; i < playerTwoYahtBonus.length; i++) {
+                score = score + playerTwoYahtBonus[i]
+              }
+              recordScoreYahtBonus.innerHTML = score
+              nextPlayerUp() 
+            }
+        }
+        if (playerTurn === 3 && evt.target.classList == `player yahtzee-bonus3 player3`) {
+          playerThreeYahtBonus.push(score)
+          if (playerThreeYahtBonus.length === 0) {
+            recordScoreYahtBonus.innerHTML = score
+            } else if (playerThreeYahtBonus.length >= 1) {
+              score = 0
+              for (let i=0; i < playerThreeYahtBonus.length; i++) {
+                score = score + playerThreeYahtBonus[i]
+              }
+              recordScoreYahtBonus.innerHTML = score
+              nextPlayerUp() 
+            }
+        }
+        if (playerTurn === 4 && evt.target.classList == `player yahtzee-bonus4 player4`) {
+          playerFourYahtBonus.push(score)
+          if (playerFourYahtBonus.length === 0) {
+            recordScoreYahtBonus.innerHTML = score
+            } else if (playerFourYahtBonus.length >= 1) {
+              score = 0
+              for (let i=0; i < playerFourYahtBonus.length; i++) {
+                score = score + playerFourYahtBonus[i]
+              }
+              recordScoreYahtBonus.innerHTML = score
+              nextPlayerUp() 
+            }
+        }
+        if (playerTurn === 5 && evt.target.classList == `player yahtzee-bonus5 player5`) {
+          playerFiveYahtBonus.push(score)
+          if (playerFiveYahtBonus.length === 0) {
+            recordScoreYahtBonus.innerHTML = score
+            } else if (playerFiveYahtBonus.length >= 1) {
+              score = 0
+              for (let i=0; i < playerFiveYahtBonus.length; i++) {
+                score = score + playerFiveYahtBonus[i]
+              }
+              recordScoreYahtBonus.innerHTML = score
+              nextPlayerUp() 
+            }
+        }
+        if (playerTurn === 6 && evt.target.classList == `player yahtzee-bonus6 player6`) {
+          playerSixYahtBonus.push(score)
+          if (playerSixYahtBonus.length === 0) {
+            recordScoreYahtBonus.innerHTML = score
+            } else if (playerSixYahtBonus.length >= 1) {
+              score = 0
+              for (let i=0; i < playerSixYahtBonus.length; i++) {
+                score = score + playerSixYahtBonus[i]
+              }
+              recordScoreYahtBonus.innerHTML = score
+              nextPlayerUp() 
+            }
+        }
       }
     }
   }
@@ -978,10 +1054,8 @@ function nextPlayerUp (){
     nextUpMsg.innerHTML = ""
   } else if (playerTurn === 1){
     nextUpMsg.innerHTML = `${allPlayers[0]} is up!`
-    resetDice()
   } else if (playerTurn === 2){
     nextUpMsg.innerHTML = `${allPlayers[1]} is up!`
-    resetDice()
   } else if (playerTurn === 3){
     nextUpMsg.innerHTML = `${allPlayers[2]} is up!`
   } else if (playerTurn === 4){
@@ -991,9 +1065,6 @@ function nextPlayerUp (){
   } else if (playerTurn === 6){
     nextUpMsg.innerHTML = `${allPlayers[5]} is up!`
   } 
-  if (playerTurn === allPlayers.length) {
-    playerTurn = 1
-  }
   rollDiceBtn.style.display = 'block'
   rollCount = 0
   resetDice()
@@ -1339,8 +1410,7 @@ function gameOver () {
 
 // Remaining Objections
 // 0. Prevent click on other play score line
-// 0.2 Player names list needs more space
 // 1. Add text bubble on hover with point scoring explanations
 // 2. Dark mode
 // 3. Solve touchscreen/mouse click issue
-// 4. Bootstrap buttons (need to resolve defer issue bugging the )
+// 4. Bootstrap buttons (need to resolve defer issue causing bug)
