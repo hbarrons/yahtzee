@@ -94,7 +94,7 @@ section.allDice {
   display: grid;
   box-sizing: border-box;
   grid-column: 1 / 5;
-  grid-template-rows: 80px 20%;
+  grid-template-rows: 80px 70%;
   grid-template-columns: 20% 20% 20% 20% 20%;
 }
 
@@ -121,6 +121,7 @@ div.dice {
   justify-content: center;
   grid-column: 1/5 ;
   border: none;
+  padding-top: 20px;
 }
 
 .playerUp {
@@ -130,6 +131,7 @@ div.dice {
   text-align: center;
   grid-column: 1 / 5;
   height: 75px;
+  padding-top: 50px;
 }
 
 section.scoreboard{
@@ -162,6 +164,7 @@ section.scoreboard{
   background-color: rgb(240, 240, 210);
   color:rgb(165, 77, 77);
   font-size: 12px;
+  min-width: 50px;
 }
 
 .playerName {
@@ -174,6 +177,8 @@ section.scoreboard{
   width: 50px;
   display: flex;
   padding-left: 10vh;
+  padding-top: 20px;
+  padding-bottom: 50px;
   flex-direction: row;
 }
 
@@ -220,6 +225,7 @@ div {
 #listofplayers {
   color: whitesmoke;
   border: none;
+  padding-left: 200px;
   font-size: 15px;
   margin: 0;
   justify-content: center;
@@ -298,12 +304,13 @@ div {
     max-width: 700px;
     text-align: center;
     font-size: 40px;
+    align-items: center;
     padding-top: 20px;
     justify-content: space-around;
     display: grid;
     box-sizing: border-box;
     grid-column: 1 / 5;
-    grid-template-rows: 120px 20%;
+    grid-template-rows: 120px 50%;
     grid-template-columns: 20% 20% 20% 20% 20%;
   }
   
@@ -420,6 +427,7 @@ div {
     border: none;
     font-size: 15px;
     margin: 0;
+    padding-left: 200px;
     justify-content: start;
   }
   
