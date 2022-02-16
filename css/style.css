@@ -173,7 +173,7 @@ section.scoreboard{
 .container {
   width: 50px;
   display: flex;
-  padding-left: 80px;
+  padding-left: 10vh;
   flex-direction: row;
 }
 
