@@ -85,7 +85,9 @@ img {
 
 section.allDice {
   margin: 0;
+  padding-left: 30px;
   text-align: center;
+  align-items: center;
   font-size: 40px;
   padding-top: 20px;
   justify-content: space-around;
@@ -98,6 +100,7 @@ section.allDice {
 
 div.dice {
   border: none;
+  text-align: center;
   width: 100px;
   margin: 0;
 
@@ -105,7 +108,7 @@ div.dice {
 
 .dicelockicon {
   border: none;
-  margin: auto;
+  margin: 0;
   display: flex;
   font-size: 30px;
   padding-bottom: 20px;
@@ -233,7 +236,7 @@ div {
 }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 860px) {
   body {
     background-color: rgb(165, 77, 77);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -243,9 +246,9 @@ div {
   
   h1{
     font-size: 42px;
-    align-items: start;
+    align-items: center;
     font-style: italic;
-    text-align: auto;
+    text-align: center;
     margin: auto;
     padding: 10px 10px 10px 10px;
     grid-column: 1 / 2;
@@ -285,11 +288,14 @@ div {
   
   
   img {
+    align-items: center;
+    text-align: center;
     max-height: 115px;
   }
   
   section.allDice {
-    margin: 0;
+    margin: auto;
+    max-width: 700px;
     text-align: center;
     font-size: 40px;
     padding-top: 20px;

@@ -256,7 +256,7 @@ function startGame () {
   gameMsg.innerHTML = "Rules: "
   listNames.textContent = "";
   form.style.display = 'none'
-  gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. To keep a dice, click on the lock emoji lock or that specific dice before rerolling <br> 3. After three rolls (or less if you have the outcome you want) click on the category you'd like to assing points to. Be sure to click on the right player!<br>If you need to scratch, click on the category you'd like to scrach and 0 points will be assigned. <br>Good luck, have fun!`;
+  gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. To keep a dice, click on the lock emoji lock or that specific dice before rerolling <br> 3. After three rolls (or less if you have the outcome you want) click on the category you'd like to assing points to. Be sure to click on the right player!<br>4. If you need to scratch, click on the category you'd like to scrach and 0 points will be assigned. <br>Good luck, have fun!`;
   scoreCategory = document.querySelectorAll(".player")
   scoreCategory.forEach((evt, idx) => {
     addEventListener('click', assignScore)
@@ -1317,3 +1317,12 @@ function gameOver () {
     }
   }  
 }
+
+
+// Remaining Objections
+// 0. Prevent click on other play score line
+// 0.2 Player names list needs more space
+// 1. Add text bubble on hover with point scoring explanations
+// 2. Dark mode
+// 3. Solve touchscreen/mouse click issue
+// 4. Bootstrap buttons (need to resolve defer issue bugging the )
