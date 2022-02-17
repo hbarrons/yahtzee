@@ -276,8 +276,11 @@ div {
 }
 
 #reset-game {
-  display: flex;
-
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
 }
 
 
@@ -478,6 +481,13 @@ div {
     border: none;
     font-size: 20px;
     text-align: left;
+  }
+
+  #reset-game {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   
 } 

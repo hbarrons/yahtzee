@@ -1150,6 +1150,7 @@ function countLikeDice () {
   fourKind = false
   isYahtzee = false
   diceSort = []
+  diceCount = {}
   diceArray.forEach(function (num) {
     diceCount[num] = (diceCount[num] || 0) + 1
   })
@@ -1171,8 +1172,6 @@ function countLikeDice () {
   if (diceSort[0][1] === 3 && diceSort[1][1] === 2) {
     fullHouse = true
   }
-  diceCount = {}
-  diceSort = []
 }
 
 function celebrateYahtzee () {
@@ -1197,9 +1196,11 @@ function checkLgStraight() {
   diceArray.sort(function(a, b) {
     return a - b;
   });
-  let max = Math.max.apply(null, diceArray);
-  let min = Math.min.apply(null, diceArray);
-  if (max - min === 4) {
+  let max = Math.max.apply(null, diceArray.slice(1, diceArray.length));
+  let max2 = Math.max.apply(null, diceArray.slice(0, diceArray.length-1));
+  let min2 = Math.min.apply(null, diceArray.slice(1, diceArray.length));
+  let min = Math.min.apply(null, diceArray.slice(0, diceArray.length-1));
+  if (max - min === 4 && max2 - min2 === 2) {
       largeStraight = true;
     }
 }
@@ -1490,7 +1491,7 @@ function gameOver () {
         diceFour.style.display = 'none'
         diceFive.style.display = 'none'
         rollDiceBtn.style.display = 'none'
-        resetGameBtn.style.display = 'block'
+        resetGameBtn.style.display = 'flex'
       }
   }  
   if (allPlayers.length === 2) {
@@ -1508,7 +1509,7 @@ function gameOver () {
       diceFour.style.display = 'none'
       diceFive.style.display = 'none'
       rollDiceBtn.style.display = 'none'
-      resetGameBtn.style.display = 'block'
+      resetGameBtn.style.display = 'flex'
     }
   }
     
@@ -1527,7 +1528,7 @@ function gameOver () {
       diceFour.style.display = 'none'
       diceFive.style.display = 'none'
       rollDiceBtn.style.display = 'none'
-      resetGameBtn.style.display = 'block'
+      resetGameBtn.style.display = 'flex'
     }
   }  
   if (allPlayers.length === 4) {
@@ -1545,7 +1546,7 @@ function gameOver () {
       diceFour.style.display = 'none'
       diceFive.style.display = 'none'
       rollDiceBtn.style.display = 'none'
-      resetGameBtn.style.display = 'block'
+      resetGameBtn.style.display = 'flex'
     }
   }  
   if (allPlayers.length === 5) {
@@ -1563,7 +1564,7 @@ function gameOver () {
       diceFour.style.display = 'none'
       diceFive.style.display = 'none'
       rollDiceBtn.style.display = 'none'
-      resetGameBtn.style.display = 'block'
+      resetGameBtn.style.display = 'flex'
     }
   }  
   if (allPlayers.length === 6) {
@@ -1581,7 +1582,7 @@ function gameOver () {
       diceFour.style.display = 'none'
       diceFive.style.display = 'none'
       rollDiceBtn.style.display = 'none'
-      resetGameBtn.style.display = 'block'
+      resetGameBtn.style.display = 'flex'
     }
   }  
 }
