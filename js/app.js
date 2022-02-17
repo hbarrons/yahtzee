@@ -320,9 +320,12 @@ function rollDice () {
     diceLock4.style.display = 'block'
     diceLock5.style.display = 'block'
     gameMsg.innerHTML = ""
-    if (rollCount ===3) {
+    if (rollCount === 3) {
       nextUpMsg.innerHTML = `Which category would you like to score?`
       rollDiceBtn.style.display = 'none'
+    }
+    if (rollCount === 1) {
+      nextUpMsg.innerHTML = `Roll again or select a category to score!`
     }
     diceRollAudio.valume = .05
     diceRollAudio.play()

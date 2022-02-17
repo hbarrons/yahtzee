@@ -195,8 +195,11 @@ section.scoreboard{
 .player {
   background-color: rgb(240, 240, 210);
   color:rgb(165, 77, 77);
-  font-size: 12px;
+  font-weight: bold;
   min-width: 50px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
 }
 
 .playerName {
