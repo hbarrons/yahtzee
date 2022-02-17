@@ -261,7 +261,7 @@ function startGame () {
   gameMsg.innerHTML = "Rules: "
   listNames.textContent = "";
   form.style.display = 'none'
-  gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. To keep a dice, click on the lock emoji lock. It will switch to a lock and key emoji and that dice will be locked in when you roll again. <br> 3. After three rolls (or less if you have the outcome you want) click on the category you'd like to assing points to. Be sure to click on your player column!<br>4. If you need to scratch, click on the category you'd like to scrach and 0 points will be assigned. <br>Good luck, have fun!`;
+  gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. To keep a dice, click on the lock emoji lock. It will switch to a lock and key emoji and that dice will be locked in when you roll again. <br> 3. After three rolls (or less if you have the outcome you want) click on the category you'd like to assing points to. Be sure to click on your player column!<br>4. If you need to scratch, click on the category you'd like to scrach and 0 points will be assigned. <br>5. Good luck, have fun!`;
   gameMsg.style.textAlign = 'left'
   scoreCategory = document.querySelectorAll(".player")
   scoreCategory.forEach((evt, idx) => {
@@ -321,7 +321,19 @@ function rollDice () {
     diceLock5.style.display = 'block'
     gameMsg.innerHTML = ""
     if (rollCount === 3) {
-      nextUpMsg.innerHTML = `Which category would you like to score?`
+      if (playerTurn === 1){
+        nextUpMsg.innerHTML = `${allPlayers[0]}, which category would you like to score?`
+      } else if (playerTurn === 2){
+        nextUpMsg.innerHTML = `${allPlayers[1]}, which category would you like to score?`
+      } else if (playerTurn === 3){
+        nextUpMsg.innerHTML = `${allPlayers[2]}, which category would you like to score?`
+      } else if (playerTurn === 4){
+        nextUpMsg.innerHTML = `${allPlayers[3]}, which category would you like to score?`
+      } else if (playerTurn === 5){
+        nextUpMsg.innerHTML = `${allPlayers[4]}, which category would you like to score?`
+      } else if (playerTurn === 6){
+        nextUpMsg.innerHTML = `${allPlayers[5]}, which category would you like to score?`
+      } 
       rollDiceBtn.style.display = 'none'
     }
     if (rollCount === 1) {

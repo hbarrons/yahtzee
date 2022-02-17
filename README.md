@@ -39,6 +39,7 @@ Current game in the browser, styled with CSS:
 - confetti.js 
 
 ## Stretch Goals
+- Update dark mode colors for scoreboard 
 - Debug dice roll animation in order for animation to trigger every roll, rather than just the first.
 - Add scoring criteria as a tooltip when mouse hovers over each category
 - Change the background color of the scoreboard to highlight the player whose turn it currently is
