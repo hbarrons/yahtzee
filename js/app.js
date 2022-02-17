@@ -103,7 +103,7 @@ let playerName
 let isUnlocked1, isUnlocked2, isUnlocked3, isUnlocked4, isUnlocked5
 let scoreCategory
 let roll1
-let diceArray, diceSort, diceCount
+let diceArray, diceSort, diceCount, diceSortYahtzee
 let threeKind, fourKind, isYahtzee, largeStraight, smallStraight, fullHouse
 let playerOneScore, playerTwoScore, playerThreeScore, playerFourScore, playerFiveScore, playerSixScore
 let playerOneBonus, playerTwoBonus, playerThreeBonus, playerFourBonus, playerFiveBonus, playerSixBonus
@@ -261,7 +261,7 @@ function startGame () {
   gameMsg.innerHTML = "Rules: "
   listNames.textContent = "";
   form.style.display = 'none'
-  gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. To keep a dice, click on the lock emoji lock or that specific dice before rerolling <br> 3. After three rolls (or less if you have the outcome you want) click on the category you'd like to assing points to. Be sure to click on the right player!<br>4. If you need to scratch, click on the category you'd like to scrach and 0 points will be assigned. <br>Good luck, have fun!`;
+  gameMsg.innerHTML = `<strong>How to play!</strong><br>1. Click the button to roll <br> 2. To keep a dice, click on the lock emoji lock. It will switch to a lock and key emoji and that dice will be locked in when you roll again. <br> 3. After three rolls (or less if you have the outcome you want) click on the category you'd like to assing points to. Be sure to click on your player column!<br>4. If you need to scratch, click on the category you'd like to scrach and 0 points will be assigned. <br>Good luck, have fun!`;
   gameMsg.style.textAlign = 'left'
   scoreCategory = document.querySelectorAll(".player")
   scoreCategory.forEach((evt, idx) => {
@@ -377,7 +377,6 @@ function handleLockClick (event){
 }
 
 function assignScore (evt){
-  // playerTurn = parseInt(evt.target.className.split('').pop())
   recordScoreOnes = document.querySelector(`.ones${playerTurn}`)
   recordScoreTwos = document.querySelector(`.twos${playerTurn}`)
   recordScoreThrees = document.querySelector(`.threes${playerTurn}`)
@@ -394,10 +393,7 @@ function assignScore (evt){
   recordScoreChance = document.querySelector(`.chance${playerTurn}`)
   recordScoreYahtBonus = document.querySelector(`.yahtzee-bonus${playerTurn}`)
   recordScoreFinal = document.querySelector(`.total${playerTurn}`)
-  console.log(evt.target.className)
-  console.log(playerTurn)
   if (rollCount >= 1) {
-
     if (evt.target.id === 'ones') {
       let score = 0
       for (let i=0; i < diceArray.length; i++){
@@ -1180,16 +1176,18 @@ function countLikeDice () {
 }
 
 function celebrateYahtzee () {
+  diceSortYahtzee = []
+  diceCount = {}
   diceArray.forEach(function (num) {
     diceCount[num] = (diceCount[num] || 0) + 1
   })
   for (num in diceCount) {
-    diceSort.push([num, diceCount[num]])
+    diceSortYahtzee.push([num, diceCount[num]])
   }
-  diceSort.sort(function (a,b) {
+  diceSortYahtzee.sort(function (a,b) {
     return b[1]-a[1]
   })
-  if (diceSort[0][1] === 5) {
+  if (diceSortYahtzee[0][1] === 5) {
     confetti.start(2000)
   }
 }
@@ -1213,9 +1211,9 @@ function checkSmStraight() {
   });
   let max1 = Math.max.apply(null, diceArray.slice(1, diceArray.length));
   let max2 = Math.max.apply(null, diceArray.slice(0, diceArray.length-1));
-  let min1 = Math.min.apply(null, diceArray.slice(1, diceArray.length));
-  let min2 = Math.min.apply(null, diceArray.slice(0, diceArray.length-1));
-  if (max1 - min1 === 3 || max2 - min2 === 3) {
+  let min2 = Math.min.apply(null, diceArray.slice(1, diceArray.length));
+  let min1 = Math.min.apply(null, diceArray.slice(0, diceArray.length-1));
+  if (max1 - min1 === 3 || max2 - min2 === 3 || max1 - min1 === 4) {
       smallStraight = true;
     }   
 }
@@ -1590,13 +1588,17 @@ function gameOver () {
 
 function toggleLightDark() {
   body.className = body.className === "dark" ? "" : "dark"
-  category.classList = section.category.classList === "dark" ? "" : "dark"
+  scoreboardCategories.className = scoreboardCategories.className === "dark" ? "" : "dark"
+  player.className = player.className === "dark" ? "" : "dark"
+  // working to get the scoreboard to change with dark/light more as well
+  // category.className = section.category.classList === "dark" ? "" : "dark"
 }
 
 function checkDarkPref() {
   if (
     window.matchMedia("(prefers-color-scheme:dark)").matches &&
     body.className !== "dark"
+
   ) {
     toggleLightDark()
   }
