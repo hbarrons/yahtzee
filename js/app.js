@@ -1229,7 +1229,7 @@ function checkSmStraight() {
   let max2 = Math.max.apply(null, diceArray.slice(0, diceArray.length-1));
   let min2 = Math.min.apply(null, diceArray.slice(1, diceArray.length));
   let min1 = Math.min.apply(null, diceArray.slice(0, diceArray.length-1));
-  if (max1 - min1 === 3 || max2 - min2 === 3 || max1 - min1 === 4) {
+  if (max1 - min1 === 3 || max2 - min2 === 3 || max1 - min1 === 4 || (max1 - min1 === 5 && max2 - min2 === 2)) {
       smallStraight = true;
     }   
 }
@@ -1365,7 +1365,7 @@ function checkForTopBonus () {
 }
 
 function getFinalScore () {
-  if (playerOneScore.length === 14) {
+  if (playerOneScore.length >= 14) {
     playerOneTotal = playerOneScore.reduce((x,y) => {
       return x + y
     })
@@ -1382,7 +1382,7 @@ function getFinalScore () {
     }
     finalScores.player1 = playerOneFinal
   } 
-  if (playerTwoScore.length === 14) {
+  if (playerTwoScore.length >= 14) {
     playerTwoTotal = playerTwoScore.reduce((x,y) => {
       return x + y
     })
@@ -1399,7 +1399,7 @@ function getFinalScore () {
     }
     finalScores.player2 = playerTwoFinal
   }
-  if (playerThreeScore.length === 14) {
+  if (playerThreeScore.length >= 14) {
     playerThreeTotal = playerThreeScore.reduce((x,y) => {
       return x + y
     })
@@ -1416,7 +1416,7 @@ function getFinalScore () {
     }
     finalScores.player3 = playerThreeFinal
   }  
-  if (playerFourScore.length === 14) {
+  if (playerFourScore.length >= 14) {
     playerFourTotal = playerFourScore.reduce((x,y) => {
       return x + y
     })
@@ -1433,7 +1433,7 @@ function getFinalScore () {
     }
     finalScores.player4 = playerFourFinal
   } 
-  if (playerFiveScore.length === 14) {
+  if (playerFiveScore.length >= 14) {
     playerFiveTotal = playerFiveScore.reduce((x,y) => {
       return x + y
     })
@@ -1450,7 +1450,7 @@ function getFinalScore () {
     }
     finalScores.player5 = playerFiveFinal
   } 
-  if (playerSixScore.length === 14) {
+  if (playerSixScore.length >= 14) {
     playerSixTotal = playerSixScore.reduce((x,y) => {
       return x + y
     })
