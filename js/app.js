@@ -1589,17 +1589,12 @@ function gameOver () {
 
 function toggleLightDark() {
   body.className = body.className === "dark" ? "" : "dark"
-  scoreboardCategories.className = scoreboardCategories.className === "dark" ? "" : "dark"
-  player.className = player.className === "dark" ? "" : "dark"
-  // working to get the scoreboard to change with dark/light more as well
-  // category.className = section.category.classList === "dark" ? "" : "dark"
 }
 
 function checkDarkPref() {
   if (
     window.matchMedia("(prefers-color-scheme:dark)").matches &&
     body.className !== "dark"
-
   ) {
     toggleLightDark()
   }
