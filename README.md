@@ -40,6 +40,8 @@ Current game in the browser, styled with CSS:
 
 ## Stretch Goals
 - Update dark mode colors for scoreboard 
+- Debug end game criteria for when a player gets a bonus yahtzee
+- Prevent click when a score is already assigned
 - Debug dice roll animation in order for animation to trigger every roll, rather than just the first.
 - Add scoring criteria as a tooltip when mouse hovers over each category
 - Change the background color of the scoreboard to highlight the player whose turn it currently is

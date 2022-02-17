@@ -482,7 +482,7 @@ function assignScore (evt){
         playerFiveBonus.push(score)
         recordScoreTwos.innerHTML = score
         nextPlayerUp() 
-      } else if (playerTurn === 6 && evt.target.classList == `player ones6 player6`){
+      } else if (playerTurn === 6 && evt.target.classList == `player twos6 player6`){
         playerSixScore.push(score)
         playerSixBonus.push(score)
         recordScoreTwos.innerHTML = score
@@ -829,7 +829,7 @@ function assignScore (evt){
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
-        if (playerTurn === 6 && evt.target.classList == `playerfull-house6 player6`) {
+        if (playerTurn === 6 && evt.target.classList == `player full-house6 player6`) {
           playerSixScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
