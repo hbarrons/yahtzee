@@ -153,7 +153,7 @@ div.dice {
   justify-content: center;
   grid-column: 1/5 ;
   border: none;
-  padding-top: 20px;
+  margin-top: 25px;
 }
 
 .playerUp {
@@ -164,6 +164,7 @@ div.dice {
   grid-column: 1 / 5;
   height: 75px;
   padding-top: 50px;
+  padding-bottom: 30px;
 }
 
 section.scoreboard{
@@ -205,7 +206,7 @@ section.scoreboard{
 .playerName {
   background-color: rgb(240, 240, 210);
   color:rgb(165, 77, 77);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .container {

@@ -1604,7 +1604,3 @@ function checkDarkPref() {
 }
 
 checkDarkPref()
-
-// Remaining Objections
-// 1.1 Dice animation on all rolls
-// 2. Add text bubble on hover with point scoring explanations
