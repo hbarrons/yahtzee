@@ -41,7 +41,7 @@ Current game in the browser, styled with CSS:
 - Swing animation: Animate.css
 - confetti.js: https://github.com/mathusummut/
 
-## Stretch Goals
+## Icebox Items
 - Update dark mode colors for scoreboard 
 - Debug end game criteria/next player up for when a player gets a bonus yahtzee
 - Prevent click when a score is already assigned
