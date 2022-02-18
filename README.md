@@ -7,7 +7,7 @@
 Create a browser based game that simulates a full game of Yahtzee allowing for between 1-6 players.
 
 #### Why Yahtzee?
-Since the beginning of the covid pandemic I've been doing a lot of virtual gaming with family and friends. My family particularly loves Yahtzee, but we all live in different regions of the country and don't all own the game. For my first major project I wanted to build a full version of the game that would allow us all play together and have a shared scoreboard. I'm happy with the final product, and am excited to share it with them.
+Since the beginning of the covid pandemic I've been doing a lot of virtual gaming with family and friends. My family has always loved playing Yahtzee, particularly my Mom, but we all live in different regions of the country and don't all own the game. For my first project I wanted to build a full version of the game that would allow us all play together while having a shared scoreboard.
 
 ### Pseudocode:
 - Build scorecards and dice blocks in html/css
@@ -39,7 +39,7 @@ Current game in the browser, styled with CSS:
 
 ## Credits 
 - Swing animation: Animate.css
-- confetti.js 
+- confetti.js: https://github.com/mathusummut/
 
 ## Stretch Goals
 - Update dark mode colors for scoreboard 
