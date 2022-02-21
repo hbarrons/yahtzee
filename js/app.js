@@ -798,7 +798,7 @@ function assignScore (evt){
           recordScoreFullHouse.innerHTML = score
           nextPlayerUp()
         }
-        if (playerTurn === 6 && evt.target.classList == `playerfull-house6 player6`) {
+        if (playerTurn === 6 && evt.target.classList == `player full-house6 player6`) {
           playerSixScore.push(score)
           recordScoreFullHouse.innerHTML = score
           nextPlayerUp()
