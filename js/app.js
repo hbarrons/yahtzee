@@ -672,7 +672,7 @@ function assignScore (evt){
         playerFiveBonus.push(score)
         recordScoreSixes.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 6 && (evt.target.classList == `player sixes6 player6` || evt.target.classList == `player sixes6 player1 dark`)){
+      } else if (playerTurn === 6 && (evt.target.classList == `player sixes6 player6` || evt.target.classList == `player sixes6 player6 dark`)){
         playerSixScore.push(score)
         playerSixBonus.push(score)
         recordScoreSixes.innerHTML = score
