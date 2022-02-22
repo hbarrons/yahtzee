@@ -31,7 +31,7 @@ body {
 }
 
 body.dark {
-  --body-bg: #22232b;
+  --body-bg: #2A0944;
   --btn-text-color: #eaeaea;
   --light-dark-btn-bg: linear-gradient(to right top, #444655, #595b6b, #6f7181,
     #868898, #9ea0b0, #acaebe, #bbbccd, #cacbdc, #d2d4e5, #dadced, #e3e5f6, #ebeeff);
@@ -167,6 +167,8 @@ div.dice {
   padding-bottom: 30px;
 }
 
+
+
 section.scoreboard{
   display: grid;
   align-items: start;
@@ -201,6 +203,27 @@ section.scoreboard{
   justify-content: center;
   align-items: center;
   padding-top: 15px;
+}
+
+.player.dark {
+  background-color: #8B4367;
+  color:whitesmoke;
+  min-width: 50px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.category.dark {
+  background-color: #543864;
+  color: whitesmoke;
+  font-weight: bold;
+  border: 1px solid whitesmoke;
+  font-size: 10px;
+  min-width: 50px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
 }
 
 .playerName {

@@ -115,6 +115,7 @@ let oneBonusApplied, twoBonusApplied, threeBonusApplied, fourBonusApplied, fiveB
 let finalScores
 let winner 
 let winningPlayer
+let darkMode
 
 /*------------------------ Cached Element References ------------------------*/
 const playerScoreboard = document.getElementById("playerscoreboard")
@@ -127,7 +128,7 @@ const nextUpMsg = document.querySelector('.playerUp')
 const startGameBtn = document.querySelector('.startgame')
 const resetGameBtn = document.getElementById('reset-game')
 const listNames = document.getElementById('listofplayers')
-const playerList = document.querySelector('playerlist')
+const playerList = document.querySelector('playerList')
 const diceOne = document.getElementById('dice1')
 const diceTwo = document.getElementById('dice2')
 const diceThree = document.getElementById('dice3')
@@ -155,6 +156,7 @@ const chance = document.getElementById('chance')
 const yahtzBonus = document.getElementById('yahtzee-bonus')
 const lightDarkBtn = document.querySelector("#light-dark-button")
 const body = document.querySelector("body")
+
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -225,6 +227,7 @@ function init () {
   isYahtzee = false
   largeStraight = false
   smallStraight = false
+  darkMode = false
   rollDiceBtn.style.display = 'none'
   startGameBtn.style.display = 'none'
   resetGameBtn.style.display = 'none'
@@ -278,7 +281,28 @@ function startGame () {
 function appendScoreboard(str, idx) {
   let playerBoard = document.createElement("div")
   playerBoard.classList.add("playerscore")
-  playerBoard.innerHTML =
+  
+  if (darkMode === true) {
+    playerBoard.innerHTML =
+  `<div id="name player${idx + 1}" class="player playerName dark">${str}</div>
+  <div id="ones" class="player ones${idx + 1} player${idx + 1} dark"></div>
+  <div id="twos" class="player twos${idx + 1} player${idx + 1} dark"></div>
+  <div id="threes" class="player threes${idx + 1} player${idx + 1} dark"></div>
+  <div id="fours" class="player fours${idx + 1} player${idx + 1} dark"></div>
+  <div id="fives" class="player fives${idx + 1} player${idx + 1} dark"></div>
+  <div id="sixes" class="player sixes${idx + 1} player${idx + 1} dark"></div>
+  <div id="bonus" class="player bonus${idx + 1} player${idx + 1} dark"></div>
+  <div id="three-kind" class="player three-kind${idx + 1} player${idx + 1} dark"></div>
+  <div id="four-kind" class="player four-kind${idx + 1} player${idx + 1} dark"></div>
+  <div id="full-house" class="player full-house${idx + 1} player${idx + 1} dark"></div>
+  <div id="sm-straight" class="player sm-str${idx + 1} player${idx + 1} dark"></div>
+  <div id="lg-straight" class="player lg-str${idx + 1} player${idx + 1} dark"></div>
+  <div id="yahtzee" class="player yahtzee${idx + 1} player${idx + 1} dark"></div>
+  <div id="chance" class="player chance${idx + 1} player${idx + 1} dark"></div>
+  <div id="yahtzee-bonus" class="player yahtzee-bonus${idx + 1} player${idx + 1} dark"></div>
+  <div id="total-score" class="player total${idx + 1} player${idx + 1} dark"></div>`
+  } else {
+     playerBoard.innerHTML =
   `<div id="name player${idx + 1}" class="player playerName">${str}</div>
   <div id="ones" class="player ones${idx + 1} player${idx + 1}"></div>
   <div id="twos" class="player twos${idx + 1} player${idx + 1}"></div>
@@ -296,6 +320,7 @@ function appendScoreboard(str, idx) {
   <div id="chance" class="player chance${idx + 1} player${idx + 1}"></div>
   <div id="yahtzee-bonus" class="player yahtzee-bonus${idx + 1} player${idx + 1}"></div>
   <div id="total-score" class="player total${idx + 1} player${idx + 1}"></div>`
+  }
   playerScoreboard.appendChild(playerBoard)
 }
 
@@ -416,33 +441,33 @@ function assignScore (evt){
           score = score + 1
         }
       }
-      if (playerTurn === 1 && evt.target.classList == `player ones1 player1`) {
+      if (playerTurn === 1 && (evt.target.classList == `player ones1 player1` || evt.target.classList == `player ones1 player1 dark`)) {
         playerOneScore.push(score)
         playerOneBonus.push(score)
         recordScoreOnes.innerHTML = score
         nextPlayerUp()
       } 
-      else if (playerTurn === 2 && evt.target.classList == `player ones2 player2`){
+      else if (playerTurn === 2 && (evt.target.classList == `player ones2 player2` || evt.target.classList == `player ones2 player2 dark`)){
         playerTwoScore.push(score)
         playerTwoBonus.push(score)
         recordScoreOnes.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 3 && evt.target.classList == `player ones3 player3`){
+      } else if (playerTurn === 3 && (evt.target.classList == `player ones3 player3` || evt.target.classList == `player ones3 player3 dark`)){
         playerThreeScore.push(score)
         playerThreeBonus.push(score)
         recordScoreOnes.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 4 && evt.target.classList == `player ones4 player4`){
+      } else if (playerTurn === 4 && (evt.target.classList == `player ones4 player4` || evt.target.classList == `player ones4 player4 dark`)){
         playerFourScore.push(score)
         playerFourBonus.push(score)
         recordScoreOnes.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 5 && evt.target.classList == `player ones5 player5`){
+      } else if (playerTurn === 5 && (evt.target.classList == `player ones5 player5` || evt.target.classList == `player ones5 player5 dark`)){
         playerFiveScore.push(score)
         playerFiveBonus.push(score)
         recordScoreOnes.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 6 && evt.target.classList == `player ones6 player6`){
+      } else if (playerTurn === 6 && (evt.target.classList == `player ones6 player6` || evt.target.classList == `player ones6 player6 dark`)){
         playerSixScore.push(score)
         playerSixBonus.push(score)
         recordScoreOnes.innerHTML = score
@@ -457,32 +482,32 @@ function assignScore (evt){
           score = score + 2
         }
       }
-      if (playerTurn === 1 && evt.target.classList == `player twos1 player1`) {
+      if (playerTurn === 1 && (evt.target.classList == `player twos1 player1` || evt.target.classList == `player twos1 player1 dark`)) {
         playerOneScore.push(score)
         playerOneBonus.push(score)
         recordScoreTwos.innerHTML = score
         nextPlayerUp() 
-      } else if (playerTurn === 2 && evt.target.classList == `player twos2 player2`){
+      } else if (playerTurn === 2 && (evt.target.classList == `player twos2 player2` || evt.target.classList == `player twos2 player2 dark`)){
         playerTwoScore.push(score)
         playerTwoBonus.push(score)
         recordScoreTwos.innerHTML = score
         nextPlayerUp() 
-      } else if (playerTurn === 3 && evt.target.classList == `player twos3 player3`){
+      } else if (playerTurn === 3 && (evt.target.classList == `player twos3 player3` || evt.target.classList == `player twos3 player3 dark`)){
         playerThreeScore.push(score)
         playerThreeBonus.push(score)
         recordScoreTwos.innerHTML = score
         nextPlayerUp() 
-      } else if (playerTurn === 4 && evt.target.classList == `player twos4 player4`){
+      } else if (playerTurn === 4 && (evt.target.classList == `player twos4 player4` || evt.target.classList == `player twos4 player4 dark`)){
         playerFourScore.push(score)
         playerFourBonus.push(score)
         recordScoreTwos.innerHTML = score
         nextPlayerUp() 
-      } else if (playerTurn === 5 && evt.target.classList == `player twos5 player5`){
+      } else if (playerTurn === 5 && (evt.target.classList == `player twos5 player5` || evt.target.classList == `player twos5 player5 dark`)){
         playerFiveScore.push(score)
         playerFiveBonus.push(score)
         recordScoreTwos.innerHTML = score
         nextPlayerUp() 
-      } else if (playerTurn === 6 && evt.target.classList == `player twos6 player6`){
+      } else if (playerTurn === 6 && (evt.target.classList == `player twos6 player6` || evt.target.classList == `player twos6 player6 dark`)){
         playerSixScore.push(score)
         playerSixBonus.push(score)
         recordScoreTwos.innerHTML = score
@@ -497,32 +522,32 @@ function assignScore (evt){
           score = score + 3
         }
       }
-      if (playerTurn === 1 && evt.target.classList == `player threes1 player1`) {
+      if (playerTurn === 1 && (evt.target.classList == `player threes1 player1` || evt.target.classList == `player threes1 player1 dark`)) {
         playerOneScore.push(score)
         playerOneBonus.push(score)
         recordScoreThrees.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 2 && evt.target.classList == `player threes2 player2`){
+      } else if (playerTurn === 2 && (evt.target.classList == `player threes2 player2` || evt.target.classList == `player threes2 player2 dark`)){
         playerTwoScore.push(score)
         playerTwoBonus.push(score)
         recordScoreThrees.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 3 && evt.target.classList == `player threes3 player3`){
+      } else if (playerTurn === 3 && (evt.target.classList == `player threes3 player3` || evt.target.classList == `player threes3 player3 dark`)){
         playerThreeScore.push(score)
         playerThreeBonus.push(score)
         recordScoreThrees.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 4 && evt.target.classList == `player threes4 player4`){
+      } else if (playerTurn === 4 && (evt.target.classList == `player threes4 player4` || evt.target.classList == `player threes4 player4 dark`)){
         playerFourScore.push(score)
         playerFourBonus.push(score)
         recordScoreThrees.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 5 && evt.target.classList == `player threes5 player5`){
+      } else if (playerTurn === 5 && (evt.target.classList == `player threes5 player5` || evt.target.classList == `player threes5 player5 dark`)){
         playerFiveScore.push(score)
         playerFiveBonus.push(score)
         recordScoreThrees.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 6 && evt.target.classList == `player threes6 player6`){
+      } else if (playerTurn === 6 && (evt.target.classList == `player threes6 player6` || evt.target.classList == `player threes6 player6 dark`)){
         playerSixScore.push(score)
         playerSixBonus.push(score)
         recordScoreThrees.innerHTML = score
@@ -537,37 +562,37 @@ function assignScore (evt){
           score = score + 4
         }
       }
-      if (playerTurn === 1 && evt.target.classList == `player fours1 player1`) {
+      if (playerTurn === 1 && (evt.target.classList == `player fours1 player1` || evt.target.classList == `player fours1 player1 dark`)) {
         playerOneScore.push(score)
         playerOneBonus.push(score)
         recordScoreFours.innerHTML = score
         nextPlayerUp()
         
-      } else if (playerTurn === 2 && evt.target.classList == `player fours2 player2`){
+      } else if (playerTurn === 2 && (evt.target.classList == `player fours2 player2` || evt.target.classList == `player fours2 player2 dark`)){
         playerTwoScore.push(score)
         playerTwoBonus.push(score)
         recordScoreFours.innerHTML = score
         nextPlayerUp()
         
-      } else if (playerTurn === 3 && evt.target.classList == `player fours3 player3`){
+      } else if (playerTurn === 3 && (evt.target.classList == `player fours3 player3` || evt.target.classList == `player fours3 player3 dark`)){
         playerThreeScore.push(score)
         playerThreeBonus.push(score)
         recordScoreFours.innerHTML = score
         nextPlayerUp()
         
-      } else if (playerTurn === 4 && evt.target.classList == `player fours4 player4`){
+      } else if (playerTurn === 4 && (evt.target.classList == `player fours4 player4` || evt.target.classList == `player fours4 player4 dark`)){
         playerFourScore.push(score)
         playerFourBonus.push(score)
         recordScoreFours.innerHTML = score
         nextPlayerUp()
         
-      } else if (playerTurn === 5 && evt.target.classList == `player fours5 player5`){
+      } else if (playerTurn === 5 && (evt.target.classList == `player fours5 player5` || evt.target.classList == `player fours5 player5 dark`)){
         playerFiveScore.push(score)
         playerFiveBonus.push(score)
         recordScoreFours.innerHTML = score
         nextPlayerUp()
         
-      } else if (playerTurn === 6 && evt.target.classList == `player fours6 player6`){
+      } else if (playerTurn === 6 && (evt.target.classList == `player fours6 player6` || evt.target.classList == `player fours6 player6 dark`)){
         playerSixScore.push(score)
         playerSixBonus.push(score)
         recordScoreFours.innerHTML = score
@@ -582,32 +607,32 @@ function assignScore (evt){
           score = score + 5
         }
       }
-      if (playerTurn === 1 && evt.target.classList == `player fives1 player1`) {
+      if (playerTurn === 1 && (evt.target.classList == `player fives1 player1` || evt.target.classList == `player fives1 player1 dark`)) {
         playerOneScore.push(score)
         playerOneBonus.push(score)
         recordScoreFives.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 2 && evt.target.classList == `player fives2 player2`){
+      } else if (playerTurn === 2 && (evt.target.classList == `player fives2 player2` || evt.target.classList == `player fives2 player2 dark`)){
         playerTwoScore.push(score)
         playerTwoBonus.push(score)
         recordScoreFives.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 3 && evt.target.classList == `player fives3 player3`){
+      } else if (playerTurn === 3 && (evt.target.classList == `player fives3 player3` || evt.target.classList == `player fives3 player3 dark`)){
         playerThreeScore.push(score)
         playerThreeBonus.push(score)
         recordScoreFives.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 4 && evt.target.classList == `player fives4 player4`){
+      } else if (playerTurn === 4 && (evt.target.classList == `player fives4 player4` || evt.target.classList == `player fives4 player4 dark`)){
         playerFourScore.push(score)
         playerFourBonus.push(score)
         recordScoreFives.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 5 && evt.target.classList == `player fives5 player5`){
+      } else if (playerTurn === 5 && (evt.target.classList == `player fives5 player5` || evt.target.classList == `player fives5 player5 dark`)){
         playerFiveScore.push(score)
         playerFiveBonus.push(score)
         recordScoreFives.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 6 && evt.target.classList == `player fives6 player6`){
+      } else if (playerTurn === 6 && (evt.target.classList == `player fives6 player6` || evt.target.classList == `player fives6 player6 dark`)){
         playerSixScore.push(score)
         playerSixBonus.push(score)
         recordScoreFives.innerHTML = score
@@ -622,32 +647,32 @@ function assignScore (evt){
           score = score + 6
         }
       }
-      if (playerTurn === 1 && evt.target.classList == `player sixes1 player1`) {
+      if (playerTurn === 1 && (evt.target.classList == `player sixes1 player1` || evt.target.classList == `player sixes1 player1 dark`)) {
         playerOneScore.push(score)
         playerOneBonus.push(score)
         recordScoreSixes.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 2 && evt.target.classList == `player sixes2 player2`){
+      } else if (playerTurn === 2 && (evt.target.classList == `player sixes2 player2` || evt.target.classList == `player sixes2 player2 dark`)){
         playerTwoScore.push(score)
         playerTwoBonus.push(score)
         recordScoreSixes.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 3 && evt.target.classList == `player sixes3 player3`){
+      } else if (playerTurn === 3 && (evt.target.classList == `player sixes3 player3` || evt.target.classList == `player sixes3 player3 dark`)){
         playerThreeScore.push(score)
         playerThreeBonus.push(score)
         recordScoreSixes.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 4 && evt.target.classList == `player sixes4 player4`){
+      } else if (playerTurn === 4 && (evt.target.classList == `player sixes4 player4` || evt.target.classList == `player sixes4 player4 dark`)){
         playerFourScore.push(score)
         playerFourBonus.push(score)
         recordScoreSixes.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 5 && evt.target.classList == `player sixes5 player5`){
+      } else if (playerTurn === 5 && (evt.target.classList == `player sixes5 player5` || evt.target.classList == `player sixes5 player5 dark`)){
         playerFiveScore.push(score)
         playerFiveBonus.push(score)
         recordScoreSixes.innerHTML = score
         nextPlayerUp()
-      } else if (playerTurn === 6 && evt.target.classList == `player sixes6 player6`){
+      } else if (playerTurn === 6 && (evt.target.classList == `player sixes6 player6` || evt.target.classList == `player sixes6 player1 dark`)){
         playerSixScore.push(score)
         playerSixBonus.push(score)
         recordScoreSixes.innerHTML = score
@@ -659,53 +684,53 @@ function assignScore (evt){
       score = diceArray.reduce((prev, amt) => prev + amt)
       countLikeDice()
       if (threeKind === false) {
-        if (playerTurn === 1 && evt.target.classList == `player three-kind1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player three-kind1 player1` || evt.target.classList == `player three-kind1 player1 dark`)) {
           playerOneScore.push(parseInt(0))
           recordScoreThreeKind.innerHTML = '0'
           nextPlayerUp() 
-        } else if (playerTurn === 2 && evt.target.classList == `player three-kind2 player2`){
+        } else if (playerTurn === 2 && (evt.target.classList == `player three-kind2 player2` || evt.target.classList == `player three-kind2 player2 dark`)){
           playerTwoScore.push(parseInt(0))
           recordScoreThreeKind.innerHTML = '0'
           nextPlayerUp() 
-        } else if (playerTurn === 3 && evt.target.classList == `player three-kind3 player3`){
+        } else if (playerTurn === 3 && (evt.target.classList == `player three-kind3 player3` || evt.target.classList == `player three-kind3 player3 dark`)){
           playerThreeScore.push(parseInt(0))
           recordScoreThreeKind.innerHTML = '0'
           nextPlayerUp() 
-        } else if (playerTurn === 4 && evt.target.classList == `player three-kind4 player4`){
+        } else if (playerTurn === 4 && (evt.target.classList == `player three-kind4 player4` || evt.target.classList == `player three-kind4 player4 dark`)){
           playerFourScore.push(parseInt(0))
           recordScoreThreeKind.innerHTML = '0'
           nextPlayerUp() 
-        } else if (playerTurn === 5 && evt.target.classList == `player three-kind5 player5`){
+        } else if (playerTurn === 5 && (evt.target.classList == `player three-kind5 player5` || evt.target.classList == `player three-kind5 player5 dark`)){
           playerFiveScore.push(parseInt(0))
           recordScoreThreeKind.innerHTML = '0'
           nextPlayerUp() 
-        } else if (playerTurn === 6 && evt.target.classList == `player three-kind6 player6`){
+        } else if (playerTurn === 6 && (evt.target.classList == `player three-kind6 player6` || evt.target.classList == `player three-kind6 player6 dark`)){
           playerSixScore.push(parseInt(0))
           recordScoreThreeKind.innerHTML = '0'
           nextPlayerUp() 
         } 
       } else if (threeKind === true) {
-        if (playerTurn === 1 && evt.target.classList == `player three-kind1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player three-kind1 player1` || evt.target.classList == `player three-kind1 player1 dark`)) {
           playerOneScore.push(score)
           recordScoreThreeKind.innerHTML = score
           nextPlayerUp() 
-        } else if (playerTurn === 2 && evt.target.classList == `player three-kind2 player2`){
+        } else if (playerTurn === 2 && (evt.target.classList == `player three-kind2 player2` || evt.target.classList == `player three-kind2 player2 dark`)){
           playerTwoScore.push(score)
           recordScoreThreeKind.innerHTML = score
           nextPlayerUp() 
-        } else if (playerTurn === 3 && evt.target.classList == `player three-kind3 player3`){
+        } else if (playerTurn === 3 && (evt.target.classList == `player three-kind3 player3` || evt.target.classList == `player three-kind3 player3 dark`)){
           playerThreeScore.push(score)
           recordScoreThreeKind.innerHTML = score
           nextPlayerUp() 
-        } else if (playerTurn === 4 && evt.target.classList == `player three-kind4 player4`){
+        } else if (playerTurn === 4 && (evt.target.classList == `player three-kind4 player4` || evt.target.classList == `player three-kind4 player4 dark`)){
           playerFourScore.push(score)
           recordScoreThreeKind.innerHTML = score
           nextPlayerUp() 
-        } else if (playerTurn === 5 && evt.target.classList == `player three-kind5 player5`){
+        } else if (playerTurn === 5 && (evt.target.classList == `player three-kind5 player5` || evt.target.classList == `player three-kind5 player5 dark`)){
           playerFiveScore.push(score)
           recordScoreThreeKind.innerHTML = score
           nextPlayerUp() 
-        } else if (playerTurn === 6 && evt.target.classList == `player three-kind6 player6`){
+        } else if (playerTurn === 6 && (evt.target.classList == `player three-kind6 player6` || evt.target.classList == `player three-kind6 player6 dark`)){
           playerSixScore.push(score)
           recordScoreThreeKind.innerHTML = score
           nextPlayerUp() 
@@ -716,53 +741,53 @@ function assignScore (evt){
       score = diceArray.reduce((prev, amt) => prev + amt)
       countLikeDice()
       if (fourKind === false) {
-        if (playerTurn === 1 && evt.target.classList == `player four-kind1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player four-kind1 player1` || evt.target.classList == `player four-kind1 player1 dark`)) {
           playerOneScore.push(parseInt(0))
           recordScoreFourKind.innerHTML = '0'
           nextPlayerUp() 
-        } else if (playerTurn === 2 && evt.target.classList == `player four-kind2 player2`){
+        } else if (playerTurn === 2 && (evt.target.classList == `player four-kind2 player2` || evt.target.classList == `player four-kind2 player2 dark`)){
           playerTwoScore.push(parseInt(0))
           recordScoreFourKind.innerHTML = '0'
           nextPlayerUp() 
-        } else if (playerTurn === 3 && evt.target.classList == `player four-kind3 player3`){
+        } else if (playerTurn === 3 && (evt.target.classList == `player four-kind3 player3` || evt.target.classList == `player four-kind3 player3 dark`)){
           playerThreeScore.push(parseInt(0))
           recordScoreFourKind.innerHTML = '0'
           nextPlayerUp() 
-        } else if (playerTurn === 4 && evt.target.classList == `player four-kind4 player4`){
+        } else if (playerTurn === 4 && (evt.target.classList == `player four-kind4 player4` || evt.target.classList == `player four-kind4 player4 dark`)){
           playerFourScore.push(parseInt(0))
           recordScoreFourKind.innerHTML = '0'
           nextPlayerUp() 
-        } else if (playerTurn === 5 && evt.target.classList == `player four-kind5 player5`){
+        } else if (playerTurn === 5 && (evt.target.classList == `player four-kind5 player5` || evt.target.classList == `player four-kind5 player5 dark`)){
           playerFiveScore.push(parseInt(0))
           recordScoreFourKind.innerHTML = '0'
           nextPlayerUp() 
-        } else if (playerTurn === 6 && evt.target.classList == `player four-kind6 player6`){
+        } else if (playerTurn === 6 && (evt.target.classList == `player four-kind6 player6` || evt.target.classList == `player four-kind6 player6 dark`)){
           playerSixScore.push(parseInt(0))
           recordScoreFourKind.innerHTML = '0'
           nextPlayerUp() 
         } 
       } else if (fourKind === true) {
-        if (playerTurn === 1 && evt.target.classList == `player four-kind1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player four-kind1 player1` || evt.target.classList == `player four-kind1 player1 dark`)) {
           playerOneScore.push(score)
           recordScoreFourKind.innerHTML = score
           nextPlayerUp() 
-        } else if (playerTurn === 2 && evt.target.classList == `player four-kind2 player2`){
+        } else if (playerTurn === 2 && (evt.target.classList == `player four-kind2 player2` || evt.target.classList == `player four-kind2 player2 dark`)){
           playerTwoScore.push(score)
           recordScoreFourKind.innerHTML = score
           nextPlayerUp() 
-        } else if (playerTurn === 3 && evt.target.classList == `player four-kind3 player3`){
+        } else if (playerTurn === 3 && (evt.target.classList == `player four-kind3 player3` || evt.target.classList == `player four-kind3 player3 dark`)){
           playerThreeScore.push(score)
           recordScoreFourKind.innerHTML = score
           nextPlayerUp() 
-        } else if (playerTurn === 4 && evt.target.classList == `player four-kind4 player4`){
+        } else if (playerTurn === 4 && (evt.target.classList == `player four-kind4 player4` || evt.target.classList == `player four-kind4 player4 dark`)){
           playerFourScore.push(score)
           recordScoreFourKind.innerHTML = score
           nextPlayerUp() 
-        } else if (playerTurn === 5 && evt.target.classList == `player four-kind5 player5`){
+        } else if (playerTurn === 5 && (evt.target.classList == `player four-kind5 player5` || evt.target.classList == `player four-kind5 player5 dark`)){
           playerFiveScore.push(score)
           recordScoreFourKind.innerHTML = score
           nextPlayerUp() 
-        } else if (playerTurn === 6 && evt.target.classList == `player four-kind6 player6`){
+        } else if (playerTurn === 6 && (evt.target.classList == `player four-kind6 player6` || evt.target.classList == `player four-kind6 player6 dark`)){
           playerSixScore.push(score)
           recordScoreFourKind.innerHTML = score
           nextPlayerUp() 
@@ -773,63 +798,63 @@ function assignScore (evt){
       score = 25
       countLikeDice()
       if (fullHouse === true) {
-        if (playerTurn === 1 && evt.target.classList == `player full-house1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player full-house1 player1` || evt.target.classList == `player full-house1 player1 dark`)) {
           playerOneScore.push(score)
           recordScoreFullHouse.innerHTML = score
           nextPlayerUp()
         }
-        if (playerTurn === 2 && evt.target.classList == `player full-house2 player2`) {
+        if (playerTurn === 2 && (evt.target.classList == `player full-house2 player2` || evt.target.classList == `player full-house2 player2 dark`)) {
           playerTwoScore.push(score)
           recordScoreFullHouse.innerHTML = score
           nextPlayerUp()
         }
-        if (playerTurn === 3 && evt.target.classList == `player full-house3 player3`) {
+        if (playerTurn === 3 && (evt.target.classList == `player full-house3 player3` || evt.target.classList == `player full-house3 player3 dark`)) {
           playerThreeScore.push(score)
           recordScoreFullHouse.innerHTML = score
           nextPlayerUp()
         }
-        if (playerTurn === 4 && evt.target.classList == `player full-house4 player4`) {
+        if (playerTurn === 4 && (evt.target.classList == `player full-house4 player4` || evt.target.classList == `player full-house4 player4 dark`)) {
           playerFourScore.push(score)
           recordScoreFullHouse.innerHTML = score
           nextPlayerUp()
         }
-        if (playerTurn === 5 && evt.target.classList == `player full-house5 player5`) {
+        if (playerTurn === 5 && (evt.target.classList == `player full-house5 player5` || evt.target.classList == `player full-house5 player5 dark`)) {
           playerFiveScore.push(score)
           recordScoreFullHouse.innerHTML = score
           nextPlayerUp()
         }
-        if (playerTurn === 6 && evt.target.classList == `player full-house6 player6`) {
+        if (playerTurn === 6 && (evt.target.classList == `player full-house6 player6` || evt.target.classList == `player full-house6 player6 dark`)) {
           playerSixScore.push(score)
           recordScoreFullHouse.innerHTML = score
           nextPlayerUp()
         }
       } else if (fullHouse === false) {
-        if (playerTurn === 1 && evt.target.classList == `player full-house1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player full-house1 player1` || evt.target.classList == `player full-house1 player1 dark`)) {
           playerOneScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
-        if (playerTurn === 2 && evt.target.classList == `player full-house2 player2`) {
+        if (playerTurn === 2 && (evt.target.classList == `player full-house2 player2` || evt.target.classList == `player full-house2 player2 dark`)) {
           playerTwoScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
-        if (playerTurn === 3 && evt.target.classList == `player full-house3 player3`) {
+        if (playerTurn === 3 && (evt.target.classList == `player full-house3 player3` || evt.target.classList == `player full-house3 player3 dark`)) {
           playerThreeScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
-        if (playerTurn === 4 && evt.target.classList == `player full-house4 player4`) {
+        if (playerTurn === 4 && (evt.target.classList == `player full-house4 player4` || evt.target.classList == `player full-house4 player4 dark`)) {
           playerFourScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
-        if (playerTurn === 5 && evt.target.classList == `player full-house5 player5`) {
+        if (playerTurn === 5 && (evt.target.classList == `player full-house5 player5` || evt.target.classList == `player full-house5 player5 dark`)) {
           playerFiveScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
         }
-        if (playerTurn === 6 && evt.target.classList == `player full-house6 player6`) {
+        if (playerTurn === 6 && (evt.target.classList == `player full-house6 player6` || evt.target.classList == `player full-house6 player6 dark`)) {
           playerSixScore.push(parseInt(0))
           recordScoreFullHouse.innerHTML = '0'
           nextPlayerUp()
@@ -840,63 +865,63 @@ function assignScore (evt){
       score = 30
       checkSmStraight()
       if (smallStraight === true) {
-        if (playerTurn === 1 && evt.target.classList == `player sm-str1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player sm-str1 player1` || evt.target.classList == `player sm-str1 player1 dark`)) {
           playerOneScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 2 && evt.target.classList == `player sm-str2 player2`) {
+        if (playerTurn === 2 && (evt.target.classList == `player sm-str2 player2` || evt.target.classList == `player sm-str2 player2 dark`)) {
           playerTwoScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 3 && evt.target.classList == `player sm-str3 player3`) {
+        if (playerTurn === 3 && (evt.target.classList == `player sm-str3 player3` || evt.target.classList == `player sm-str3 player3 dark`)) {
           playerThreeScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 4 && evt.target.classList == `player sm-str4 player4`) {
+        if (playerTurn === 4 && (evt.target.classList == `player sm-str4 player4` || evt.target.classList == `player sm-str4 player4 dark`)) {
           playerFourScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 5 && evt.target.classList == `player sm-str5 player5`) {
+        if (playerTurn === 5 && (evt.target.classList == `player sm-str5 player5` || evt.target.classList == `player sm-str5 player5 dark`)) {
           playerFiveScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 6 && evt.target.classList == `player sm-str6 player6`) {
+        if (playerTurn === 6 && (evt.target.classList == `player sm-str6 player6` || evt.target.classList == `player sm-str6 player6 dark`)) {
           playerSixScore.push(score)
           recordScoreSmStraight.innerHTML = score
           nextPlayerUp() 
         }
       } else if (smallStraight === false) {
-        if (playerTurn === 1 && evt.target.classList == `player sm-str1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player sm-str1 player1` || evt.target.classList == `player sm-str1 player1 dark`)) {
           playerOneScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 2 && evt.target.classList == `player sm-str2 player2`) {
+        if (playerTurn === 2 && (evt.target.classList == `player sm-str2 player2` || evt.target.classList == `player sm-str2 player2 dark`)) {
           playerTwoScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 3 && evt.target.classList == `player sm-str3 player3`) {
+        if (playerTurn === 3 && (evt.target.classList == `player sm-str3 player3` || evt.target.classList == `player sm-str3 player3 dark`)) {
           playerThreeScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 4 && evt.target.classList == `player sm-str4 player4`) {
+        if (playerTurn === 4 && (evt.target.classList == `player sm-str4 player4` || evt.target.classList == `player sm-str4 player4 dark`)) {
           playerFourScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 5 && evt.target.classList == `player sm-str5 player5`) {
+        if (playerTurn === 5 && (evt.target.classList == `player sm-str5 player5` || evt.target.classList == `player sm-str5 player5 dark`)) {
           playerFiveScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 6 && evt.target.classList == `player sm-str6 player6`) {
+        if (playerTurn === 6 && (evt.target.classList == `player sm-str6 player6` || evt.target.classList == `player sm-str6 player6 dark`)) {
           playerSixScore.push(parseInt(0))
           recordScoreSmStraight.innerHTML = '0'
           nextPlayerUp() 
@@ -907,63 +932,63 @@ function assignScore (evt){
       score = 40
       checkLgStraight()
       if (largeStraight === true) {
-        if (playerTurn === 1 && evt.target.classList == `player lg-str1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player lg-str1 player1` || evt.target.classList == `player lg-str1 player1 dark`)) {
           playerOneScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 2 && evt.target.classList == `player lg-str2 player2`) {
+        if (playerTurn === 2 && (evt.target.classList == `player lg-str2 player2` || evt.target.classList == `player lg-str2 player2 dark`)) {
           playerTwoScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 3 && evt.target.classList == `player lg-str3 player3`) {
+        if (playerTurn === 3 && (evt.target.classList == `player lg-str3 player3` || evt.target.classList == `player lg-str3 player3 dark`)) {
           playerThreeScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 4 && evt.target.classList == `player lg-str4 player4`) {
+        if (playerTurn === 4 && (evt.target.classList == `player lg-str4 player4` || evt.target.classList == `player lg-str4 player4 dark`)) {
           playerFourScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 5 && evt.target.classList == `player lg-str5 player5`) {
+        if (playerTurn === 5 && (evt.target.classList == `player lg-str5 player5` || evt.target.classList == `player lg-str5 player5 dark`)) {
           playerFiveScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 6 && evt.target.classList == `player lg-str6 player6`) {
+        if (playerTurn === 6 && (evt.target.classList == `player lg-str6 player6` || evt.target.classList == `player lg-str6 player6 dark`)) {
           playerSixScore.push(score)
           recordScoreLgStraight.innerHTML = score
           nextPlayerUp() 
         }
       } else if (largeStraight === false) {
-        if (playerTurn === 1 && evt.target.classList == `player lg-str1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player lg-str1 player1` || evt.target.classList == `player lg-str1 player1 dark`)) {
           playerOneScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 2 && evt.target.classList == `player lg-str2 player2`) {
+        if (playerTurn === 2 && (evt.target.classList == `player lg-str2 player2` || evt.target.classList == `player lg-str2 player2 dark`)) {
           playerTwoScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 3 && evt.target.classList == `player lg-str3 player3`) {
+        if (playerTurn === 3 && (evt.target.classList == `player lg-str3 player3` || evt.target.classList == `player lg-str3 player3 dark`)) {
           playerThreeScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 4 && evt.target.classList == `player lg-str4 player4`) {
+        if (playerTurn === 4 && (evt.target.classList == `player lg-str4 player4` || evt.target.classList == `player lg-str4 player4 dark`)) {
           playerFourScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 5 && evt.target.classList == `player lg-str5 player5`) {
+        if (playerTurn === 5 && (evt.target.classList == `player lg-str5 player5` || evt.target.classList == `player lg-str5 player5 dark`)) {
           playerFiveScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 6 && evt.target.classList == `player lg-str6 player6`) {
+        if (playerTurn === 6 && (evt.target.classList == `player lg-str6 player6` || evt.target.classList == `player lg-str6 player6 dark`)) {
           playerSixScore.push(parseInt(0))
           recordScoreLgStraight.innerHTML = '0'
           nextPlayerUp() 
@@ -974,63 +999,63 @@ function assignScore (evt){
       score = 50
       countLikeDice()
       if (isYahtzee === true) {
-        if (playerTurn === 1 && evt.target.classList == `player yahtzee1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player yahtzee1 player1` || evt.target.classList == `player yahtzee1 player1 dark`)) {
           playerOneScore.push(score)
           recordScoreYahtzee.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 2 && evt.target.classList == `player yahtzee2 player2`) {
+        if (playerTurn === 2 && (evt.target.classList == `player yahtzee2 player2` || evt.target.classList == `player yahtzee2 player2 dark`)) {
           playerTwoScore.push(score)
           recordScoreYahtzee.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 3 && evt.target.classList == `player yahtzee3 player3`) {
+        if (playerTurn === 3 && (evt.target.classList == `player yahtzee3 player3` || evt.target.classList == `player yahtzee3 player3 dark`)) {
           playerThreeScore.push(score)
           recordScoreYahtzee.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 4 && evt.target.classList == `player yahtzee4 player4`) {
+        if (playerTurn === 4 && (evt.target.classList == `player yahtzee4 player4` || evt.target.classList == `player yahtzee4 player4 dark`)) {
           playerFourScore.push(score)
           recordScoreYahtzee.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 5 && evt.target.classList == `player yahtzee5 player5`) {
+        if (playerTurn === 5 && (evt.target.classList == `player yahtzee5 player5` || evt.target.classList == `player yahtzee5 player5 dark`)) {
           playerFiveScore.push(score)
           recordScoreYahtzee.innerHTML = score
           nextPlayerUp() 
         }
-        if (playerTurn === 6 && evt.target.classList == `player yahtzee6 player6`) {
+        if (playerTurn === 6 && (evt.target.classList == `player yahtzee6 player6` || evt.target.classList == `player yahtzee6 player6 dark`)) {
           playerSixScore.push(score)
           recordScoreYahtzee.innerHTML = score
           nextPlayerUp() 
         }
       } else if (isYahtzee === false) {
-        if (playerTurn === 1 && evt.target.classList == `player yahtzee1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player yahtzee1 player1` || evt.target.classList == `player yahtzee1 player1 dark`)) {
           playerOneScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 2 && evt.target.classList == `player yahtzee2 player2`) {
+        if (playerTurn === 2 && (evt.target.classList == `player yahtzee2 player2` || evt.target.classList == `player yahtzee2 player2 dark`)) {
           playerTwoScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 3 && evt.target.classList == `player yahtzee3 player3`) {
+        if (playerTurn === 3 && (evt.target.classList == `player yahtzee3 player3` || evt.target.classList == `player yahtzee3 player3 dark`)) {
           playerThreeScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 4 && evt.target.classList == `player yahtzee4 player4`) {
+        if (playerTurn === 4 && (evt.target.classList == `player yahtzee4 player4` || evt.target.classList == `player yahtzee4 player4 dark`)) {
           playerFourScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 5 && evt.target.classList == `player yahtzee5 player5`) {
+        if (playerTurn === 5 && (evt.target.classList == `player yahtzee5 player5` || evt.target.classList == `player yahtzee5 player5 dark`)) {
           playerFiveScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
         }
-        if (playerTurn === 6 && evt.target.classList == `player yahtzee6 player6`) {
+        if (playerTurn === 6 && (evt.target.classList == `player yahtzee6 player6` || evt.target.classList == `player yahtzee6 player6 dark`)) {
           playerSixScore.push(parseInt(0))
           recordScoreYahtzee.innerHTML = '0'
           nextPlayerUp() 
@@ -1039,32 +1064,32 @@ function assignScore (evt){
       getFinalScore()
     } else if (evt.target.id === 'chance') {
       score = diceArray.reduce((prev, amt) => prev + amt)
-      if (playerTurn === 1 && evt.target.classList == `player chance1 player1`) {
+      if (playerTurn === 1 && (evt.target.classList == `player chance1 player1` || evt.target.classList == `player chance1 player1 dark`)) {
         playerOneScore.push(score)
         recordScoreChance.innerHTML = score
         nextPlayerUp() 
       }
-      if (playerTurn === 2 && evt.target.classList == `player chance2 player2`) {
+      if (playerTurn === 2 && (evt.target.classList == `player chance2 player2` || evt.target.classList == `player chance2 player2 dark`)) {
         playerTwoScore.push(score)
         recordScoreChance.innerHTML = score
         nextPlayerUp() 
       }
-      if (playerTurn === 3 && evt.target.classList == `player chance3 player3`) {
+      if (playerTurn === 3 && (evt.target.classList == `player chance3 player3` || evt.target.classList == `player chance3 player3 dark`)) {
         playerThreeScore.push(score)
         recordScoreChance.innerHTML = score
         nextPlayerUp() 
       }
-      if (playerTurn === 4 && evt.target.classList == `player chance4 player4`) {
+      if (playerTurn === 4 && (evt.target.classList == `player chance4 player4` || evt.target.classList == `player chance4 player4 dark`)) {
         playerFourScore.push(score)
         recordScoreChance.innerHTML = score
         nextPlayerUp() 
       }
-      if (playerTurn === 5 && evt.target.classList == `player chance5 player5`) {
+      if (playerTurn === 5 && (evt.target.classList == `player chance5 player5` || evt.target.classList == `player chance5 player5 dark`)) {
         playerFiveScore.push(score)
         recordScoreChance.innerHTML = score
         nextPlayerUp() 
       }
-      if (playerTurn === 6 && evt.target.classList == `player chance6 player6`) {
+      if (playerTurn === 6 && (evt.target.classList == `player chance6 player6` || evt.target.classList == `player chance6 player6 dark`)) {
         playerSixScore.push(score)
         recordScoreChance.innerHTML = score
         nextPlayerUp() 
@@ -1076,7 +1101,7 @@ function assignScore (evt){
       if (isYahtzee === false) {
   
       } else if (isYahtzee === true) {
-        if (playerTurn === 1 && evt.target.classList == `player yahtzee-bonus1 player1`) {
+        if (playerTurn === 1 && (evt.target.classList == `player yahtzee-bonus1 player1` || evt.target.classList == `player yahtzee-bonus1 player1 dark`)) {
           playerOneYahtBonus.push(score)
           if (playerOneYahtBonus.length === 0) {
           recordScoreYahtBonus.innerHTML = score
@@ -1089,7 +1114,7 @@ function assignScore (evt){
               nextPlayerUp() 
             }
         }
-        if (playerTurn === 2 && evt.target.classList == `player yahtzee-bonus2 player2`) {
+        if (playerTurn === 2 && (evt.target.classList == `player yahtzee-bonus2 player2` || evt.target.classList == `player yahtzee-bonus2 player2 dark`)) {
           playerTwoYahtBonus.push(score)
           if (playerTwoYahtBonus.length === 0) {
             recordScoreYahtBonus.innerHTML = score
@@ -1102,7 +1127,7 @@ function assignScore (evt){
               nextPlayerUp() 
             }
         }
-        if (playerTurn === 3 && evt.target.classList == `player yahtzee-bonus3 player3`) {
+        if (playerTurn === 3 && (evt.target.classList == `player yahtzee-bonus3 player3` || evt.target.classList == `player yahtzee-bonus3 player3 dark`)) {
           playerThreeYahtBonus.push(score)
           if (playerThreeYahtBonus.length === 0) {
             recordScoreYahtBonus.innerHTML = score
@@ -1115,7 +1140,7 @@ function assignScore (evt){
               nextPlayerUp() 
             }
         }
-        if (playerTurn === 4 && evt.target.classList == `player yahtzee-bonus4 player4`) {
+        if (playerTurn === 4 && (evt.target.classList == `player yahtzee-bonus4 player4` || evt.target.classList == `player yahtzee-bonus4 player4 dark`)) {
           playerFourYahtBonus.push(score)
           if (playerFourYahtBonus.length === 0) {
             recordScoreYahtBonus.innerHTML = score
@@ -1128,7 +1153,7 @@ function assignScore (evt){
               nextPlayerUp() 
             }
         }
-        if (playerTurn === 5 && evt.target.classList == `player yahtzee-bonus5 player5`) {
+        if (playerTurn === 5 && (evt.target.classList == `player yahtzee-bonus5 player5` || evt.target.classList == `player yahtzee-bonus5 player5 dark`)) {
           playerFiveYahtBonus.push(score)
           if (playerFiveYahtBonus.length === 0) {
             recordScoreYahtBonus.innerHTML = score
@@ -1141,7 +1166,7 @@ function assignScore (evt){
               nextPlayerUp() 
             }
         }
-        if (playerTurn === 6 && evt.target.classList == `player yahtzee-bonus6 player6`) {
+        if (playerTurn === 6 && (evt.target.classList == `player yahtzee-bonus6 player6` || evt.target.classList == `player yahtzee-bonus6 player6 dark`)) {
           playerSixYahtBonus.push(score)
           if (playerSixYahtBonus.length === 0) {
             recordScoreYahtBonus.innerHTML = score
@@ -1604,6 +1629,10 @@ function gameOver () {
 
 function toggleLightDark() {
   body.className = body.className === "dark" ? "" : "dark"
+  const table = document.querySelectorAll('.player')
+  const categoryDark = document.querySelectorAll('.category')
+  table.forEach(cell => cell.classList.toggle("dark"))
+  categoryDark.forEach(cell => cell.classList.toggle("dark"))
 }
 
 function checkDarkPref() {
@@ -1612,6 +1641,7 @@ function checkDarkPref() {
     body.className !== "dark"
   ) {
     toggleLightDark()
+    darkMode = true
   }
 }
 
