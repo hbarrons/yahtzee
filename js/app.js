@@ -1633,8 +1633,10 @@ function toggleLightDark() {
   const categoryDark = document.querySelectorAll('.category')
   table.forEach(cell => cell.classList.toggle("dark"))
   categoryDark.forEach(cell => cell.classList.toggle("dark"))
-  if (body.className !== dark) {
+  if (body.className !== "dark") {
     darkMode = false
+  } else {
+    darkMode = true
   }
 }
 
