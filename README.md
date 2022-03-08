@@ -31,14 +31,16 @@ Current game in the browser, styled with CSS:
 ![Screenshot showing current game deployed in the browser](img/YahtzeeInBrowser.png)
 
 ## Technologies Used:
-- HTML
-- CSS
-- JavaScript
-- git
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white "HTML Badge")
+
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white "CSS Badge")
+
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black "Javascript Badge")
+
 
 
 ## Credits 
-- Swing animation: Animate.css
+- Swing animation: [Animate.css](https://animate.style/)
 - confetti.js: https://github.com/mathusummut/
 
 ## Icebox Items
